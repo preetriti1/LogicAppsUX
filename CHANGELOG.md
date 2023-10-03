@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.66.8](https://github.com/Azure/LogicAppsUX/compare/v2.66.7...v2.66.8) (2023-10-03)
+
+
+### Bug Fixes
+
+* **designer:** Fix designer load for existing hybrid triggers ([#3398](https://github.com/Azure/LogicAppsUX/issues/3398)) ([8277949](https://github.com/Azure/LogicAppsUX/commit/82779497404552d2c2585ae060872d5ffb3bcb6c))
+
 ### [2.66.7](https://github.com/Azure/LogicAppsUX/compare/v2.66.6...v2.66.7) (2023-10-03)
 
 
