@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.66.7](https://github.com/Azure/LogicAppsUX/compare/v2.66.6...v2.66.7) (2023-10-03)
+
+
+### Bug Fixes
+
+* **designer:** Update Validation Checks for URLs and Condition Editor ([#3346](https://github.com/Azure/LogicAppsUX/issues/3346)) ([69cfea2](https://github.com/Azure/LogicAppsUX/commit/69cfea258a88e5917e88f19f03e70610bc52d900))
+
 ### [2.66.6](https://github.com/Azure/LogicAppsUX/compare/v2.66.5...v2.66.6) (2023-09-26)
 
 
