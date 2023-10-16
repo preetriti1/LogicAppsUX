@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.69.4](https://github.com/Azure/LogicAppsUX/compare/v2.69.3...v2.69.4) (2023-10-16)
+
+
+### Features
+
+* **vscode:** Add Logger Configuration and Package Version Updates ([#3444](https://github.com/Azure/LogicAppsUX/issues/3444)) ([#3453](https://github.com/Azure/LogicAppsUX/issues/3453)) ([fbaab8f](https://github.com/Azure/LogicAppsUX/commit/fbaab8f02b6f116ce0cbf1cd2d0b5e0249a89167))
+
 ### [2.69.3](https://github.com/Azure/LogicAppsUX/compare/v2.69.2...v2.69.3) (2023-10-13)
 
 
