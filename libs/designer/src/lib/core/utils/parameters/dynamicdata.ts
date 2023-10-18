@@ -287,7 +287,7 @@ export async function getDynamicInputsFromSchema(
   // We need to remove the extra `body` and convert the '/' to '.', ex:
   //     body.$.content.appId
   for (const inputParameter of dynamicInputs) {
-    if (isOpenApiParameter(inputParameter)) {
+    if (isOpenApiParameter(inputParameter) && inputParameter?.in) {
       const { key: _key, in: _in } = inputParameter;
       const key = replaceSubsegmentSeparator(_key)?.replace(`${_in}.$.${_in}.`, '') ?? '';
       const name = key.split('.').pop() ?? '';
