@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.66.9](https://github.com/Azure/LogicAppsUX/compare/v2.66.8...v2.66.9) (2023-10-18)
+
+
+### Bug Fixes
+
+* **designer:** Cleanup placeholder trigger when trigger is added ([#3472](https://github.com/Azure/LogicAppsUX/issues/3472)) ([1b8431a](https://github.com/Azure/LogicAppsUX/commit/1b8431a808a3512897af3c0726e3a8bfc803d526))
+
 ### [2.66.8](https://github.com/Azure/LogicAppsUX/compare/v2.66.7...v2.66.8) (2023-10-03)
 
 
