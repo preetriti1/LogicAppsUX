@@ -1,4 +1,12 @@
 # Logic Apps Designer
+### [2.69.5](https://github.com/Azure/LogicAppsUX/compare/v2.69.4...v2.69.5) (2023-10-18)
+
+
+### Bug Fixes
+
+* **designer:** Cleanup placeholder trigger when trigger is added ([#3472](https://github.com/Azure/LogicAppsUX/issues/3472)) ([9850cad](https://github.com/Azure/LogicAppsUX/commit/9850cad984581f876f0aefb18146732a96b97ce8))
+* **Designer:** Do not update swagger parameter format when in is unde… ([#3478](https://github.com/Azure/LogicAppsUX/issues/3478)) ([2f9af5a](https://github.com/Azure/LogicAppsUX/commit/2f9af5a61237845dfe25751816f564eacbcda127))
+
 ### [2.69.4](https://github.com/Azure/LogicAppsUX/compare/v2.69.3...v2.69.4) (2023-10-16)
 
 
