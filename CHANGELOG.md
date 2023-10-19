@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.49.1](https://github.com/Azure/LogicAppsUX/compare/v2.49.0...v2.49.1) (2023-10-19)
+
+
+### Features
+
+* **designer:** Add option to hide expression in token picker ([#3473](https://github.com/Azure/LogicAppsUX/issues/3473)) ([#3475](https://github.com/Azure/LogicAppsUX/issues/3475)) ([d99927e](https://github.com/Azure/LogicAppsUX/commit/d99927ed33d813eace7cb01adeb8f0b04a59c15b))
+
 ## [2.49.0](https://github.com/Azure/LogicAppsUX/compare/v2.48.0...v2.49.0) (2023-07-18)
 
 
