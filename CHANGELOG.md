@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.49.2](https://github.com/Azure/LogicAppsUX/compare/v2.49.1...v2.49.2) (2023-10-19)
+
+
+### Features
+
+* **designer:** Add no actions node for is read only mode ([#3173](https://github.com/Azure/LogicAppsUX/issues/3173)) ([#3486](https://github.com/Azure/LogicAppsUX/issues/3486)) ([5a964fe](https://github.com/Azure/LogicAppsUX/commit/5a964fe3e5e5741afb92563fdb8032bd3bae35bc))
+
 ### [2.49.1](https://github.com/Azure/LogicAppsUX/compare/v2.49.0...v2.49.1) (2023-10-19)
 
 
