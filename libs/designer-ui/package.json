@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/designer-ui",
-  "version": "2.71.1",
+  "version": "2.71.2",
   "scripts": {
     "yalcpush": "yalc push ../../dist/libs/designer-ui"
   },

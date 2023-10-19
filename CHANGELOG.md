@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.71.2](https://github.com/Azure/LogicAppsUX/compare/v2.71.1...v2.71.2) (2023-10-19)
+
+
+### Bug Fixes
+
+* **vscode:** Add Logger Configuration and Package Version Updates & Update logic app list in tree view after creating logic app in azure ([#3477](https://github.com/Azure/LogicAppsUX/issues/3477)) ([ad85f7f](https://github.com/Azure/LogicAppsUX/commit/ad85f7f5f8ee314674c788463f888cbff6e35f81)), closes [#3444](https://github.com/Azure/LogicAppsUX/issues/3444)
+
 ### [2.71.1](https://github.com/Azure/LogicAppsUX/compare/v2.71.0...v2.71.1) (2023-10-04)
 
 
