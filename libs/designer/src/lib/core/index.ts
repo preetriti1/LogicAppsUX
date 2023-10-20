@@ -29,5 +29,6 @@ export { initializeServices } from './state/designerOptions/designerOptionsSlice
 export { resetWorkflowState, resetNodesLoadStatus } from './state/global';
 export { validateParameter } from './utils/parameters/helper';
 export { getOutputTokenSections, getExpressionTokenSections } from './utils/tokens';
+export { getTriggerNodeId } from './utils/graph';
 export { updateParameterValidation } from './state/operation/operationMetadataSlice';
 export { updateWorkflowParameters } from './actions/bjsworkflow/initialize';
