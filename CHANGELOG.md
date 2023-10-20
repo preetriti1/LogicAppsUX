@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.49.3](https://github.com/Azure/LogicAppsUX/compare/v2.49.2...v2.49.3) (2023-10-20)
+
+
+### Features
+
+* **desinger:** Export getTriggerNodeId and update outputToken schema ([#3489](https://github.com/Azure/LogicAppsUX/issues/3489)) ([74ea8ce](https://github.com/Azure/LogicAppsUX/commit/74ea8cecbdb932ba4583cdea93bd280110f0bcd4))
+
 ### [2.49.2](https://github.com/Azure/LogicAppsUX/compare/v2.49.1...v2.49.2) (2023-10-19)
 
 
