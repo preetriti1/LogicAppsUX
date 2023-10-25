@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.66.10](https://github.com/Azure/LogicAppsUX/compare/v2.66.9...v2.66.10) (2023-10-25)
+
+
+### Features
+
+* **designer:** Add support for recommendation view to work without depending on prefetched data ([#3525](https://github.com/Azure/LogicAppsUX/issues/3525)) ([2c97011](https://github.com/Azure/LogicAppsUX/commit/2c970117dfb9ee98c095413a21264217233e8c89))
+
 ### [2.66.9](https://github.com/Azure/LogicAppsUX/compare/v2.66.8...v2.66.9) (2023-10-18)
 
 
