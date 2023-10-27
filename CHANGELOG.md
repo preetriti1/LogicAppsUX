@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.69.7](https://github.com/Azure/LogicAppsUX/compare/v2.69.6...v2.69.7) (2023-10-27)
+
+
+### Bug Fixes
+
+* **designer:** Remove action type filtering for where the prefetched operations is empty ([#3542](https://github.com/Azure/LogicAppsUX/issues/3542)) ([c91ea5d](https://github.com/Azure/LogicAppsUX/commit/c91ea5dc632027269ee18e49dc4ff46ec998bc71))
+
 ### [2.69.6](https://github.com/Azure/LogicAppsUX/compare/v2.69.5...v2.69.6) (2023-10-25)
 
 
