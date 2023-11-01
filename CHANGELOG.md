@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.69.8](https://github.com/Azure/LogicAppsUX/compare/v2.69.7...v2.69.8) (2023-11-01)
+
+
+### Bug Fixes
+
+* **Designer:** Fix spliton for hybrid triggers with headers schema in outputs ([#3487](https://github.com/Azure/LogicAppsUX/issues/3487)) ([f202af3](https://github.com/Azure/LogicAppsUX/commit/f202af37d5b32f334a586644a0dc41db06063f72))
+
 ### [2.69.7](https://github.com/Azure/LogicAppsUX/compare/v2.69.6...v2.69.7) (2023-10-27)
 
 
