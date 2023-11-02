@@ -69,7 +69,6 @@ jobs:
       - name: 'Local Version Bump'
         run: ${{ env.BUMP_COMMAND }} --skip.commit --skip.tag
 
-      - run: npx nx build vs-code-data-mapper
       - run: npx nx build vs-code-data-mapper-react
       - run: npm run vscode:data-mapper:pack
 
