@@ -1,4 +1,20 @@
 # Logic Apps Designer
+### [2.72.3](https://github.com/Azure/LogicAppsUX/compare/v2.72.2...v2.72.3) (2023-11-02)
+
+
+### Features
+
+* **designer:** Add support for recommendation view to work without depending on prefetched data ([#3525](https://github.com/Azure/LogicAppsUX/issues/3525)) ([e37049c](https://github.com/Azure/LogicAppsUX/commit/e37049c80c56effd9564755ac68f9d68d55b85c9))
+
+
+### Bug Fixes
+
+* **designer:** Cleanup placeholder trigger when trigger is added ([#3472](https://github.com/Azure/LogicAppsUX/issues/3472)) ([08bffc0](https://github.com/Azure/LogicAppsUX/commit/08bffc0dc93b65b9cf88e55f87a4dc7d2c1ff218))
+* **Designer:** Do not update swagger parameter format when in is unde… ([#3478](https://github.com/Azure/LogicAppsUX/issues/3478)) ([9eb53b8](https://github.com/Azure/LogicAppsUX/commit/9eb53b821fbb2d1040a5994efbab8317f3281e43))
+* **Designer:** Fix spliton for hybrid triggers with headers schema in outputs ([#3487](https://github.com/Azure/LogicAppsUX/issues/3487)) ([21dc206](https://github.com/Azure/LogicAppsUX/commit/21dc20687f7ca0faf75cd44c9f820714850ed3eb))
+* **Designer:** Invoker connection UI toggle doesn't retain after flow save ([#3464](https://github.com/Azure/LogicAppsUX/issues/3464)) ([7e3b293](https://github.com/Azure/LogicAppsUX/commit/7e3b29381ad2e79008505037e241744917df18d8))
+* **designer:** Remove action type filtering for where the prefetched operations is empty ([#3542](https://github.com/Azure/LogicAppsUX/issues/3542)) ([07503bd](https://github.com/Azure/LogicAppsUX/commit/07503bd9ef5edb3c646b99fdc3a4b912b9eb839c))
+
 ### [2.72.2](https://github.com/Azure/LogicAppsUX/compare/v2.72.1...v2.72.2) (2023-10-19)
 
 
