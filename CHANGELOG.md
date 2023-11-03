@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.77.1](https://github.com/Azure/LogicAppsUX/compare/v2.77.0...v2.77.1) (2023-11-03)
+
+
+### Features
+
+* **designer:** Add ability to get tokens from current node in token selector ([#3598](https://github.com/Azure/LogicAppsUX/issues/3598)) ([#3600](https://github.com/Azure/LogicAppsUX/issues/3600)) ([e0f0b4d](https://github.com/Azure/LogicAppsUX/commit/e0f0b4d83c5d650d64b7326840b6ebd3a6a96410))
+
 ## [2.77.0](https://github.com/Azure/LogicAppsUX/compare/v2.76.0...v2.77.0) (2023-10-27)
 
 
