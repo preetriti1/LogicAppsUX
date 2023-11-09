@@ -1,4 +1,17 @@
 # Logic Apps Designer
+### [2.75.1](https://github.com/Azure/LogicAppsUX/compare/v2.75.0...v2.75.1) (2023-11-09)
+
+
+### Features
+
+* **designer:** Add support for recommendation view to work without depending on prefetched data ([#3525](https://github.com/Azure/LogicAppsUX/issues/3525)) ([ede6a3c](https://github.com/Azure/LogicAppsUX/commit/ede6a3c03ed1be6842910a04dde1851a561e35e0))
+
+
+### Bug Fixes
+
+* **Designer:** Fix spliton for hybrid triggers with headers schema in outputs ([#3487](https://github.com/Azure/LogicAppsUX/issues/3487)) ([132ac4e](https://github.com/Azure/LogicAppsUX/commit/132ac4e7dc487432d69ebfd1e3903a727be99089))
+* **designer:** Remove action type filtering for where the prefetched operations is empty ([#3542](https://github.com/Azure/LogicAppsUX/issues/3542)) ([f152f6e](https://github.com/Azure/LogicAppsUX/commit/f152f6edf24ac120e3dbec6ae3c32727a4c514ca))
+
 ## [2.75.0](https://github.com/Azure/LogicAppsUX/compare/v2.74.0...v2.75.0) (2023-10-19)
 
 
