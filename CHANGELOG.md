@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.75.2](https://github.com/Azure/LogicAppsUX/compare/v2.75.1...v2.75.2) (2023-11-16)
+
+
+### Bug Fixes
+
+* **designer:** fix links in html editor when they have tokens ([#3697](https://github.com/Azure/LogicAppsUX/issues/3697)) ([11e243e](https://github.com/Azure/LogicAppsUX/commit/11e243ebc7a306dcecbb4343d131ad34202d3eb7))
+
 ### [2.75.1](https://github.com/Azure/LogicAppsUX/compare/v2.75.0...v2.75.1) (2023-11-09)
 
 
