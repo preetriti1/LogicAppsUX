@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.87.1](https://github.com/Azure/LogicAppsUX/compare/v2.87.0...v2.87.1) (2023-11-30)
+
+
+### Bug Fixes
+
+* **designer:** Inconsistency in IGatewayService interface ([#3774](https://github.com/Azure/LogicAppsUX/issues/3774)) ([ebaf2a0](https://github.com/Azure/LogicAppsUX/commit/ebaf2a090c7697a5423beedd93a120372a752dc0))
+
 ## [2.87.0](https://github.com/Azure/LogicAppsUX/compare/v2.86.0...v2.87.0) (2023-11-29)
 
 
