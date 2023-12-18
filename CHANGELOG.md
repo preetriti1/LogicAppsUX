@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.86.5](https://github.com/Azure/LogicAppsUX/compare/v2.86.4...v2.86.5) (2023-12-18)
+
+
+### Bug Fixes
+
+* **vscode:** Fix project path in workflow-designtime folder ([#3870](https://github.com/Azure/LogicAppsUX/issues/3870)) ([fb51a92](https://github.com/Azure/LogicAppsUX/commit/fb51a922f38ed1ca323f4b6c9bd715ccc0988f72))
+
 ### [2.86.4](https://github.com/Azure/LogicAppsUX/compare/v2.86.3...v2.86.4) (2023-12-14)
 
 
