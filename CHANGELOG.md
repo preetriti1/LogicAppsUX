@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.89.1](https://github.com/Azure/LogicAppsUX/compare/v2.89.0...v2.89.1) (2023-12-18)
+
+
+### Bug Fixes
+
+* **designer:** Revert change "tokens with 'body/value' should use triggerBody rather than triggerOutput" ([#3875](https://github.com/Azure/LogicAppsUX/issues/3875)) ([8b12391](https://github.com/Azure/LogicAppsUX/commit/8b12391564431a96f63540dd792e6bd2940f8129)), closes [#3782](https://github.com/Azure/LogicAppsUX/issues/3782)
+
 ## [2.89.0](https://github.com/Azure/LogicAppsUX/compare/v2.88.0...v2.89.0) (2023-12-06)
 
 
