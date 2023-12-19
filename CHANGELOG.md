@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.95.2](https://github.com/Azure/LogicAppsUX/compare/v2.95.1...v2.95.2) (2023-12-19)
+
+
+### Bug Fixes
+
+* **designer:** Add description for Condition action ([#3865](https://github.com/Azure/LogicAppsUX/issues/3865)) ([#3883](https://github.com/Azure/LogicAppsUX/issues/3883)) ([f69c8dc](https://github.com/Azure/LogicAppsUX/commit/f69c8dcd9ce7aabbd2f7b73e0de5e338c70d25a0))
+
 ### [2.95.1](https://github.com/Azure/LogicAppsUX/compare/v2.95.0...v2.95.1) (2023-12-18)
 
 
