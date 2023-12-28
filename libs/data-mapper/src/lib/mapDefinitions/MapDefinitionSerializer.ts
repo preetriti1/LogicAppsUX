@@ -113,6 +113,21 @@ export const generateMapDefinitionBody = (mapDefinition: MapDefinitionEntry, con
   });
 };
 
+const addConditionalIfNecessary = (
+  connectionsIntoCurrentTargetPath: Connection,
+  connections: ConnectionDictionary,
+  newPath: OutputPathItem[]
+) => {
+  if (connectionsIntoCurrentTargetPath) {
+    // Conditionals
+    const rootSourceNodes = connectionsIntoCurrentTargetPath.inputs[0];
+    const sourceNode = rootSourceNodes[0];
+    if (sourceNode && isConnectionUnit(sourceNode) && sourceNode.node.key.startsWith(ifPseudoFunctionKey)) {
+      addConditionalToNewPathItems(connections[sourceNode.reactFlowKey], connections, newPath);
+    }
+  }
+};
+
 const createSourcePath = (
   newPath: OutputPathItem[],
   isFinalPath: boolean,
@@ -170,6 +185,40 @@ const getPathForSrcSchemaNode = (sourceNode: ConnectionUnit, formattedLmlSnippet
   return res;
 };
 
+const handleFunction = (formattedLmlSnippetForSource: string, newPath: OutputPathItem[]) => {
+  const valueToTrim = getSrcPathRelativeToLoop(newPath);
+
+  if (valueToTrim) {
+    // Need local variables for functions
+    if (formattedLmlSnippetForSource === valueToTrim) {
+      formattedLmlSnippetForSource = '';
+    } else {
+      formattedLmlSnippetForSource = formattedLmlSnippetForSource.replaceAll(`${valueToTrim}/`, '');
+
+      // Handle dot access
+      if (!formattedLmlSnippetForSource.includes('[') && !formattedLmlSnippetForSource.includes(']')) {
+        formattedLmlSnippetForSource = formattedLmlSnippetForSource.replaceAll(`${valueToTrim}`, '.');
+      }
+    }
+  }
+  return formattedLmlSnippetForSource;
+};
+
+const createLmlForRepeatingElement = (valueToTrim: string, formattedLmlSnippetForSource: string, lastLoop: { loop: string }) => {
+  // account for source elements at different level of loop
+  let backoutValue = '';
+  if (valueToTrim !== lastLoop.loop && !valueToTrim.includes('/*')) {
+    // second condition is temporary fix for json arrays
+    const loopDifference = lastLoop.loop.replace(valueToTrim || ' ', '');
+    for (const i of loopDifference) {
+      if (i === '/') {
+        backoutValue += '../';
+      }
+    }
+  }
+  return backoutValue + formattedLmlSnippetForSource.replace(`${valueToTrim}/`, '');
+};
+
 const createNewPathItems = (input: InputConnection, targetNode: SchemaNodeExtended, connections: ConnectionDictionary) => {
   const newPath: OutputPathItem[] = [];
   const isTargetObjectType = targetNode.nodeProperties.some((property) => property === SchemaNodeProperty.Complex);
@@ -185,14 +234,7 @@ const createNewPathItems = (input: InputConnection, targetNode: SchemaNodeExtend
       // Looping schema node
       addLoopingToNewPathItems(targetPath, connectionsIntoCurrentTargetPath, connections, newPath, lastLoop);
     } else {
-      if (connectionsIntoCurrentTargetPath) {
-        // Conditionals
-        const rootSourceNodes = connectionsIntoCurrentTargetPath.inputs[0];
-        const sourceNode = rootSourceNodes[0];
-        if (sourceNode && isConnectionUnit(sourceNode) && sourceNode.node.key.startsWith(ifPseudoFunctionKey)) {
-          addConditionalToNewPathItems(connections[sourceNode.reactFlowKey], connections, newPath);
-        }
-      }
+      addConditionalIfNecessary(connectionsIntoCurrentTargetPath, connections, newPath);
 
       const isFinalPath = targetNode.key === targetPath.key;
 
@@ -205,21 +247,7 @@ const createNewPathItems = (input: InputConnection, targetNode: SchemaNodeExtend
         const inputNode = inputIntoTargetNode[0];
         if (inputNode && isConnectionUnit(inputNode)) {
           if (isFunctionData(inputNode.node)) {
-            const valueToTrim = getSrcPathRelativeToLoop(newPath);
-
-            if (valueToTrim) {
-              // Need local variables for functions
-              if (formattedLmlSnippetForSource === valueToTrim) {
-                formattedLmlSnippetForSource = '';
-              } else {
-                formattedLmlSnippetForSource = formattedLmlSnippetForSource.replaceAll(`${valueToTrim}/`, '');
-
-                // Handle dot access
-                if (!formattedLmlSnippetForSource.includes('[') && !formattedLmlSnippetForSource.includes(']')) {
-                  formattedLmlSnippetForSource = formattedLmlSnippetForSource.replaceAll(`${valueToTrim}`, '.');
-                }
-              }
-            }
+            formattedLmlSnippetForSource = handleFunction(formattedLmlSnippetForSource, newPath);
           } else {
             // Need local variables for non-functions
             const valueToTrim = getPathForSrcSchemaNode(inputNode, formattedLmlSnippetForSource);
@@ -230,17 +258,7 @@ const createNewPathItems = (input: InputConnection, targetNode: SchemaNodeExtend
               formattedLmlSnippetForSource = '.';
             } else if (valueToTrim) {
               // account for source elements at different level of loop
-              let backoutValue = '';
-              if (valueToTrim !== lastLoop.loop && !valueToTrim.includes('/*')) {
-                // second condition is temporary fix for json arrays
-                const loopDifference = lastLoop.loop.replace(valueToTrim || ' ', '');
-                for (const i of loopDifference) {
-                  if (i === '/') {
-                    backoutValue += '../';
-                  }
-                }
-              }
-              formattedLmlSnippetForSource = backoutValue + formattedLmlSnippetForSource.replace(`${valueToTrim}/`, '');
+              formattedLmlSnippetForSource = createLmlForRepeatingElement(valueToTrim, formattedLmlSnippetForSource, lastLoop);
             }
 
             formattedLmlSnippetForSource = formattedLmlSnippetForSource.startsWith('@')
