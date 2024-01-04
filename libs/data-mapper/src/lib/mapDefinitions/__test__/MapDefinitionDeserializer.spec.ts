@@ -2116,6 +2116,55 @@ describe('mapDefinitions/MapDefinitionDeserializer', () => {
     });
   });
 
+  describe('JSON to XSD', () => {
+    const simpleMap: MapDefinitionEntry = {
+      $version: '1',
+      $input: 'XSD',
+      $output: 'JSON',
+      $sourceSchema: 'SourceSchemaJson.json',
+      $targetSchema: 'TargetSchemaJson.json',
+    };
+
+    const extendedSource = convertSchemaToSchemaExtended(sourceMockJsonSchema);
+    const extendedTarget = convertSchemaToSchemaExtended(targetMockSchema);
+
+    it('maps looping JSON to XSD', () => {
+      simpleMap['root'] = {
+        Looping: {
+          '$for(/root/items/*)': {
+            // danielle this is confirmed correct LML for backend
+            Person: {
+              Name: 'conditionType',
+            },
+          },
+        },
+      };
+
+      const mapDefinitionDeserializer = new MapDefinitionDeserializer(simpleMap, extendedSource, extendedTarget, functionMock);
+      const result = mapDefinitionDeserializer.convertFromMapDefinition();
+      /* eslint-disable @typescript-eslint/no-unused-vars */
+      const resultEntries = Object.entries(result);
+    });
+
+    it('maps looping JSON to XSD with index', () => {
+      simpleMap['root'] = {
+        Looping: {
+          '$for(/root/items/*)': {
+            // danielle it seems to be missing $a here, but original bug still had different output
+            Person: {
+              Name: '$a',
+            },
+          },
+        },
+      };
+
+      const mapDefinitionDeserializer = new MapDefinitionDeserializer(simpleMap, extendedSource, extendedTarget, functionMock);
+      const result = mapDefinitionDeserializer.convertFromMapDefinition();
+      /* eslint-disable @typescript-eslint/no-unused-vars */
+      const resultEntries = Object.entries(result);
+    });
+  });
+
   describe('XSD to JSON', () => {
     const simpleMap: MapDefinitionEntry = {
       $version: '1',

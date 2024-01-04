@@ -138,7 +138,7 @@ export const findNodeForKey = (
   let result = searchChildrenNodeForKey(tempKey, schemaNode);
 
   if (!result) {
-    result = getLoopTargetNodeWithJson(tempKey, schemaNode) as SchemaNodeExtended | undefined;
+    result = getLoopTargetNodeWithJson(tempKey, schemaNode) as SchemaNodeExtended | undefined; // danielle somehow a '*' gets added /root/Looping/*/Person/Name
   }
 
   if (result || !collapseLoopFallback) {
