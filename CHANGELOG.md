@@ -1,4 +1,13 @@
 # Logic Apps Designer
+### [2.99.1](https://github.com/Azure/LogicAppsUX/compare/v2.99.0...v2.99.1) (2024-01-09)
+
+
+### Bug Fixes
+
+* **Data Mapper:** added prefix to dm logging ([#3949](https://github.com/Azure/LogicAppsUX/issues/3949)) ([31780e2](https://github.com/Azure/LogicAppsUX/commit/31780e245bbc50a9e6268964a685e47da7ff1f2c))
+* **vscode:** Add set function core tools command right after installing an update ([#3947](https://github.com/Azure/LogicAppsUX/issues/3947)) ([1da03bb](https://github.com/Azure/LogicAppsUX/commit/1da03bbdc255e9923c2b3f1b0d038eef956a2440))
+* **vscode:** Update fallback version of function core tools ([#3954](https://github.com/Azure/LogicAppsUX/issues/3954)) ([6a9b0a6](https://github.com/Azure/LogicAppsUX/commit/6a9b0a67d1f4f0ebe970b3f4aba5a87529b087b2))
+
 ## [2.99.0](https://github.com/Azure/LogicAppsUX/compare/v2.98.0...v2.99.0) (2024-01-02)
 
 
