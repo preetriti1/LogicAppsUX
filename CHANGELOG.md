@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.97.2](https://github.com/Azure/LogicAppsUX/compare/v2.97.1...v2.97.2) (2024-01-10)
+
+
+### Bug Fixes
+
+* **Designer:** Fixed search issue in (stage) locations ([#3936](https://github.com/Azure/LogicAppsUX/issues/3936)) ([40e21ca](https://github.com/Azure/LogicAppsUX/commit/40e21cad686951313fa38d125c4276099d977ee4))
+
 ### [2.97.1](https://github.com/Azure/LogicAppsUX/compare/v2.97.0...v2.97.1) (2024-01-03)
 
 ## [2.97.0](https://github.com/Azure/LogicAppsUX/compare/v2.96.0...v2.97.0) (2023-12-28)
