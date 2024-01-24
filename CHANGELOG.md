@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.105.1](https://github.com/Azure/LogicAppsUX/compare/v2.105.0...v2.105.1) (2024-01-24)
+
+
+### Bug Fixes
+
+* **Designer:** Multi select drop down is not showing options in new designer ([#4028](https://github.com/Azure/LogicAppsUX/issues/4028)) ([bea2596](https://github.com/Azure/LogicAppsUX/commit/bea2596c57d167aca3008d47ff0217c23805b4e4))
+
 ## [2.105.0](https://github.com/Azure/LogicAppsUX/compare/v2.104.0...v2.105.0) (2024-01-23)
 
 
