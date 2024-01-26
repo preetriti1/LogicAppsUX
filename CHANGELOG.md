@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.105.2](https://github.com/Azure/LogicAppsUX/compare/v2.105.1...v2.105.2) (2024-01-26)
+
+
+### Bug Fixes
+
+* **Designer:** Fixed APIM required parameter issue in Standard ([#4065](https://github.com/Azure/LogicAppsUX/issues/4065)) ([5681941](https://github.com/Azure/LogicAppsUX/commit/568194199fa7e584af7af944eb50e74ba193347b))
+
 ### [2.105.1](https://github.com/Azure/LogicAppsUX/compare/v2.105.0...v2.105.1) (2024-01-24)
 
 
