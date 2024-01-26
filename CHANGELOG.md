@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.105.3](https://github.com/Azure/LogicAppsUX/compare/v2.105.2...v2.105.3) (2024-01-26)
+
+
+### Bug Fixes
+
+* **Designer:** Multi-select showing as single-select ([#4071](https://github.com/Azure/LogicAppsUX/issues/4071)) ([d56d3ef](https://github.com/Azure/LogicAppsUX/commit/d56d3ef6642655980cd03d1f251dd4d3c4cb0f65))
+
 ### [2.105.2](https://github.com/Azure/LogicAppsUX/compare/v2.105.1...v2.105.2) (2024-01-26)
 
 
