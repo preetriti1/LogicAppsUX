@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.105.4](https://github.com/Azure/LogicAppsUX/compare/v2.105.3...v2.105.4) (2024-01-30)
+
+
+### Bug Fixes
+
+* **Designer:** Split on is now disabled for stateless workflows ([#4081](https://github.com/Azure/LogicAppsUX/issues/4081)) ([33391f9](https://github.com/Azure/LogicAppsUX/commit/33391f96e316c49dbc4730f2185fc3d7fda98ee9))
+
 ### [2.105.3](https://github.com/Azure/LogicAppsUX/compare/v2.105.2...v2.105.3) (2024-01-26)
 
 
