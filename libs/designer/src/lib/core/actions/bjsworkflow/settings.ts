@@ -509,7 +509,7 @@ const getSplitOn = (
   };
 };
 
-const getSplitOnValue = (
+export const getSplitOnValue = (
   manifest?: OperationManifest,
   swagger?: SwaggerParser,
   operationId?: string,
