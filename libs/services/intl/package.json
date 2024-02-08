@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/intl-logic-apps",
-  "version": "2.108.3",
+  "version": "2.108.4",
   "scripts": {
     "yalcpush": "yalc push ../../../dist/libs/services/intl"
   }

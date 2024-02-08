@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.108.4](https://github.com/Azure/LogicAppsUX/compare/v2.108.3...v2.108.4) (2024-02-08)
+
+
+### Bug Fixes
+
+* **designer:** fix spliton token references for newly added triggers ([#4148](https://github.com/Azure/LogicAppsUX/issues/4148)) ([4c8dba6](https://github.com/Azure/LogicAppsUX/commit/4c8dba6dbd0829dba943621cc6e8b99775be9e1d))
+
 ### [2.108.3](https://github.com/Azure/LogicAppsUX/compare/v2.108.2...v2.108.3) (2024-02-08)
 
 
