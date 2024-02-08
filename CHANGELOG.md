@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.112.1](https://github.com/Azure/LogicAppsUX/compare/v2.112.0...v2.112.1) (2024-02-08)
+
+
+### Bug Fixes
+
+* **designer:** Removed new OpenAPI token behavior added in [#4122](https://github.com/Azure/LogicAppsUX/issues/4122) ([#4158](https://github.com/Azure/LogicAppsUX/issues/4158)) ([f0e134e](https://github.com/Azure/LogicAppsUX/commit/f0e134e58143725416712fa7d288549e9c07a3ac))
+
 ## [2.112.0](https://github.com/Azure/LogicAppsUX/compare/v2.111.0...v2.112.0) (2024-02-08)
 
 
