@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.108.3](https://github.com/Azure/LogicAppsUX/compare/v2.108.2...v2.108.3) (2024-02-08)
+
+
+### Bug Fixes
+
+* **vscode:** Add validation for no connections ([#4155](https://github.com/Azure/LogicAppsUX/issues/4155)) ([#4156](https://github.com/Azure/LogicAppsUX/issues/4156)) ([97e4bb0](https://github.com/Azure/LogicAppsUX/commit/97e4bb0c8a9f18e96a9a15028977bd424d110aef))
+
 ### [2.108.2](https://github.com/Azure/LogicAppsUX/compare/v2.108.1...v2.108.2) (2024-02-07)
 
 
