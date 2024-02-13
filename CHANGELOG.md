@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.110.1](https://github.com/Azure/LogicAppsUX/compare/v2.110.0...v2.110.1) (2024-02-13)
+
+
+### Bug Fixes
+
+* **Designer:** Fixed issue causing schema parameters to not appear as required ([#4176](https://github.com/Azure/LogicAppsUX/issues/4176)) ([c79436e](https://github.com/Azure/LogicAppsUX/commit/c79436e729a728aba29afe931c6887e278fadd96))
+
 ## [2.110.0](https://github.com/Azure/LogicAppsUX/compare/v2.109.0...v2.110.0) (2024-02-05)
 
 
