@@ -22,4 +22,6 @@ export const MD_TABLE_HTML = {
 
 export const MD_SYNTAX = {
   lineBreak: '\n',
+  heading: '# ',
+  subHeading: '## ',
 };

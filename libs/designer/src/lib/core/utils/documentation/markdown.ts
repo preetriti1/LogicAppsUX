@@ -1,4 +1,12 @@
-import { MD_TABLE_HTML } from './constants';
+import { MD_SYNTAX, MD_TABLE_HTML } from './constants';
+
+export const getMDHeadingFormat = (headingText: string) => {
+  return `${MD_SYNTAX.heading}${headingText}`;
+};
+
+export const getMDSubHeadingFormat = (subHeadingText: string) => {
+  return `${MD_SYNTAX.subHeading}${subHeadingText}`;
+};
 
 export const getMDTable = (rowVals: string[][], titleRow?: string[]) => {
   let output = `${MD_TABLE_HTML.tableStart}${MD_TABLE_HTML.tableBodyStart}`;
