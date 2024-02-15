@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.110.2](https://github.com/Azure/LogicAppsUX/compare/v2.110.1...v2.110.2) (2024-02-15)
+
+
+### Bug Fixes
+
+* **Designer:** Fixed Consumption split on issue ([#4206](https://github.com/Azure/LogicAppsUX/issues/4206)) ([d3aee3a](https://github.com/Azure/LogicAppsUX/commit/d3aee3a2ea81e0456041f4b89f651ab77fcfef18))
+
 ### [2.110.1](https://github.com/Azure/LogicAppsUX/compare/v2.110.0...v2.110.1) (2024-02-13)
 
 
