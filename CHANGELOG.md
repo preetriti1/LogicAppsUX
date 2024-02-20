@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.112.2](https://github.com/Azure/LogicAppsUX/compare/v2.112.1...v2.112.2) (2024-02-20)
+
+
+### Bug Fixes
+
+* **designer:** Replace missing state reassignment ([#4228](https://github.com/Azure/LogicAppsUX/issues/4228)) ([41f9449](https://github.com/Azure/LogicAppsUX/commit/41f9449084d82116c1bf302efd85df8b7455cd65)), closes [#4227](https://github.com/Azure/LogicAppsUX/issues/4227)
+
 ### [2.112.1](https://github.com/Azure/LogicAppsUX/compare/v2.112.0...v2.112.1) (2024-02-08)
 
 
