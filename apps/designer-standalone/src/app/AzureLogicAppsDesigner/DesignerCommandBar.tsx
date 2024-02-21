@@ -59,6 +59,7 @@ export const DesignerCommandBar = ({
 }) => {
   const dispatch = useDispatch();
   const isCopilotReady = useNodesInitialized();
+
   const { isLoading: isSaving, mutate: saveWorkflowMutate } = useMutation(async () => {
     const designerState = DesignerStore.getState();
     const serializedWorkflow = await serializeBJSWorkflow(designerState, {
@@ -184,6 +185,15 @@ export const DesignerCommandBar = ({
             area: 'chatbot',
             message: 'workflow assistant opened',
           });
+        },
+      },
+      {
+        key: 'document',
+        text: 'Document',
+        iconProps: { iconName: 'Download' },
+        onClick: async () => {
+          console.log(await serializeWorkflow(DesignerStore.getState(), { skipValidation: false, includeConnectorType: true }));
+          alert('Check console for workflow serialization with documentation metadata');
         },
       },
       {

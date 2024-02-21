@@ -5,6 +5,11 @@ export interface Workflow {
   connectionReferences: ConnectionReferences;
   parameters?: Record<string, WorkflowParameter>;
   kind?: string;
+  documentationMetadata?: Record<string, DocumentationMetadataState>;
+}
+
+export interface DocumentationMetadataState {
+  connectorCategoryString?: string;
 }
 
 export interface ConnectionReference {

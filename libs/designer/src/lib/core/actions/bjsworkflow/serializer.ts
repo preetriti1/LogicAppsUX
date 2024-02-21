@@ -1,5 +1,5 @@
 import Constants from '../../../common/constants';
-import type { ConnectionReferences, Workflow, WorkflowParameter } from '../../../common/models/workflow';
+import type { ConnectionReferences, DocumentationMetadataState, Workflow, WorkflowParameter } from '../../../common/models/workflow';
 import type { WorkflowNode } from '../../parsers/models/workflowNode';
 import { getConnectorWithSwagger } from '../../queries/connections';
 import { getOperationManifest } from '../../queries/operation';
@@ -21,7 +21,7 @@ import type { Settings } from './settings';
 import type { NodeStaticResults } from './staticresults';
 import { LogEntryLevel, LoggerService, OperationManifestService, WorkflowService } from '@microsoft/designer-client-services-logic-apps';
 import type { ParameterInfo } from '@microsoft/designer-ui';
-import { UIConstants } from '@microsoft/designer-ui';
+import { UIConstants, getConnectorCategoryString } from '@microsoft/designer-ui';
 import { getIntl } from '@microsoft/intl-logic-apps';
 import type { Segment } from '@microsoft/parsers-logic-apps';
 import {
@@ -63,6 +63,7 @@ import merge from 'lodash.merge';
 export interface SerializeOptions {
   skipValidation: boolean;
   ignoreNonCriticalErrors?: boolean;
+  includeConnectorType?: boolean;
 }
 
 export const serializeWorkflow = async (rootState: RootState, options?: SerializeOptions): Promise<Workflow> => {
@@ -155,6 +156,10 @@ export const serializeWorkflow = async (rootState: RootState, options?: Serializ
     parameters,
   };
 
+  if (options?.includeConnectorType) {
+    serializedWorkflow.documentationMetadata = getDocumentationMetadata(rootState.operations.operationInfo);
+  }
+
   const workflowService = WorkflowService();
   if (workflowService && workflowService.getDefinitionWithDynamicInputs) {
     serializedWorkflow.definition = workflowService.getDefinitionWithDynamicInputs(
@@ -208,6 +213,16 @@ const getTrigger = async (rootState: RootState, options?: SerializeOptions): Pro
     : {};
 };
 
+const getDocumentationMetadata = (operationInfo: Record<string, NodeOperation>): Record<string, DocumentationMetadataState> => {
+  return Object.keys(operationInfo).reduce((operationDocMetadata: Record<string, DocumentationMetadataState>, nodeId: string) => {
+    const connectorCategoryInString = getConnectorCategoryString(operationInfo[nodeId].connectorId);
+    return {
+      ...operationDocMetadata,
+      [nodeId]: { connectorCategoryString: connectorCategoryInString },
+    };
+  }, {});
+};
+
 const getWorkflowParameters = (
   workflowParameters: Record<string, WorkflowParameterDefinition>
 ): Record<string, WorkflowParameter> | undefined => {
@@ -253,6 +268,11 @@ export const serializeOperation = async (
 
   const operation = getRecordEntry(rootState.operations.operationInfo, operationId);
   if (!operation) return null;
+
+  // if (options?.includeConnectorType) {
+  //   const connectorCategoryInString = getConnectorCategoryString(operation.connectorId);
+  //   console.log(operationId, connectorCategoryInString);
+  // }
 
   let serializedOperation: LogicAppsV2.OperationDefinition;
   if (OperationManifestService().isSupported(operation.type, operation.kind)) {
