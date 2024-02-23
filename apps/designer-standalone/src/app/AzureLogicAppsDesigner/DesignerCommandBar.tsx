@@ -19,6 +19,7 @@ import {
   updateParameterValidation,
   openPanel,
   useNodesInitialized,
+  getDocumentationMetadata,
 } from '@microsoft/logic-apps-designer';
 import { isNullOrEmpty, RUN_AFTER_COLORS } from '@microsoft/utils-logic-apps';
 import { useMemo } from 'react';
@@ -192,7 +193,8 @@ export const DesignerCommandBar = ({
         text: 'Document',
         iconProps: { iconName: 'Download' },
         onClick: async () => {
-          console.log(await serializeWorkflow(DesignerStore.getState(), { skipValidation: false, includeConnectorType: true }));
+          console.log(await serializeWorkflow(DesignerStore.getState()));
+          console.log(JSON.stringify(getDocumentationMetadata(DesignerStore.getState().operations.operationInfo)));
           alert('Check console for workflow serialization with documentation metadata');
         },
       },

@@ -12,6 +12,7 @@ import {
   useAllSettingsValidationErrors,
   useWorkflowParameterValidationErrors,
   openPanel,
+  getDocumentationMetadata,
 } from '@microsoft/logic-apps-designer';
 import { RUN_AFTER_COLORS } from '@microsoft/utils-logic-apps';
 import { useMemo, useState } from 'react';
@@ -32,6 +33,9 @@ export const PseudoCommandBar = () => {
   const serializeCallback = () => {
     serializeWorkflow(state).then((serialized) => setSerializedWorkflow(serialized));
     setShowSeralization(true);
+  };
+  const downloadDocCallback = () => {
+    console.log(JSON.stringify(getDocumentationMetadata(state.operations.operationInfo)));
   };
 
   const isDarkMode = useSelector((state: RootState) => state.designerOptions.isDarkMode);
@@ -94,6 +98,7 @@ export const PseudoCommandBar = () => {
         />
       )}
       <ActionButton iconProps={{ iconName: 'Code' }} text="Code View" onClick={serializeCallback} />
+      <ActionButton iconProps={{ iconName: 'Download' }} text="Document" onClick={downloadDocCallback} />
       <ActionButton
         iconProps={{
           iconName: haveErrors ? 'StatusErrorFull' : 'ErrorBadge',
