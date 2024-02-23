@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.113.3](https://github.com/Azure/LogicAppsUX/compare/v2.113.2...v2.113.3) (2024-02-23)
+
+
+### Bug Fixes
+
+* **vscode:** Fix useEffect on workflows success data - export tool  ([#4254](https://github.com/Azure/LogicAppsUX/issues/4254)) ([3a42cf7](https://github.com/Azure/LogicAppsUX/commit/3a42cf7a117e33fe01ad77ca6bb1bd24e8b72a99)), closes [#4249](https://github.com/Azure/LogicAppsUX/issues/4249)
+
 ### [2.113.2](https://github.com/Azure/LogicAppsUX/compare/v2.113.1...v2.113.2) (2024-02-16)
 
 
