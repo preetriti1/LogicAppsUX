@@ -20,6 +20,8 @@ import {
   openPanel,
   useNodesInitialized,
   getDocumentationMetadata,
+  formatResponseToMarkdown,
+  sampleResponse,
 } from '@microsoft/logic-apps-designer';
 import { isNullOrEmpty, RUN_AFTER_COLORS } from '@microsoft/utils-logic-apps';
 import { useMemo } from 'react';
@@ -110,6 +112,18 @@ export const DesignerCommandBar = ({
     [allInputErrors, haveWorkflowParameterErrors, haveSettingsErrors, haveConnectionErrors]
   );
 
+  const downloadTxtFile = () => {
+    const mdFileInString = formatResponseToMarkdown(sampleResponse);
+    const element = document.createElement('a');
+    const file = new Blob([mdFileInString], {
+      type: 'text/plain',
+    });
+    element.href = URL.createObjectURL(file);
+    element.download = 'myFile.md';
+    document.body.appendChild(element);
+    element.click();
+  };
+
   const saveIsDisabled = isSaving || allInputErrors.length > 0 || haveWorkflowParameterErrors || haveSettingsErrors || !designerIsDirty;
   const items: ICommandBarItemProps[] = useMemo(
     () => [
@@ -195,7 +209,8 @@ export const DesignerCommandBar = ({
         onClick: async () => {
           console.log(await serializeWorkflow(DesignerStore.getState()));
           console.log(JSON.stringify(getDocumentationMetadata(DesignerStore.getState().operations.operationInfo)));
-          alert('Check console for workflow serialization with documentation metadata');
+          // alert('Check console for workflow serialization with documentation metadata');
+          downloadTxtFile();
         },
       },
       {

@@ -35,7 +35,13 @@ export const PseudoCommandBar = () => {
     setShowSeralization(true);
   };
   const downloadDocCallback = () => {
-    console.log(JSON.stringify(getDocumentationMetadata(state.operations.operationInfo)));
+    serializeWorkflow(state).then((serialized) => {
+      const sendToBackendObject = {
+        workflow: serialized,
+        operationsData: getDocumentationMetadata(state.operations.operationInfo),
+      };
+      console.log(JSON.stringify(sendToBackendObject));
+    });
   };
 
   const isDarkMode = useSelector((state: RootState) => state.designerOptions.isDarkMode);
