@@ -12,7 +12,8 @@ import {
   useAllSettingsValidationErrors,
   useWorkflowParameterValidationErrors,
   openPanel,
-  getDocumentationMetadata,
+  getSampleRequestBody,
+  getBackendResponse,
 } from '@microsoft/logic-apps-designer';
 import { RUN_AFTER_COLORS } from '@microsoft/utils-logic-apps';
 import { useMemo, useState } from 'react';
@@ -34,15 +35,16 @@ export const PseudoCommandBar = () => {
     serializeWorkflow(state).then((serialized) => setSerializedWorkflow(serialized));
     setShowSeralization(true);
   };
-  const downloadDocCallback = () => {
-    serializeWorkflow(state).then((serialized) => {
-      const sendToBackendObject = {
-        workflow: serialized,
-        operationsData: getDocumentationMetadata(state.operations.operationInfo),
-      };
-      console.log(JSON.stringify(sendToBackendObject));
-    });
-  };
+
+  // const downloadDocCallback = () => {
+  //   serializeWorkflow(state).then((serialized) => {
+  //     const sendToBackendObject = {
+  //       workflow: serialized,
+  //       operationsData: getDocumentationMetadata(state.operations.operationInfo),
+  //     };
+  //     console.log(JSON.stringify(sendToBackendObject));
+  //   });
+  // };
 
   const isDarkMode = useSelector((state: RootState) => state.designerOptions.isDarkMode);
 
@@ -104,7 +106,19 @@ export const PseudoCommandBar = () => {
         />
       )}
       <ActionButton iconProps={{ iconName: 'Code' }} text="Code View" onClick={serializeCallback} />
-      <ActionButton iconProps={{ iconName: 'Download' }} text="Document" onClick={downloadDocCallback} />
+      <ActionButton
+        iconProps={{ iconName: 'Download' }}
+        text="Document"
+        onClick={async () => {
+          console.log(state);
+          const sampleRequestBody = getSampleRequestBody(
+            await serializeWorkflow(state),
+            state.operations.operationInfo,
+            state.tokens.outputTokens
+          );
+          await getBackendResponse(sampleRequestBody);
+        }}
+      />
       <ActionButton
         iconProps={{
           iconName: haveErrors ? 'StatusErrorFull' : 'ErrorBadge',
