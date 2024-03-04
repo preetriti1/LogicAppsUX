@@ -573,7 +573,7 @@ const addOrUpdateAppSettings = (settings: Record<string, string>, originalSettin
 };
 
 const hasNewKeys = (original: Record<string, any> = {}, updated: Record<string, any> = {}) => {
-  return !Object.keys(updated).some((key) => !Object.keys(original).includes(key));
+  return Object.keys(updated).some((key) => !Object.keys(original).includes(key));
 };
 
 const getConnectionsToUpdate = (
