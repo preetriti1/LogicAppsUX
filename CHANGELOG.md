@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.119.4](https://github.com/Azure/LogicAppsUX/compare/v2.119.3...v2.119.4) (2024-03-08)
+
+
+### Bug Fixes
+
+* **vscode:** Add validation for extension bundle workflows folder ([#4329](https://github.com/Azure/LogicAppsUX/issues/4329)) ([ffa2e3c](https://github.com/Azure/LogicAppsUX/commit/ffa2e3c7bfb8afb9c78b67a7c4eb73dc38f96c1e))
+
 ### [2.119.3](https://github.com/Azure/LogicAppsUX/compare/v2.119.2...v2.119.3) (2024-02-28)
 
 ### [2.119.2](https://github.com/Azure/LogicAppsUX/compare/v2.119.1...v2.119.2) (2024-02-28)
