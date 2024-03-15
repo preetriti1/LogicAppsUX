@@ -211,7 +211,8 @@ export const DesignerCommandBar = ({
           const sampleRequestBody = getSampleRequestBody(
             await serializeWorkflow(designerState),
             designerState.operations.operationInfo,
-            designerState.tokens.outputTokens
+            designerState.tokens.outputTokens,
+            designerState?.workflow?.workflowKind
           );
           await getBackendResponse(sampleRequestBody);
         },

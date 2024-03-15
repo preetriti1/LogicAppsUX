@@ -42,14 +42,18 @@ export const getBackendResponse = async (documentRequestBody: DocumentationReque
 export const getSampleRequestBody = (
   workflow: Workflow,
   operationInfo: Record<string, NodeOperation>,
-  outputTokens: Record<string, NodeTokens>
+  outputTokens: Record<string, NodeTokens>,
+  workflowKind?: string
 ): DocumentationRequestBody => {
   return {
     createTime: '2023-12-14T18:48:50.756Z',
     queryId: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
     queryType: 'documentation',
     query: {
-      workflow: workflow,
+      workflow: {
+        kind: workflowKind,
+        ...workflow,
+      },
       operationsData: getDocumentationMetadata(operationInfo, outputTokens),
     },
   };
