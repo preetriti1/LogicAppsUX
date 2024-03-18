@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.119.7](https://github.com/Azure/LogicAppsUX/compare/v2.119.6...v2.119.7) (2024-03-18)
+
+
+### Bug Fixes
+
+* **Designer:** Falsy parameter values now initialized properly ([8db5819](https://github.com/Azure/LogicAppsUX/commit/8db581939b6c9de92e0c24c6157ff67690adf2d3))
+
 ### [2.119.6](https://github.com/Azure/LogicAppsUX/compare/v2.119.5...v2.119.6) (2024-03-12)
 
 ### [2.119.5](https://github.com/Azure/LogicAppsUX/compare/v2.119.4...v2.119.5) (2024-03-11)
