@@ -3,11 +3,13 @@ import type { Settings } from '../../actions/bjsworkflow/settings';
 import type { NodeStaticResults } from '../../actions/bjsworkflow/staticresults';
 import { StaticResultOption } from '../../actions/bjsworkflow/staticresults';
 import type { RepetitionContext } from '../../utils/parameters/helper';
+import { createTokenValueSegment, isTokenValueSegment } from '../../utils/parameters/segment';
+import { normalizeKey } from '../../utils/tokens';
 import { resetNodesLoadStatus, resetWorkflowState } from '../global';
 import { LogEntryLevel, LoggerService } from '@microsoft/designer-client-services-logic-apps';
 import type { ParameterInfo } from '@microsoft/designer-ui';
-import type { FilePickerInfo, InputParameter, OutputParameter, SwaggerParser } from '@microsoft/parsers-logic-apps';
-import { getRecordEntry, type OpenAPIV2, type OperationInfo } from '@microsoft/utils-logic-apps';
+import type { FilePickerInfo, InputParameter, OutputParameter, SwaggerParser } from '@microsoft/logic-apps-shared';
+import { getRecordEntry, type OpenAPIV2, type OperationInfo } from '@microsoft/logic-apps-shared';
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { WritableDraft } from 'immer/dist/internal';
@@ -171,6 +173,9 @@ interface AddDynamicOutputsPayload {
   outputs: Record<string, OutputInfo>;
 }
 
+interface UpdateExistingInputTokenTitlesPayload {
+  tokenTitles: Record<string, string>;
+}
 interface AddDynamicInputsPayload {
   nodeId: string;
   groupId: string;
@@ -253,7 +258,7 @@ export const operationMetadataSlice = createSlice({
 
       const dependencies = getInputDependencies(inputParameters, rawInputs, swagger);
       if (dependencies) {
-        dependencies.inputs = { ...dependencies.inputs, ...dependencies };
+        state.dependencies[nodeId].inputs = { ...state.dependencies[nodeId].inputs, ...dependencies };
       }
     },
     addDynamicOutputs: (state, action: PayloadAction<AddDynamicOutputsPayload>) => {
@@ -297,6 +302,25 @@ export const operationMetadataSlice = createSlice({
 
       const nodeErrors = getRecordEntry(state.errors, nodeId);
       delete nodeErrors?.[ErrorLevel.DynamicOutputs];
+    },
+    updateExistingInputTokenTitles: (state, action: PayloadAction<UpdateExistingInputTokenTitlesPayload>) => {
+      const { tokenTitles } = action.payload;
+
+      Object.entries(state.inputParameters).forEach(([nodeId, nodeInputs]) => {
+        Object.entries(nodeInputs.parameterGroups).forEach(([parameterId, parameterGroup]) => {
+          parameterGroup.parameters.forEach((parameter, parameterIndex) => {
+            parameter.value.forEach((segment, segmentIndex) => {
+              if (isTokenValueSegment(segment) && segment.token?.key) {
+                const normalizedKey = normalizeKey(segment.token.key);
+                if (normalizedKey in tokenTitles) {
+                  state.inputParameters[nodeId].parameterGroups[parameterId].parameters[parameterIndex].value[segmentIndex] =
+                    createTokenValueSegment({ ...segment.token, title: tokenTitles[normalizedKey] }, segment.value, segment.type);
+                }
+              }
+            });
+          });
+        });
+      });
     },
     updateNodeSettings: (state, action: PayloadAction<AddSettingsPayload>) => {
       const { id, settings } = action.payload;
@@ -473,6 +497,7 @@ export const {
   updateStaticResults,
   updateParameterConditionalVisibility,
   updateParameterValidation,
+  updateExistingInputTokenTitles,
   removeParameterValidationError,
   updateOutputs,
   updateActionMetadata,

@@ -72,6 +72,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";+KXX+O" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Select function from]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Välj funktion från]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";+M72+a" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Overview]]></Val>
@@ -1404,6 +1413,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";4Levd5" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Send me an email when]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Skicka mig ett e-postmeddelande när]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";4Q7WzU" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Add a new connection]]></Val>
@@ -1719,6 +1737,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";635Koz" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Every week on Monday]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Varje vecka på måndag]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";63CC7M" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Error loading inputs]]></Val>
@@ -1908,11 +1935,11 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";70eoQu" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+      <Item ItemId=";6yFUar" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
-          <Val><![CDATA[Select function from]]></Val>
+          <Val><![CDATA[Outputs are required when status is "Succeeded"]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Välj funktion från]]></Val>
+            <Val><![CDATA[Utdata krävs när statusen är Slutfört]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2241,15 +2268,6 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";8Q7ns/" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Edit this flow to]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Redigera det här flödet till]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";8U0KPg" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Required. The string to be URI encoded.]]></Val>
@@ -2466,6 +2484,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";9QS9a3" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Replace "{selectedOperation}" with]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Ersätt {selectedOperation} med]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";9SuA/E" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[12]]></Val>
@@ -2615,6 +2642,15 @@
           <Val><![CDATA[Filter Actions]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Filteråtgärder]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ANGw2o" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Click for more information on Static Result]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Klicka om du vill ha mer information om Statiskt resultat]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -2915,15 +2951,6 @@
           <Val><![CDATA[Enter password as plain text or use a secure parameter]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Ange lösenordet som oformaterad text eller använd en säker parameter]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";BQyLiu" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[results found]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[resultat hittades]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -3867,15 +3894,6 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";G/CC5/" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Invalid split on format in '{splitOn}'.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Ogiltigt delningsformat i {splitOn}.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";G0XYrd" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Required. The string that may contain the value.]]></Val>
@@ -4137,11 +4155,29 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";H9CZTr" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The expression is invalid. Make sure to use single quotes.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Uttrycket är ogiltigt. Se till att använda enkla citattecken.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";HDqP2g" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Required. The key name of the form data value to return.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Krävs. Nyckelnamnet för formulärdatavärdet att returnera.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HGA9iU" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The Error and its code is required when status is "Failed"]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Felet och dess kod måste anges när statusen är Misslyckades]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4178,6 +4214,15 @@
           <Val><![CDATA[Headers]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Sidhuvuden]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";HX3Xmx" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Deleting...]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Tar bort...]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4403,6 +4448,15 @@
           <Val><![CDATA[No properties]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Inga egenskaper]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";IsbbsG" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[When a new item]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[När ett nytt objekt]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -4641,15 +4695,6 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";KNDVnN" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Replace "{selectedOperation}" with]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Ersätt {selectedOperation} med]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";KV4uky" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[When a new item...]]></Val>
@@ -4847,6 +4892,15 @@
           <Val><![CDATA[Creating...]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Skapar...]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";LPdGu/" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Ouputs should not be provided when status is "Failed"]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Några utdata ska inte tillhandahållas när statusen är Misslyckades]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5054,15 +5108,6 @@
           <Val><![CDATA[Code view]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Kodvy]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";M3kJsI" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Every week on Monday]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Varje vecka på måndag]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -5625,15 +5670,6 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";OQud51" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Tell me more about]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Berätta mer om]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";OSHNZ2" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Comment]]></Val>
@@ -5756,6 +5792,15 @@
           <Val><![CDATA[Select a managed identity]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Välj en hanterad identitet]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";OrPVcU" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Invalid split on format in ''{splitOn}''.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Ogiltigt delningsformat i {splitOn}.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -6645,6 +6690,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";TUdPdI" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Secure Object]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Säkert objekt]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";TX4Kdr" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Create a new connection]]></Val>
@@ -6870,15 +6924,6 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";UF3KjL" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Try using a Conversion function such as: {conversionFunctions}]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Prova att använda en konverteringsfunktion som: {conversionFunctions}]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";UHCVNK" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Replaces a string with a given string]]></Val>
@@ -6938,15 +6983,6 @@
           <Val><![CDATA[Required. The collection to take the last object from.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Obligatoriskt. Den samling som det sista objektet ska hämtas från.]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";UW+fkB" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Send me an email when]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Skicka mig ett e-postmeddelande när]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -7815,15 +7851,6 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
-      <Item ItemId=";Y04+GH" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Add an action]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Lägga till en åtgärd]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
       <Item ItemId=";Y0H9aX" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[More Info]]></Val>
@@ -8130,6 +8157,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";Yz9o1k" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Not connected.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Inte ansluten.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";Z8tBFS" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[The workflow assistant is designed only to provide help and doesn't support workflow creation or editing.]]></Val>
@@ -8171,6 +8207,15 @@
           <Val><![CDATA[Body]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Brödtext]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";ZKnJnh" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Secure String]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Säker sträng]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -8432,6 +8477,15 @@
           <Val><![CDATA[Body]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Brödtext]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";bC2LBK" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[It is not recommended to set a default value for type ''{type}'' because it will be stored as plain text.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Ange inte ett standardvärde för typen {type} eftersom det då lagras som oformaterad text.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -8895,6 +8949,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";dKCp2j" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Tell me more about]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Berätta mer om]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";dL9V5t" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Managed identity]]></Val>
@@ -9120,6 +9183,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";eI00kb" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Edit this flow to]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Redigera det här flödet till]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";eO1h/h" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[This assistant can help you learn about your workflows and Azure Logic Apps platform's capabilities and connectors.]]></Val>
@@ -9197,15 +9269,6 @@
           <Val><![CDATA[Shared]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Delat]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";eqAUdj" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[When a new item]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[När ett nytt objekt]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -9467,15 +9530,6 @@
           <Val><![CDATA[Format text as italic. Shortcut: Ctrl+I]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Formatera text som kursiv. Genväg: Ctrl+I]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";gKEaXI" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Copy the value of '{label}' to the clipboard]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Kopiera värdet för {label} till Urklipp]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -10077,6 +10131,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";iXW+2l" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Add an action]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Lägga till en åtgärd]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";id4DBb" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[After you review this AI generated flow suggestion, select]]></Val>
@@ -10629,6 +10692,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";lA/sHA" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Copy the value of ''{label}'' to the clipboard]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Kopiera värdet för {label} till Urklipp]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";lB56l2" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Enter a valid number.]]></Val>
@@ -10715,15 +10787,6 @@
           <Val><![CDATA[Stateless run mode:]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Tillståndslöst körningsläge:]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";lh0TuF" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[Dropdown to select filepath]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Listruta för att välja filsökväg]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -11264,6 +11327,15 @@
           <Val><![CDATA[(UTC+10:00) Brisbane]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[(UTC+10:00) Brisbane]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";nwLd4b" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Dropdown to select filepath]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Listruta för att välja filsökväg]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -12405,6 +12477,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";svaqnp" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Error should not be provided when status is "Succeeded"]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Något fel ska inte tillhandahållas när statusen är Slutfört]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";sw6EXK" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[Status]]></Val>
@@ -12446,6 +12527,24 @@
           <Val><![CDATA[Required. A string that contains the time zone name of the destination time zone. See https://msdn.microsoft.com/en-us/library/gg154758.aspx for details.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Krävs. En sträng som innehåller tidszonnamnet för måltidszonen. Se https://msdn.microsoft.com/sv-se/library/gg154758.aspx för Information.]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";t/RPwA" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[results found]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[resultat hittades]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
+      <Item ItemId=";t9RwOi" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[The expression is invalid.]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Uttrycket är ogiltigt.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -12882,6 +12981,15 @@
         </Str>
         <Disp Icon="Str" />
       </Item>
+      <Item ItemId=";ur3P27" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
+        <Str Cat="Text">
+          <Val><![CDATA[Try using a Conversion function such as: {conversionFunctions}]]></Val>
+          <Tgt Cat="Text" Stat="Loc" Orig="New">
+            <Val><![CDATA[Prova att använda en konverteringsfunktion som: {conversionFunctions}]]></Val>
+          </Tgt>
+        </Str>
+        <Disp Icon="Str" />
+      </Item>
       <Item ItemId=";urAHv1" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
         <Str Cat="Text">
           <Val><![CDATA[4]]></Val>
@@ -13040,15 +13148,6 @@
           <Val><![CDATA[Outputs]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
             <Val><![CDATA[Utdata]]></Val>
-          </Tgt>
-        </Str>
-        <Disp Icon="Str" />
-      </Item>
-      <Item ItemId=";vVJuus" ItemType="0" PsrId="306" InstFlg="true" Leaf="true">
-        <Str Cat="Text">
-          <Val><![CDATA[The expression is invalid.]]></Val>
-          <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[Uttrycket är ogiltigt.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />

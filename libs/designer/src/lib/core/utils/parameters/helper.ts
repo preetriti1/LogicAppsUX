@@ -1,6 +1,7 @@
 /* eslint-disable no-case-declarations  */
 import constants from '../../../common/constants';
 import type { ConnectionReference, WorkflowParameter } from '../../../common/models/workflow';
+import { getReactQueryClient } from '../../ReactQueryProvider';
 import type { NodeDataWithOperationMetadata } from '../../actions/bjsworkflow/operationdeserializer';
 import type { Settings } from '../../actions/bjsworkflow/settings';
 import { getConnectorWithSwagger } from '../../queries/connections';
@@ -52,6 +53,7 @@ import {
   isParameterToken,
   isTokenValueSegment,
   isValueSegment,
+  isValueSegmentArray,
   isVariableToken,
   ValueSegmentConvertor,
 } from './segment';
@@ -85,22 +87,8 @@ import {
   TokenType,
   AuthenticationOAuthType,
 } from '@microsoft/designer-ui';
-import { getIntl } from '@microsoft/intl-logic-apps';
-import type {
-  DependentParameterInfo,
-  DynamicParameters,
-  Expression,
-  ExpressionFunction,
-  ExpressionLiteral,
-  InputParameter,
-  OutputParameter,
-  ResolvedParameter,
-  SchemaProcessorOptions,
-  SchemaProperty,
-  Segment,
-  SwaggerParser,
-} from '@microsoft/parsers-logic-apps';
 import {
+  getIntl,
   isDynamicTreeExtension,
   isLegacyDynamicValuesTreeExtension,
   DeserializationType,
@@ -124,9 +112,6 @@ import {
   SegmentType,
   Visibility,
   PropertyName,
-} from '@microsoft/parsers-logic-apps';
-import type { Exception, OpenAPIV2, OperationManifest, RecurrenceSetting } from '@microsoft/utils-logic-apps';
-import {
   createCopy,
   deleteObjectProperties,
   deleteObjectProperty,
@@ -153,7 +138,26 @@ import {
   nthLastIndexOf,
   parseErrorMessage,
   getRecordEntry,
-} from '@microsoft/utils-logic-apps';
+  isRecordNotEmpty,
+} from '@microsoft/logic-apps-shared';
+import type {
+  DependentParameterInfo,
+  DynamicParameters,
+  Expression,
+  ExpressionFunction,
+  ExpressionLiteral,
+  InputParameter,
+  OutputParameter,
+  ResolvedParameter,
+  SchemaProcessorOptions,
+  SchemaProperty,
+  Segment,
+  SwaggerParser,
+  Exception,
+  OpenAPIV2,
+  OperationManifest,
+  RecurrenceSetting,
+} from '@microsoft/logic-apps-shared';
 import type { Dispatch } from '@reduxjs/toolkit';
 
 // import { debounce } from 'lodash';
@@ -242,6 +246,7 @@ export function addRecurrenceParametersInGroup(
         id: ParameterGroupKeys.RECURRENCE,
         description: intl.formatMessage({
           defaultMessage: 'How often do you want to check for items?',
+          id: 'e00zot',
           description: 'Recurrence parameter group title',
         }),
         parameters: recurrenceParameters,
@@ -855,7 +860,13 @@ export function shouldIncludeSelfForRepetitionReference(manifest: OperationManif
 }
 
 export function loadParameterValue(parameter: InputParameter): ValueSegment[] {
-  const valueObject = parameter.isNotificationUrl ? `@${constants.HTTP_WEBHOOK_LIST_CALLBACK_URL_NAME}` : parameter.value;
+  let valueObject: unknown = undefined;
+
+  if (parameter.isNotificationUrl) {
+    valueObject = `@${constants.HTTP_WEBHOOK_LIST_CALLBACK_URL_NAME}`;
+  } else {
+    valueObject = parameter?.value ?? parameter?.default;
+  }
 
   let valueSegments = convertToValueSegments(valueObject, !parameter.suppressCasting /* shouldUncast */);
 
@@ -1214,7 +1225,17 @@ export function loadParameterValuesFromDefault(inputParameters: Record<string, I
 }
 
 export function loadParameterValuesArrayFromDefault(inputParameters: InputParameter[]): void {
-  for (const inputParameter of inputParameters) if (inputParameter.default !== undefined) inputParameter.value = inputParameter.default;
+  const queryClient = getReactQueryClient();
+  const workflowKind = queryClient.getQueryData(['workflowKind']);
+  for (const inputParameter of inputParameters) {
+    if (inputParameter.default !== undefined) {
+      if (inputParameter.default === 'PT1H' && workflowKind === 'stateless') {
+        inputParameter.value = inputParameter.schema?.['x-ms-stateless-default'] ?? inputParameter.default;
+      } else {
+        inputParameter.value = inputParameter.default;
+      }
+    }
+  }
 }
 
 export function updateParameterWithValues(
@@ -1974,9 +1995,11 @@ async function loadDynamicContentForInputsInNode(
           );
         } catch (error: any) {
           const message = parseErrorMessage(error);
-          const errorMessage = getIntl().formatMessage(
+          const intl = getIntl();
+          const errorMessage = intl.formatMessage(
             {
               defaultMessage: `Failed to retrieve dynamic inputs. Error details: ''{message}''`,
+              id: 'sytRna',
               description: 'Error message to show when loading dynamic inputs failed',
             },
             { message }
@@ -2166,9 +2189,11 @@ async function tryGetInputDynamicSchema(
     }
 
     const message = parseErrorMessage(error);
-    const errorMessage = getIntl().formatMessage(
+    const intl = getIntl();
+    const errorMessage = intl.formatMessage(
       {
         defaultMessage: `Failed to retrieve dynamic inputs. Error details: ''{message}''`,
+        id: 'sytRna',
         description: 'Error message to show when loading dynamic inputs failed',
       },
       { message }
@@ -2214,6 +2239,7 @@ function showErrorWhenDependenciesNotReady(
                 message: intl.formatMessage(
                   {
                     defaultMessage: 'Required parameters {parameters} not set or invalid',
+                    id: '3Y8a6G',
                     description: 'Error message to show when required parameters are not set or invalid',
                   },
                   { parameters: `${invalidParameterNames.join(' , ')}` }
@@ -2365,9 +2391,11 @@ export const recurseSerializeCondition = (
     );
     if (errors && errors.length === 0 && (operand1String || operand2String)) {
       if (!operand1String) {
+        const intl = getIntl();
         errors.push(
-          getIntl().formatMessage({
+          intl.formatMessage({
             defaultMessage: 'Enter a valid condition statement.',
+            id: 'WToL/O',
             description: 'Error validation message for invalid condition statement',
           })
         );
@@ -3108,10 +3136,16 @@ export function parameterValueToString(
   isDefinitionValue: boolean,
   idReplacements?: Record<string, string>
 ): string | undefined {
-  const { value: remappedValue, didRemap } = idReplacements
-    ? remapValueSegmentsWithNewIds(parameterInfo.value, idReplacements)
+  const { value: remappedValue, didRemap } = isRecordNotEmpty(idReplacements)
+    ? remapValueSegmentsWithNewIds(parameterInfo.value, idReplacements ?? {})
     : { value: parameterInfo.value, didRemap: false };
-  const remappedParameterInfo = idReplacements ? { ...parameterInfo, value: remappedValue } : parameterInfo;
+  const remappedEditorViewModel = isRecordNotEmpty(idReplacements)
+    ? remapEditorViewModelWithNewIds(parameterInfo.editorViewModel, idReplacements ?? {})
+    : parameterInfo.editorViewModel;
+
+  const remappedParameterInfo = isRecordNotEmpty(idReplacements)
+    ? { ...parameterInfo, value: remappedValue, editorViewModel: remappedEditorViewModel }
+    : parameterInfo;
 
   if (didRemap) delete remappedParameterInfo.preservedValue;
 
@@ -3288,6 +3322,24 @@ export function getJSONValueFromString(value: any, type: string): any {
   return parameterValue;
 }
 
+export function remapEditorViewModelWithNewIds(editorViewModel: any, idReplacements: Record<string, string>): any {
+  if (Array.isArray(editorViewModel)) {
+    if (isValueSegmentArray(editorViewModel)) {
+      return remapValueSegmentsWithNewIds(editorViewModel, idReplacements).value;
+    }
+    return editorViewModel.map((value: any) => {
+      return remapEditorViewModelWithNewIds(value, idReplacements);
+    });
+  } else if (isObject(editorViewModel)) {
+    const updatedEditorViewModel = { ...editorViewModel };
+    Object.entries(editorViewModel).forEach(([key, value]) => {
+      updatedEditorViewModel[key] = remapEditorViewModelWithNewIds(value, idReplacements);
+    });
+    return updatedEditorViewModel;
+  }
+  return editorViewModel;
+}
+
 export function remapValueSegmentsWithNewIds(
   segments: ValueSegment[],
   idReplacements: Record<string, string>
@@ -3296,7 +3348,7 @@ export function remapValueSegmentsWithNewIds(
   const value = segments.map((segment) => {
     if (isTokenValueSegment(segment)) {
       const result = remapTokenSegmentValue(segment, idReplacements);
-      didRemap = result.didRemap;
+      didRemap = didRemap || result.didRemap;
       return result.value;
     }
 

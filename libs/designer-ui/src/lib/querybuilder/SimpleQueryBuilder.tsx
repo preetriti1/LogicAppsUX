@@ -9,7 +9,7 @@ import { Row } from './Row';
 import { getOperationValue, getOuterMostCommaIndex } from './helper';
 import type { IButtonStyles, IStyle } from '@fluentui/react';
 import { ActionButton, FontSizes } from '@fluentui/react';
-import { guid, nthLastIndexOf } from '@microsoft/utils-logic-apps';
+import { guid, nthLastIndexOf } from '@microsoft/logic-apps-shared';
 import { useFunctionalState } from '@react-hookz/web';
 import { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
@@ -49,16 +49,19 @@ export const SimpleQueryBuilder = ({ getTokenPicker, itemValue, readonly, onChan
 
   const advancedButtonLabel = intl.formatMessage({
     defaultMessage: 'Edit in advanced mode',
+    id: 'MfAdfx',
     description: 'Button Label when clicked to swith to advanced editor',
   });
 
   const basicButtonLabel = intl.formatMessage({
     defaultMessage: 'Edit in basic mode',
+    id: '9x8hg8',
     description: 'Button Label when clicked to swith to basic editor',
   });
 
   const invalidRowFormat = intl.formatMessage({
     defaultMessage: 'Condition is too complex or invalid. Unable to switch to basic mode',
+    id: 'FIL1Nt',
     description: 'Error message when unable to switch to basic mode',
   });
 

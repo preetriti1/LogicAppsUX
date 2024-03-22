@@ -1,23 +1,27 @@
 import { StaticResultRootSchema } from './baseactionresult';
-import { getIntl } from '@microsoft/intl-logic-apps';
-import type { Schema } from '@microsoft/parsers-logic-apps';
+import { getIntl } from '@microsoft/logic-apps-shared';
+import type { OpenApiSchema } from '@microsoft/logic-apps-shared';
 
 const intl = getIntl();
 
 const STATIC_RESULT_HTTP_STATUS_CODE_TITLE = intl.formatMessage({
   defaultMessage: 'Status Code',
+  id: 'uDI1Um',
   description: 'The title of the status code field in the static result http action',
 });
 const STATIC_RESULT_HTTP_BODY_TITLE = intl.formatMessage({
   defaultMessage: 'Body',
+  id: 'C1cy54',
   description: 'The title of the body field in the static result http action',
 });
 const STATIC_RESULT_HTTP_HEADERS_TITLE = intl.formatMessage({
   defaultMessage: 'Headers',
+  id: 'HSJLCu',
   description: 'The title of the headers field in the static result http action',
 });
 const STATIC_RESULT_OPERATION_OUTPUT_TITLE = intl.formatMessage({
   defaultMessage: 'Output',
+  id: 'UZiXVh',
   description: 'The title of the output field in the static result http action',
 });
 
@@ -42,11 +46,11 @@ export const HttpStaticResultSchema = {
             type: 'string',
           },
           title: STATIC_RESULT_HTTP_HEADERS_TITLE,
-        } as Schema,
+        } as OpenApiSchema,
         body: {
           type: 'string',
           title: STATIC_RESULT_HTTP_BODY_TITLE,
-        } as Schema,
+        } as OpenApiSchema,
       },
       type: 'object',
       title: STATIC_RESULT_OPERATION_OUTPUT_TITLE,

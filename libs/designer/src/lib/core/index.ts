@@ -27,7 +27,7 @@ export { getOutputTokenSections, getExpressionTokenSections } from './utils/toke
 export { getTriggerNodeId } from './utils/graph';
 export { updateParameterValidation } from './state/operation/operationMetadataSlice';
 export { updateWorkflowParameters } from './actions/bjsworkflow/initialize';
-export { getBrandColorFromManifest, getIconUriFromManifest, getBrandColorFromConnector, getIconUriFromConnector } from './utils/card';
+export { getBrandColorFromManifest, getIconUriFromManifest } from './utils/card';
 export { sampleResponse, formatResponseToMarkdown } from './utils/documentation/formatMarkdown';
 export {
   OperationMetadata,

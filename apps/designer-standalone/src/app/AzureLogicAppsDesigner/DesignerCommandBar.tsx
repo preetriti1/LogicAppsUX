@@ -22,7 +22,7 @@ import {
   getSampleRequestBody,
   getBackendResponse,
 } from '@microsoft/logic-apps-designer';
-import { isNullOrEmpty, RUN_AFTER_COLORS } from '@microsoft/utils-logic-apps';
+import { isNullOrEmpty, RUN_AFTER_COLORS } from '@microsoft/logic-apps-shared';
 import { useMemo } from 'react';
 import { useMutation } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';

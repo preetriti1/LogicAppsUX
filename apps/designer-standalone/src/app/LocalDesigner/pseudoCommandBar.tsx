@@ -15,7 +15,7 @@ import {
   getSampleRequestBody,
   getBackendResponse,
 } from '@microsoft/logic-apps-designer';
-import { RUN_AFTER_COLORS } from '@microsoft/utils-logic-apps';
+import { RUN_AFTER_COLORS } from '@microsoft/logic-apps-shared';
 import { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 

@@ -54,7 +54,7 @@ import { MessageBarType } from '@fluentui/react';
 import { Tooltip } from '@fluentui/react-components';
 import { RunService, WorkflowService } from '@microsoft/designer-client-services-logic-apps';
 import { Card } from '@microsoft/designer-ui';
-import type { LogicAppsV2 } from '@microsoft/utils-logic-apps';
+import type { LogicAppsV2 } from '@microsoft/logic-apps-shared';
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useDrag } from 'react-dnd';
 import { useIntl } from 'react-intl';
@@ -244,18 +244,21 @@ const DefaultNode = ({ targetPosition = Position.Top, sourcePosition = Position.
 
   const opManifestErrorText = intl.formatMessage({
     defaultMessage: 'Error fetching manifest',
+    id: 'HmcHoE',
     description: 'Error message when manifest fails to load',
   });
 
   const settingValidationErrors = useSettingValidationErrors(id);
   const settingValidationErrorText = intl.formatMessage({
     defaultMessage: 'Invalid settings',
+    id: 'Jil/Wa',
     description: 'Text to explain that there are invalid settings for this node',
   });
 
   const parameterValidationErrors = useParameterValidationErrors(id);
   const parameterValidationErrorText = intl.formatMessage({
     defaultMessage: 'Invalid parameters',
+    id: 'Tmr/9e',
     description: 'Text to explain that there are invalid parameters for this node',
   });
 
@@ -305,6 +308,7 @@ const DefaultNode = ({ targetPosition = Position.Top, sourcePosition = Position.
 
   const copiedText = intl.formatMessage({
     defaultMessage: 'Copied!',
+    id: 'NE54Uu',
     description: 'Copied text',
   });
 

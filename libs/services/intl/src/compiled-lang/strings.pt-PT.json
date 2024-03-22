@@ -41,6 +41,12 @@
       "value": "Acionador"
     }
   ],
+  "+KXX+O": [
+    {
+      "type": 0,
+      "value": "Selecionar função a partir de"
+    }
+  ],
   "+M72+a": [
     {
       "type": 0,
@@ -981,6 +987,12 @@
       "value": "Política de Repetição"
     }
   ],
+  "4Levd5": [
+    {
+      "type": 0,
+      "value": "Enviar-me um e-mail quando"
+    }
+  ],
   "4Q7WzU": [
     {
       "type": 0,
@@ -1215,6 +1227,12 @@
       "value": "Entradas seguras da operação"
     }
   ],
+  "635Koz": [
+    {
+      "type": 0,
+      "value": "Todas as semanas à segunda-feira"
+    }
+  ],
   "63CC7M": [
     {
       "type": 0,
@@ -1364,13 +1382,7 @@
   "6yFUar": [
     {
       "type": 0,
-      "value": "Outputs are required when status is \"Succeeded\""
-    }
-  ],
-  "70eoQu": [
-    {
-      "type": 0,
-      "value": "Selecionar função a partir de"
+      "value": "As saídas são necessárias quando o estado é “Com êxito”"
     }
   ],
   "73iM9+": [
@@ -1609,12 +1621,6 @@
       "value": "Descreva como o seu fluxo deve ser alterado. Adicione detalhes sempre que possível, incluindo o conector a utilizar e se algum conteúdo deve ser incluído."
     }
   ],
-  "8Q7ns/": [
-    {
-      "type": 0,
-      "value": "Edite este fluxo para"
-    }
-  ],
   "8U0KPg": [
     {
       "type": 0,
@@ -1771,6 +1777,20 @@
       "value": "Reverter o seu fluxo"
     }
   ],
+  "9QS9a3": [
+    {
+      "type": 0,
+      "value": "Substituir \""
+    },
+    {
+      "type": 1,
+      "value": "selectedOperation"
+    },
+    {
+      "type": 0,
+      "value": "\" por"
+    }
+  ],
   "9SuA/E": [
     {
       "type": 0,
@@ -1892,7 +1912,7 @@
   "ANGw2o": [
     {
       "type": 0,
-      "value": "Click for more information on Static Result"
+      "value": "Clique para obter mais informações sobre o Resultado Estático"
     }
   ],
   "AO6T9u": [
@@ -2122,12 +2142,6 @@
     {
       "type": 0,
       "value": "Introduzir palavra-passe como texto simples ou utilizar um parâmetro seguro"
-    }
-  ],
-  "BQyLiu": [
-    {
-      "type": 0,
-      "value": "resultados encontrados"
     }
   ],
   "BS3gy8": [
@@ -2815,20 +2829,6 @@
       "value": "Devolve uma cadeia com cada item de uma matriz associada por um delimitador"
     }
   ],
-  "G/CC5/": [
-    {
-      "type": 0,
-      "value": "Divisão inválida no formato em \""
-    },
-    {
-      "type": 1,
-      "value": "splitOn"
-    },
-    {
-      "type": 0,
-      "value": "\"."
-    }
-  ],
   "G0XYrd": [
     {
       "type": 0,
@@ -3018,7 +3018,7 @@
   "H9CZTr": [
     {
       "type": 0,
-      "value": "The expression is invalid. Make sure to use single quotes."
+      "value": "A expressão é inválida. Certifique-se de que utiliza aspas simples."
     }
   ],
   "HDqP2g": [
@@ -3030,7 +3030,7 @@
   "HGA9iU": [
     {
       "type": 0,
-      "value": "The Error and its code is required when status is \"Failed\""
+      "value": "O Erro e o respetivo código são necessários quando o estado é “Falhado”"
     }
   ],
   "HH970i": [
@@ -3055,6 +3055,12 @@
     {
       "type": 0,
       "value": "Cabeçalhos"
+    }
+  ],
+  "HX3Xmx": [
+    {
+      "type": 0,
+      "value": "A eliminar..."
     }
   ],
   "HYhDYB": [
@@ -3233,6 +3239,12 @@
     {
       "type": 0,
       "value": "Sem propriedades"
+    }
+  ],
+  "IsbbsG": [
+    {
+      "type": 0,
+      "value": "Quando um novo item"
     }
   ],
   "IxWip7": [
@@ -3419,20 +3431,6 @@
       "value": "Alterar referência de ligação"
     }
   ],
-  "KNDVnN": [
-    {
-      "type": 0,
-      "value": "Substituir \""
-    },
-    {
-      "type": 1,
-      "value": "selectedOperation"
-    },
-    {
-      "type": 0,
-      "value": "\" por"
-    }
-  ],
   "KV4uky": [
     {
       "type": 0,
@@ -3583,7 +3581,7 @@
   "LPdGu/": [
     {
       "type": 0,
-      "value": "Ouputs should not be provided when status is \"Failed\""
+      "value": "As saídas não devem ser fornecidas quando o estado é “Falhado”"
     }
   ],
   "LR/3Lr": [
@@ -3722,12 +3720,6 @@
     {
       "type": 0,
       "value": "Vista de código"
-    }
-  ],
-  "M3kJsI": [
-    {
-      "type": 0,
-      "value": "Todas as semanas à segunda-feira"
     }
   ],
   "M4H0gh": [
@@ -4114,12 +4106,6 @@
       "value": "A carregar todos os conectores..."
     }
   ],
-  "OQud51": [
-    {
-      "type": 0,
-      "value": "Quero saber mais sobre"
-    }
-  ],
   "OSHNZ2": [
     {
       "type": 0,
@@ -4214,6 +4200,20 @@
     {
       "type": 0,
       "value": "Selecionar uma identidade gerida"
+    }
+  ],
+  "OrPVcU": [
+    {
+      "type": 0,
+      "value": "Divisão inválida no formato em “"
+    },
+    {
+      "type": 1,
+      "value": "splitOn"
+    },
+    {
+      "type": 0,
+      "value": "”."
     }
   ],
   "Ov7Ckz": [
@@ -4869,6 +4869,12 @@
       "value": "Tipo de Ação"
     }
   ],
+  "TUdPdI": [
+    {
+      "type": 0,
+      "value": "Objeto Seguro"
+    }
+  ],
   "TX4Kdr": [
     {
       "type": 0,
@@ -5043,16 +5049,6 @@
       "value": "Eliminar Ação de Fluxo de Trabalho"
     }
   ],
-  "UF3KjL": [
-    {
-      "type": 0,
-      "value": "Experimente utilizar uma função de Conversão, como: "
-    },
-    {
-      "type": 1,
-      "value": "conversionFunctions"
-    }
-  ],
   "UHCVNK": [
     {
       "type": 0,
@@ -5097,12 +5093,6 @@
     {
       "type": 0,
       "value": "Obrigatório. A coleção da qual se deve tirar o último objeto."
-    }
-  ],
-  "UW+fkB": [
-    {
-      "type": 0,
-      "value": "Enviar-me um e-mail quando"
     }
   ],
   "UYRIS/": [
@@ -5801,12 +5791,6 @@
       "value": "Palavra-passe"
     }
   ],
-  "Y04+GH": [
-    {
-      "type": 0,
-      "value": "Adicionar uma ação"
-    }
-  ],
   "Y0H9aX": [
     {
       "type": 0,
@@ -6018,7 +6002,7 @@
   "Yz9o1k": [
     {
       "type": 0,
-      "value": "Not connected."
+      "value": "Não ligado."
     }
   ],
   "Z8tBFS": [
@@ -6065,6 +6049,12 @@
     {
       "type": 0,
       "value": "Corpo"
+    }
+  ],
+  "ZKnJnh": [
+    {
+      "type": 0,
+      "value": "Cadeia Segura"
     }
   ],
   "ZM1mRy": [
@@ -6243,6 +6233,20 @@
     {
       "type": 0,
       "value": "Corpo"
+    }
+  ],
+  "bC2LBK": [
+    {
+      "type": 0,
+      "value": "Não é recomendado definir um valor predefinido para o tipo “"
+    },
+    {
+      "type": 1,
+      "value": "type"
+    },
+    {
+      "type": 0,
+      "value": "” porque será armazenado como texto simples."
     }
   ],
   "bG9rjv": [
@@ -6551,6 +6555,12 @@
       "value": "Saber mais"
     }
   ],
+  "dKCp2j": [
+    {
+      "type": 0,
+      "value": "Quero saber mais sobre"
+    }
+  ],
   "dL9V5t": [
     {
       "type": 0,
@@ -6709,6 +6719,12 @@
       "value": "Especifique a duração no formato ISO 8601"
     }
   ],
+  "eI00kb": [
+    {
+      "type": 0,
+      "value": "Edite este fluxo para"
+    }
+  ],
   "eO1h/h": [
     {
       "type": 0,
@@ -6761,12 +6777,6 @@
     {
       "type": 0,
       "value": "Partilhada"
-    }
-  ],
-  "eqAUdj": [
-    {
-      "type": 0,
-      "value": "Quando um novo item"
     }
   ],
   "evyGYj": [
@@ -6833,20 +6843,6 @@
     {
       "type": 0,
       "value": "A carregar dados de ligação..."
-    }
-  ],
-  "fc1AV8": [
-    {
-      "type": 0,
-      "value": "HTTP "
-    },
-    {
-      "type": 1,
-      "value": "method"
-    },
-    {
-      "type": 0,
-      "value": " URL"
     }
   ],
   "fg/34o": [
@@ -6949,20 +6945,6 @@
     {
       "type": 0,
       "value": "Formatar texto como itálico. Atalho: Ctrl+I"
-    }
-  ],
-  "gKEaXI": [
-    {
-      "type": 0,
-      "value": "Copiar o valor de \""
-    },
-    {
-      "type": 1,
-      "value": "label"
-    },
-    {
-      "type": 0,
-      "value": "\" para a área de transferência"
     }
   ],
   "gKq3Jv": [
@@ -7394,6 +7376,12 @@
       "value": "Exemplo: 0, 10"
     }
   ],
+  "iXW+2l": [
+    {
+      "type": 0,
+      "value": "Adicionar uma ação"
+    }
+  ],
   "id4DBb": [
     {
       "type": 0,
@@ -7815,6 +7803,20 @@
       "value": "Identidade Gerida"
     }
   ],
+  "lA/sHA": [
+    {
+      "type": 0,
+      "value": "Copiar o valor de “"
+    },
+    {
+      "type": 1,
+      "value": "label"
+    },
+    {
+      "type": 0,
+      "value": "” para a área de transferência"
+    }
+  ],
   "lB56l2": [
     {
       "type": 0,
@@ -7881,12 +7883,6 @@
     {
       "type": 0,
       "value": "Modo de execução sem estado:"
-    }
-  ],
-  "lh0TuF": [
-    {
-      "type": 0,
-      "value": "Lista pendente para selecionar caminho de ficheiro"
     }
   ],
   "lhL/KL": [
@@ -8271,6 +8267,12 @@
     {
       "type": 0,
       "value": "(UTC+10:00) Brisbane"
+    }
+  ],
+  "nwLd4b": [
+    {
+      "type": 0,
+      "value": "Lista pendente para selecionar caminho de ficheiro"
     }
   ],
   "nx25nq": [
@@ -9081,7 +9083,7 @@
   "svaqnp": [
     {
       "type": 0,
-      "value": "Error should not be provided when status is \"Succeeded\""
+      "value": "O erro não deve ser fornecido quando o estado é “Com êxito”"
     }
   ],
   "sw6EXK": [
@@ -9122,10 +9124,16 @@
       "value": "Obrigatório. Uma cadeia que contém o nome do fuso horário de destino. Veja https://msdn.microsoft.com/en-us/library/gg154758.aspx para obter detalhes."
     }
   ],
+  "t/RPwA": [
+    {
+      "type": 0,
+      "value": "resultados encontrados"
+    }
+  ],
   "t9RwOi": [
     {
       "type": 0,
-      "value": "The expression is invalid."
+      "value": "A expressão é inválida."
     }
   ],
   "tAbbH8": [
@@ -9446,6 +9454,16 @@
     {
       "type": 0,
       "value": "Variáveis"
+    }
+  ],
+  "ur3P27": [
+    {
+      "type": 0,
+      "value": "Experimente utilizar uma função de Conversão, como: "
+    },
+    {
+      "type": 1,
+      "value": "conversionFunctions"
     }
   ],
   "urAHv1": [

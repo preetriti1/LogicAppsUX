@@ -11,7 +11,7 @@ import {
   openPanel,
 } from '@microsoft/logic-apps-designer';
 import type { RootState } from '@microsoft/logic-apps-designer';
-import { RUN_AFTER_COLORS, isNullOrEmpty } from '@microsoft/utils-logic-apps';
+import { RUN_AFTER_COLORS, isNullOrEmpty } from '@microsoft/logic-apps-shared';
 import { ExtensionCommand } from '@microsoft/vscode-extension';
 import { createSelector } from '@reduxjs/toolkit';
 import { useContext, useMemo } from 'react';
@@ -79,18 +79,22 @@ export const DesignerCommandBar: React.FC<DesignerCommandBarProps> = ({ isRefres
   const Resources = {
     DESIGNER_SAVE: intl.formatMessage({
       defaultMessage: 'Save',
+      id: 'ZvAp7m',
       description: 'Button text for save',
     }),
     DESIGNER_PARAMETERS: intl.formatMessage({
       defaultMessage: 'Parameters',
+      id: '+0ua83',
       description: 'Button text for parameters',
     }),
     MONITORING_VIEW_REFRESH: intl.formatMessage({
       defaultMessage: 'Refresh',
+      id: 'pr9GwA',
       description: 'Button text for refresh',
     }),
     MONITORING_VIEW_RESUBMIT: intl.formatMessage({
       defaultMessage: 'Resubmit',
+      id: 'sOnphB',
       description: 'Button text for resubmit',
     }),
   };

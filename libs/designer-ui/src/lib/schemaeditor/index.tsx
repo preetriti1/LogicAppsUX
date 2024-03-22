@@ -3,7 +3,7 @@ import type { ValueSegment } from '../editor';
 import { ValueSegmentType } from '../editor';
 import type { ChangeHandler } from '../editor/base';
 import type { EditorContentChangedEventArgs } from '../editor/monaco';
-import { MonacoEditor as Editor, EditorLanguage } from '../editor/monaco';
+import { MonacoEditor, EditorLanguage } from '../editor/monaco';
 import { ModalDialog } from '../modaldialog';
 import { generateSchemaFromJsonString } from '../workflow/schema/generator';
 import type { IDialogStyles, IStyle } from '@fluentui/react';
@@ -57,16 +57,19 @@ export function SchemaEditor({ readonly, label, initialValue, onChange, onFocus 
 
   const schemaEditorLabel = intl.formatMessage({
     defaultMessage: 'Use sample payload to generate schema',
+    id: 'DGMwU4',
     description: 'Button Label for allowing users to generate from schema',
   });
 
   const DONE_TEXT = intl.formatMessage({
     defaultMessage: 'Done',
+    id: 'SvQyvs',
     description: 'confirmation text',
   });
 
   const SCHEMA_EDITOR_SAMPLE_PAYLOAD_DESCRIPTION = intl.formatMessage({
     defaultMessage: 'Enter or paste a sample JSON payload.',
+    id: 'h1lQDa',
     description: 'Modal Title text',
   });
   const handleContentChanged = (e: EditorContentChangedEventArgs): void => {
@@ -102,6 +105,7 @@ export function SchemaEditor({ readonly, label, initialValue, onChange, onFocus 
       } catch (ex) {
         const error = intl.formatMessage({
           defaultMessage: 'Unable to generate schema',
+          id: 'jgOaTX',
           description: 'Error Message on generating schema based on payload',
         });
         setErrorMessage(error);
@@ -121,7 +125,7 @@ export function SchemaEditor({ readonly, label, initialValue, onChange, onFocus 
 
   return (
     <div className="msla-schema-editor-body">
-      <Editor
+      <MonacoEditor
         label={label}
         height={editorHeight}
         value={getCurrentValue()}
@@ -149,7 +153,7 @@ export function SchemaEditor({ readonly, label, initialValue, onChange, onFocus 
         onDismiss={closeModal}
       >
         <div className="msla-schema-editor-modal-body">
-          <Editor
+          <MonacoEditor
             ref={modalEditorRef}
             fontSize={13}
             language={EditorLanguage.json}

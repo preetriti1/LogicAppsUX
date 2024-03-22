@@ -11,7 +11,6 @@ import { WorkflowKind } from '../../state/workflow/workflowInterfaces';
 import type { WorkflowParameterDefinition } from '../../state/workflowparameters/workflowparametersSlice';
 import { initializeParameters } from '../../state/workflowparameters/workflowparametersSlice';
 import type { RootState } from '../../store';
-import { getBrandColorFromConnector, getIconUriFromConnector } from '../../utils/card';
 import { getTriggerNodeId, isRootNodeInGraph } from '../../utils/graph';
 import { getSplitOnOptions, getUpdatedManifestForSchemaDependency, getUpdatedManifestForSplitOn, toOutputInfo } from '../../utils/outputs';
 import {
@@ -47,34 +46,36 @@ import {
   ApiManagementService,
 } from '@microsoft/designer-client-services-logic-apps';
 import type { OutputToken, ParameterInfo } from '@microsoft/designer-ui';
-import { getIntl } from '@microsoft/intl-logic-apps';
-import type { SchemaProperty, InputParameter, SwaggerParser, OutputParameter } from '@microsoft/parsers-logic-apps';
 import {
+  clone,
+  ConnectionReferenceKeyFormat,
+  CustomSwaggerServiceNames,
+  DynamicSchemaType,
+  equals,
+  getBrandColorFromConnector,
+  getIconUriFromConnector,
+  getObjectPropertyValue,
   isDynamicListExtension,
   isDynamicPropertiesExtension,
   isDynamicSchemaExtension,
   isDynamicTreeExtension,
   isLegacyDynamicValuesExtension,
   isLegacyDynamicValuesTreeExtension,
-  DynamicSchemaType,
   ManifestParser,
   PropertyName,
-} from '@microsoft/parsers-logic-apps';
-import {
-  CustomSwaggerServiceNames,
-  UnsupportedException,
-  clone,
-  equals,
-  ConnectionReferenceKeyFormat,
   unmap,
-  getObjectPropertyValue,
-} from '@microsoft/utils-logic-apps';
+  UnsupportedException,
+} from '@microsoft/logic-apps-shared';
 import type {
   CustomSwaggerServiceDetails,
+  InputParameter,
   OperationInfo,
   OperationManifest,
   OperationManifestProperties,
-} from '@microsoft/utils-logic-apps';
+  OutputParameter,
+  SchemaProperty,
+  SwaggerParser,
+} from '@microsoft/logic-apps-shared';
 import type { Dispatch } from '@reduxjs/toolkit';
 
 export interface ServiceOptions {
@@ -434,10 +435,6 @@ export const updateCallbackUrlInInputs = async (
       const parameter = getParameterFromName(nodeInputs, 'callbackUrl');
 
       if (parameter && callbackInfo) {
-        parameter.label = getIntl().formatMessage(
-          { defaultMessage: 'HTTP {method} URL', description: 'Callback url method' },
-          { method: callbackInfo.method }
-        );
         parameter.value = [createLiteralValueSegment(callbackInfo.value)];
 
         return parameter;

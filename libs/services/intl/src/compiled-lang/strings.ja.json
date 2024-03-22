@@ -41,6 +41,12 @@
       "value": "トリガー"
     }
   ],
+  "+KXX+O": [
+    {
+      "type": 0,
+      "value": "関数の選択元"
+    }
+  ],
   "+M72+a": [
     {
       "type": 0,
@@ -973,6 +979,12 @@
       "value": "再試行ポリシー"
     }
   ],
+  "4Levd5": [
+    {
+      "type": 0,
+      "value": "メールを送信する場合"
+    }
+  ],
   "4Q7WzU": [
     {
       "type": 0,
@@ -1207,6 +1219,12 @@
       "value": "操作の入力をセキュリティで保護します"
     }
   ],
+  "635Koz": [
+    {
+      "type": 0,
+      "value": "毎週月曜日の"
+    }
+  ],
   "63CC7M": [
     {
       "type": 0,
@@ -1356,13 +1374,7 @@
   "6yFUar": [
     {
       "type": 0,
-      "value": "Outputs are required when status is \"Succeeded\""
-    }
-  ],
-  "70eoQu": [
-    {
-      "type": 0,
-      "value": "関数の選択元"
+      "value": "状態が \"成功\" の場合には、出力が必要です"
     }
   ],
   "73iM9+": [
@@ -1601,12 +1613,6 @@
       "value": "フローの変更方法を説明してください。使用するコネクタやコンテンツを含める必要があるかどうかなど、可能な場合は詳細情報を追加してください。"
     }
   ],
-  "8Q7ns/": [
-    {
-      "type": 0,
-      "value": "このフローを次のものに編集してください"
-    }
-  ],
   "8U0KPg": [
     {
       "type": 0,
@@ -1763,6 +1769,20 @@
       "value": "フローを元に戻す"
     }
   ],
+  "9QS9a3": [
+    {
+      "type": 0,
+      "value": "\""
+    },
+    {
+      "type": 1,
+      "value": "selectedOperation"
+    },
+    {
+      "type": 0,
+      "value": "\"と置き換える操作"
+    }
+  ],
   "9SuA/E": [
     {
       "type": 0,
@@ -1884,7 +1904,7 @@
   "ANGw2o": [
     {
       "type": 0,
-      "value": "Click for more information on Static Result"
+      "value": "クリックすると、静的な結果に関する詳細情報が表示されます"
     }
   ],
   "AO6T9u": [
@@ -2092,12 +2112,6 @@
     {
       "type": 0,
       "value": "パスワードをプレーンテキストとして入力するか、セキュリティで保護されたパラメーターを使用してください"
-    }
-  ],
-  "BQyLiu": [
-    {
-      "type": 0,
-      "value": "件の結果が見つかりました"
     }
   ],
   "BS3gy8": [
@@ -2759,12 +2773,6 @@
       "value": "アレイの各項目が区切り記号で結合されている文字列を返します"
     }
   ],
-  "G/CC5/": [
-    {
-      "type": 0,
-      "value": "{splitOn} の形式の分割が無効です。"
-    }
-  ],
   "G0XYrd": [
     {
       "type": 0,
@@ -2954,7 +2962,7 @@
   "H9CZTr": [
     {
       "type": 0,
-      "value": "The expression is invalid. Make sure to use single quotes."
+      "value": "式が無効です。単一引用符を使用してください。"
     }
   ],
   "HDqP2g": [
@@ -2966,7 +2974,7 @@
   "HGA9iU": [
     {
       "type": 0,
-      "value": "The Error and its code is required when status is \"Failed\""
+      "value": "状態が \"失敗\" の場合には、エラーとそのコードが必要です"
     }
   ],
   "HH970i": [
@@ -2991,6 +2999,12 @@
     {
       "type": 0,
       "value": "ヘッダー"
+    }
+  ],
+  "HX3Xmx": [
+    {
+      "type": 0,
+      "value": "削除しています..."
     }
   ],
   "HYhDYB": [
@@ -3169,6 +3183,12 @@
     {
       "type": 0,
       "value": "プロパティなし"
+    }
+  ],
+  "IsbbsG": [
+    {
+      "type": 0,
+      "value": "新しいアイテム"
     }
   ],
   "IxWip7": [
@@ -3355,20 +3375,6 @@
       "value": "接続参照の変更"
     }
   ],
-  "KNDVnN": [
-    {
-      "type": 0,
-      "value": "\""
-    },
-    {
-      "type": 1,
-      "value": "selectedOperation"
-    },
-    {
-      "type": 0,
-      "value": "\"と置き換える操作"
-    }
-  ],
   "KV4uky": [
     {
       "type": 0,
@@ -3497,7 +3503,7 @@
   "LPdGu/": [
     {
       "type": 0,
-      "value": "Ouputs should not be provided when status is \"Failed\""
+      "value": "状態が \"失敗\" の場合には、出力を提供しないでください"
     }
   ],
   "LR/3Lr": [
@@ -3636,12 +3642,6 @@
     {
       "type": 0,
       "value": "コード ビュー"
-    }
-  ],
-  "M3kJsI": [
-    {
-      "type": 0,
-      "value": "毎週月曜日の"
     }
   ],
   "M4H0gh": [
@@ -4028,12 +4028,6 @@
       "value": "すべてのコネクタを読み込んでいます..."
     }
   ],
-  "OQud51": [
-    {
-      "type": 0,
-      "value": "次のものの詳細を説明してください"
-    }
-  ],
   "OSHNZ2": [
     {
       "type": 0,
@@ -4128,6 +4122,20 @@
     {
       "type": 0,
       "value": "マネージド ID を選択してください"
+    }
+  ],
+  "OrPVcU": [
+    {
+      "type": 0,
+      "value": "Invalid split on format in '"
+    },
+    {
+      "type": 1,
+      "value": "splitOn"
+    },
+    {
+      "type": 0,
+      "value": "'."
     }
   ],
   "Ov7Ckz": [
@@ -4765,6 +4773,12 @@
       "value": "アクションの種類"
     }
   ],
+  "TUdPdI": [
+    {
+      "type": 0,
+      "value": "セキュリティで保護されたオブジェクト"
+    }
+  ],
   "TX4Kdr": [
     {
       "type": 0,
@@ -4935,16 +4949,6 @@
       "value": "Workflowアクションの削除"
     }
   ],
-  "UF3KjL": [
-    {
-      "type": 0,
-      "value": "次のような変換関数を使用してみてください: "
-    },
-    {
-      "type": 1,
-      "value": "conversionFunctions"
-    }
-  ],
   "UHCVNK": [
     {
       "type": 0,
@@ -4989,12 +4993,6 @@
     {
       "type": 0,
       "value": "必須。最後のオブジェクトの取得元となるコレクション。"
-    }
-  ],
-  "UW+fkB": [
-    {
-      "type": 0,
-      "value": "メールを送信する場合"
     }
   ],
   "UYRIS/": [
@@ -5689,12 +5687,6 @@
       "value": "パスワード"
     }
   ],
-  "Y04+GH": [
-    {
-      "type": 0,
-      "value": "アクションを追加してください"
-    }
-  ],
   "Y0H9aX": [
     {
       "type": 0,
@@ -5906,7 +5898,7 @@
   "Yz9o1k": [
     {
       "type": 0,
-      "value": "Not connected."
+      "value": "接続されていません。"
     }
   ],
   "Z8tBFS": [
@@ -5953,6 +5945,12 @@
     {
       "type": 0,
       "value": "本文"
+    }
+  ],
+  "ZKnJnh": [
+    {
+      "type": 0,
+      "value": "安全な文字列"
     }
   ],
   "ZM1mRy": [
@@ -6131,6 +6129,20 @@
     {
       "type": 0,
       "value": "本文"
+    }
+  ],
+  "bC2LBK": [
+    {
+      "type": 0,
+      "value": "種類 \""
+    },
+    {
+      "type": 1,
+      "value": "type"
+    },
+    {
+      "type": 0,
+      "value": "\" の既定値はプレーンテキストとして保存されるため、設定しないことをお勧めします。"
     }
   ],
   "bG9rjv": [
@@ -6439,6 +6451,12 @@
       "value": "詳細情報"
     }
   ],
+  "dKCp2j": [
+    {
+      "type": 0,
+      "value": "次のものの詳細を説明してください"
+    }
+  ],
   "dL9V5t": [
     {
       "type": 0,
@@ -6593,6 +6611,12 @@
       "value": "ISO 8601 形式で期間を指定します"
     }
   ],
+  "eI00kb": [
+    {
+      "type": 0,
+      "value": "このフローを次のものに編集してください"
+    }
+  ],
   "eO1h/h": [
     {
       "type": 0,
@@ -6645,12 +6669,6 @@
     {
       "type": 0,
       "value": "共有済み"
-    }
-  ],
-  "eqAUdj": [
-    {
-      "type": 0,
-      "value": "新しいアイテム"
     }
   ],
   "evyGYj": [
@@ -6717,20 +6735,6 @@
     {
       "type": 0,
       "value": "接続データを読み込んでいます..."
-    }
-  ],
-  "fc1AV8": [
-    {
-      "type": 0,
-      "value": "HTTP "
-    },
-    {
-      "type": 1,
-      "value": "method"
-    },
-    {
-      "type": 0,
-      "value": " URL"
     }
   ],
   "fg/34o": [
@@ -6833,12 +6837,6 @@
     {
       "type": 0,
       "value": "テキストを斜体で書式設定します。ショートカット: Ctrl+I"
-    }
-  ],
-  "gKEaXI": [
-    {
-      "type": 0,
-      "value": "{label} の値をクリップボードにコピーします"
     }
   ],
   "gKq3Jv": [
@@ -7244,6 +7242,12 @@
       "value": "例: 0、10"
     }
   ],
+  "iXW+2l": [
+    {
+      "type": 0,
+      "value": "アクションを追加してください"
+    }
+  ],
   "id4DBb": [
     {
       "type": 0,
@@ -7643,6 +7647,20 @@
       "value": "マネージド ID"
     }
   ],
+  "lA/sHA": [
+    {
+      "type": 0,
+      "value": "Copy the value of '"
+    },
+    {
+      "type": 1,
+      "value": "label"
+    },
+    {
+      "type": 0,
+      "value": "' to the clipboard"
+    }
+  ],
   "lB56l2": [
     {
       "type": 0,
@@ -7701,12 +7719,6 @@
     {
       "type": 0,
       "value": "ステートレス実行モード:"
-    }
-  ],
-  "lh0TuF": [
-    {
-      "type": 0,
-      "value": "ファイルパスを選択するためのドロップダウン"
     }
   ],
   "lhL/KL": [
@@ -8091,6 +8103,12 @@
     {
       "type": 0,
       "value": "(UTC+10:00) ブリスベン"
+    }
+  ],
+  "nwLd4b": [
+    {
+      "type": 0,
+      "value": "ファイルパスを選択するためのドロップダウン"
     }
   ],
   "nx25nq": [
@@ -8875,7 +8893,7 @@
   "svaqnp": [
     {
       "type": 0,
-      "value": "Error should not be provided when status is \"Succeeded\""
+      "value": "状態が \"成功\" の場合には、エラーを提供しないでください"
     }
   ],
   "sw6EXK": [
@@ -8916,10 +8934,16 @@
       "value": "必須。変換先のタイム ゾーンのタイム ゾーン名を含む文字列です。詳しくは、https://msdn.microsoft.com/ja-jp/library/gg154758.aspx をご覧ください。"
     }
   ],
+  "t/RPwA": [
+    {
+      "type": 0,
+      "value": "件の結果が見つかりました"
+    }
+  ],
   "t9RwOi": [
     {
       "type": 0,
-      "value": "The expression is invalid."
+      "value": "式が無効です。"
     }
   ],
   "tAbbH8": [
@@ -9236,6 +9260,16 @@
     {
       "type": 0,
       "value": "変数"
+    }
+  ],
+  "ur3P27": [
+    {
+      "type": 0,
+      "value": "次のような変換関数を使用してみてください: "
+    },
+    {
+      "type": 1,
+      "value": "conversionFunctions"
     }
   ],
   "urAHv1": [

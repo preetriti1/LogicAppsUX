@@ -41,6 +41,12 @@
       "value": "Trigger"
     }
   ],
+  "+KXX+O": [
+    {
+      "type": 0,
+      "value": "Selezionare funzione da"
+    }
+  ],
   "+M72+a": [
     {
       "type": 0,
@@ -973,6 +979,12 @@
       "value": "Criteri di ripetizione"
     }
   ],
+  "4Levd5": [
+    {
+      "type": 0,
+      "value": "Inviami un messaggio di posta elettronica quando"
+    }
+  ],
   "4Q7WzU": [
     {
       "type": 0,
@@ -1207,6 +1219,12 @@
       "value": "Input sicuri dell'operazione"
     }
   ],
+  "635Koz": [
+    {
+      "type": 0,
+      "value": "Ogni settimana di lunedì"
+    }
+  ],
   "63CC7M": [
     {
       "type": 0,
@@ -1356,13 +1374,7 @@
   "6yFUar": [
     {
       "type": 0,
-      "value": "Outputs are required when status is \"Succeeded\""
-    }
-  ],
-  "70eoQu": [
-    {
-      "type": 0,
-      "value": "Selezionare funzione da"
+      "value": "Gli output sono obbligatori quando lo stato è \"Riuscito\""
     }
   ],
   "73iM9+": [
@@ -1601,12 +1613,6 @@
       "value": "Descrivere come deve essere modificato il flusso. Aggiungere i dettagli laddove possibile, come il connettore da usare e se deve essere incluso un eventuale contenuto."
     }
   ],
-  "8Q7ns/": [
-    {
-      "type": 0,
-      "value": "Modifica questo flusso in"
-    }
-  ],
   "8U0KPg": [
     {
       "type": 0,
@@ -1763,6 +1769,20 @@
       "value": "Ripristina il flusso"
     }
   ],
+  "9QS9a3": [
+    {
+      "type": 0,
+      "value": "Sostituisci \""
+    },
+    {
+      "type": 1,
+      "value": "selectedOperation"
+    },
+    {
+      "type": 0,
+      "value": "\" con"
+    }
+  ],
   "9SuA/E": [
     {
       "type": 0,
@@ -1884,7 +1904,7 @@
   "ANGw2o": [
     {
       "type": 0,
-      "value": "Click for more information on Static Result"
+      "value": "Fare clic per altre informazioni sul risultato statico"
     }
   ],
   "AO6T9u": [
@@ -2114,12 +2134,6 @@
     {
       "type": 0,
       "value": "Immettere la password come testo normale o usare un parametro protetto"
-    }
-  ],
-  "BQyLiu": [
-    {
-      "type": 0,
-      "value": "risultati trovati"
     }
   ],
   "BS3gy8": [
@@ -2799,12 +2813,6 @@
       "value": "Restituisce una stringa con ogni elemento di una matrice unito da un delimitatore"
     }
   ],
-  "G/CC5/": [
-    {
-      "type": 0,
-      "value": "Il formato dell'opzione SplitOn in {splitOn} non è valido."
-    }
-  ],
   "G0XYrd": [
     {
       "type": 0,
@@ -2994,7 +3002,7 @@
   "H9CZTr": [
     {
       "type": 0,
-      "value": "The expression is invalid. Make sure to use single quotes."
+      "value": "Espressione non valida. Assicurarsi di usare le virgolette singole."
     }
   ],
   "HDqP2g": [
@@ -3006,7 +3014,7 @@
   "HGA9iU": [
     {
       "type": 0,
-      "value": "The Error and its code is required when status is \"Failed\""
+      "value": "L'errore e il relativo codice sono obbligatori quando lo stato è \"Non riuscito\""
     }
   ],
   "HH970i": [
@@ -3031,6 +3039,12 @@
     {
       "type": 0,
       "value": "Intestazioni"
+    }
+  ],
+  "HX3Xmx": [
+    {
+      "type": 0,
+      "value": "Eliminazione in corso..."
     }
   ],
   "HYhDYB": [
@@ -3209,6 +3223,12 @@
     {
       "type": 0,
       "value": "Nessuna proprietà"
+    }
+  ],
+  "IsbbsG": [
+    {
+      "type": 0,
+      "value": "Quando un nuovo elemento"
     }
   ],
   "IxWip7": [
@@ -3395,20 +3415,6 @@
       "value": "Modifica riferimento alla connessione"
     }
   ],
-  "KNDVnN": [
-    {
-      "type": 0,
-      "value": "Sostituisci \""
-    },
-    {
-      "type": 1,
-      "value": "selectedOperation"
-    },
-    {
-      "type": 0,
-      "value": "\" con"
-    }
-  ],
   "KV4uky": [
     {
       "type": 0,
@@ -3559,7 +3565,7 @@
   "LPdGu/": [
     {
       "type": 0,
-      "value": "Ouputs should not be provided when status is \"Failed\""
+      "value": "Non specificare gli output quando lo stato è \"Non riuscito\""
     }
   ],
   "LR/3Lr": [
@@ -3698,12 +3704,6 @@
     {
       "type": 0,
       "value": "Visualizzazione Codice"
-    }
-  ],
-  "M3kJsI": [
-    {
-      "type": 0,
-      "value": "Ogni settimana di lunedì"
     }
   ],
   "M4H0gh": [
@@ -4090,12 +4090,6 @@
       "value": "Caricamento di tutti i connettori in corso..."
     }
   ],
-  "OQud51": [
-    {
-      "type": 0,
-      "value": "Altre informazioni su"
-    }
-  ],
   "OSHNZ2": [
     {
       "type": 0,
@@ -4198,6 +4192,20 @@
     {
       "type": 0,
       "value": "Selezionare un'identità gestita"
+    }
+  ],
+  "OrPVcU": [
+    {
+      "type": 0,
+      "value": "Il formato dell'opzione SplitOn in \""
+    },
+    {
+      "type": 1,
+      "value": "splitOn"
+    },
+    {
+      "type": 0,
+      "value": "\" non è valido."
     }
   ],
   "Ov7Ckz": [
@@ -4853,6 +4861,12 @@
       "value": "Tipo di azione"
     }
   ],
+  "TUdPdI": [
+    {
+      "type": 0,
+      "value": "Oggetto sicuro"
+    }
+  ],
   "TX4Kdr": [
     {
       "type": 0,
@@ -5027,16 +5041,6 @@
       "value": "Elimina azione flusso di lavoro"
     }
   ],
-  "UF3KjL": [
-    {
-      "type": 0,
-      "value": "Provare a usare una funzione di conversione, ad esempio: "
-    },
-    {
-      "type": 1,
-      "value": "conversionFunctions"
-    }
-  ],
   "UHCVNK": [
     {
       "type": 0,
@@ -5081,12 +5085,6 @@
     {
       "type": 0,
       "value": "Obbligatorio. Raccolta da cui recuperare l'ultimo oggetto."
-    }
-  ],
-  "UW+fkB": [
-    {
-      "type": 0,
-      "value": "Inviami un messaggio di posta elettronica quando"
     }
   ],
   "UYRIS/": [
@@ -5785,12 +5783,6 @@
       "value": "Password"
     }
   ],
-  "Y04+GH": [
-    {
-      "type": 0,
-      "value": "Aggiungi un'azione"
-    }
-  ],
   "Y0H9aX": [
     {
       "type": 0,
@@ -6002,7 +5994,7 @@
   "Yz9o1k": [
     {
       "type": 0,
-      "value": "Not connected."
+      "value": "Non connesso."
     }
   ],
   "Z8tBFS": [
@@ -6049,6 +6041,12 @@
     {
       "type": 0,
       "value": "Corpo"
+    }
+  ],
+  "ZKnJnh": [
+    {
+      "type": 0,
+      "value": "Stringa sicura"
     }
   ],
   "ZM1mRy": [
@@ -6227,6 +6225,20 @@
     {
       "type": 0,
       "value": "Corpo"
+    }
+  ],
+  "bC2LBK": [
+    {
+      "type": 0,
+      "value": "Non è consigliabile impostare un valore predefinito per il tipo '"
+    },
+    {
+      "type": 1,
+      "value": "type"
+    },
+    {
+      "type": 0,
+      "value": "' perché verrà archiviato come testo normale."
     }
   ],
   "bG9rjv": [
@@ -6535,6 +6547,12 @@
       "value": "Altre informazioni"
     }
   ],
+  "dKCp2j": [
+    {
+      "type": 0,
+      "value": "Altre informazioni su"
+    }
+  ],
   "dL9V5t": [
     {
       "type": 0,
@@ -6693,6 +6711,12 @@
       "value": "Specificare la durata nel formato ISO 8601"
     }
   ],
+  "eI00kb": [
+    {
+      "type": 0,
+      "value": "Modifica questo flusso in"
+    }
+  ],
   "eO1h/h": [
     {
       "type": 0,
@@ -6745,12 +6769,6 @@
     {
       "type": 0,
       "value": "Condivisa"
-    }
-  ],
-  "eqAUdj": [
-    {
-      "type": 0,
-      "value": "Quando un nuovo elemento"
     }
   ],
   "evyGYj": [
@@ -6817,20 +6835,6 @@
     {
       "type": 0,
       "value": "Caricamento dei dati di connessione in corso..."
-    }
-  ],
-  "fc1AV8": [
-    {
-      "type": 0,
-      "value": "URL "
-    },
-    {
-      "type": 1,
-      "value": "method"
-    },
-    {
-      "type": 0,
-      "value": " HTTP"
     }
   ],
   "fg/34o": [
@@ -6933,12 +6937,6 @@
     {
       "type": 0,
       "value": "Formatta il testo in corsivo. Scelta rapida: CTRL+I"
-    }
-  ],
-  "gKEaXI": [
-    {
-      "type": 0,
-      "value": "Copia il valore di {label} negli Appunti"
     }
   ],
   "gKq3Jv": [
@@ -7370,6 +7368,12 @@
       "value": "Esempio: 0, 10"
     }
   ],
+  "iXW+2l": [
+    {
+      "type": 0,
+      "value": "Aggiungi un'azione"
+    }
+  ],
   "id4DBb": [
     {
       "type": 0,
@@ -7791,6 +7795,20 @@
       "value": "Identità gestita"
     }
   ],
+  "lA/sHA": [
+    {
+      "type": 0,
+      "value": "Copia il valore di \""
+    },
+    {
+      "type": 1,
+      "value": "label"
+    },
+    {
+      "type": 0,
+      "value": "\" negli Appunti"
+    }
+  ],
   "lB56l2": [
     {
       "type": 0,
@@ -7857,12 +7875,6 @@
     {
       "type": 0,
       "value": "Modalità di esecuzione senza stato:"
-    }
-  ],
-  "lh0TuF": [
-    {
-      "type": 0,
-      "value": "Elenco a discesa per selezionare il percorso file"
     }
   ],
   "lhL/KL": [
@@ -8243,6 +8255,12 @@
     {
       "type": 0,
       "value": "(UTC+10:00) Brisbane"
+    }
+  ],
+  "nwLd4b": [
+    {
+      "type": 0,
+      "value": "Elenco a discesa per selezionare il percorso file"
     }
   ],
   "nx25nq": [
@@ -9053,7 +9071,7 @@
   "svaqnp": [
     {
       "type": 0,
-      "value": "Error should not be provided when status is \"Succeeded\""
+      "value": "Non specificare l'errore quando lo stato è \"Riuscito\""
     }
   ],
   "sw6EXK": [
@@ -9094,10 +9112,16 @@
       "value": "Obbligatorio. Stringa contenente il nome del fuso orario del fuso orario di destinazione. Per informazioni dettagliate, vedere https://msdn.microsoft.com/en-us/library/gg154758.aspx."
     }
   ],
+  "t/RPwA": [
+    {
+      "type": 0,
+      "value": "risultati trovati"
+    }
+  ],
   "t9RwOi": [
     {
       "type": 0,
-      "value": "The expression is invalid."
+      "value": "Espressione non valida."
     }
   ],
   "tAbbH8": [
@@ -9418,6 +9442,16 @@
     {
       "type": 0,
       "value": "Variabili"
+    }
+  ],
+  "ur3P27": [
+    {
+      "type": 0,
+      "value": "Provare a usare una funzione di conversione, ad esempio: "
+    },
+    {
+      "type": 1,
+      "value": "conversionFunctions"
     }
   ],
   "urAHv1": [

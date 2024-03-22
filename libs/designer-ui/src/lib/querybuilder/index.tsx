@@ -5,7 +5,7 @@ import { Group } from './Group';
 import { GroupDropdownOptions } from './GroupDropdown';
 import { RowDropdownOptions } from './RowDropdown';
 import { checkHeights, getGroupedItems } from './helper';
-import { guid } from '@microsoft/utils-logic-apps';
+import { guid } from '@microsoft/logic-apps-shared';
 import { useFunctionalState, useUpdateEffect } from '@react-hookz/web';
 import { useEffect, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
@@ -90,6 +90,7 @@ export const QueryBuilderEditor = ({
   if (showDescription) {
     description = intl.formatMessage({
       defaultMessage: 'Provide the values to compare and select the operator to use.',
+      id: '5gOG+F',
       description: 'Text description for how to use the Condition action.',
     });
   }

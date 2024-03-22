@@ -3,7 +3,7 @@ import { ValueSegmentType } from '../editor';
 import type { BaseEditorProps } from '../editor/base';
 import TokenPickerButtonLegacy from '../editor/base/plugins/TokenPickerButtonLegacy';
 import type { EditorContentChangedEventArgs, EditorLanguage } from '../editor/monaco';
-import { MonacoEditor as Editor } from '../editor/monaco';
+import { MonacoEditor } from '../editor/monaco';
 import { useId } from '../useId';
 import { buildInlineCodeTextFromToken, getEditorHeight, getInitialValue } from './util';
 import { useFunctionalState } from '@react-hookz/web';
@@ -57,13 +57,6 @@ export function CodeEditor({
     setInTokenPicker(!getInTokenPicker());
   };
 
-  const setIsInTokenpicker = (b: boolean) => {
-    setInTokenPicker(b);
-    if (!b) {
-      codeEditorRef.current?.focus();
-    }
-  };
-
   const tokenClicked = (valueSegment: ValueSegment) => {
     if (codeEditorRef.current && valueSegment.token) {
       const newText = buildInlineCodeTextFromToken(valueSegment.token, language);
@@ -82,7 +75,8 @@ export function CodeEditor({
   const getLabel = (label?: string): string => {
     return intl.formatMessage(
       {
-        defaultMessage: "{label} To add dynamic data, press the Alt + '/' keys.",
+        defaultMessage: `{label} To add dynamic data, press the Alt + '/' keys.`,
+        id: 'IdOhPY',
         description: 'This is an a11y message meant to help screen reader users figure out how to insert dynamic data',
       },
       { label }
@@ -91,7 +85,7 @@ export function CodeEditor({
 
   return (
     <div className="msla-code-editor-body" id={editorId}>
-      <Editor
+      <MonacoEditor
         label={getLabel(label)}
         ref={codeEditorRef}
         height={editorHeight}
@@ -121,7 +115,6 @@ export function CodeEditor({
             callOutLabelId,
             undefined /* TokenPickerMode: undefined uses legacy tokenpicker */,
             undefined /* Editortype: undefined defaults to parameter type */,
-            setIsInTokenpicker,
             tokenClicked
           )
         : null}
