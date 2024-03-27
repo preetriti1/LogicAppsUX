@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [2.128.1](https://github.com/Azure/LogicAppsUX/compare/v2.128.0...v2.128.1) (2024-03-27)
+
+
+### Bug Fixes
+
+* **designer-ui:** Add support for `<img src=>` in raw HTML editor ([#4422](https://github.com/Azure/LogicAppsUX/issues/4422)) ([f52a2e9](https://github.com/Azure/LogicAppsUX/commit/f52a2e9c201f7bcf38fded9613163b2397708880))
+
 ## [2.128.0](https://github.com/Azure/LogicAppsUX/compare/v2.127.0...v2.128.0) (2024-03-22)
 
 
