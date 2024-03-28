@@ -1,21 +1,4 @@
 import {
-  type UpdateAccessTokenMessage,
-  type UpdateExportPathMessage,
-  type AddStatusMessage,
-  type SetFinalStatusMessage,
-  type FetchSchemaMessage,
-  type LoadDataMapMessage,
-  type ShowAvailableSchemasMessage,
-  type GetAvailableCustomXsltPathsMessage,
-  type SetXsltDataMessage,
-  type SetRuntimePortMessage,
-  type GetConfigurationSettingMessage,
-  type InjectValuesMessage,
-  type UpdatePanelMetadataMessage,
-  type CompleteFileSystemConnectionMessage,
-  type ReceiveCallbackMessage,
-} from './run-service';
-import {
   changeCustomXsltPathList,
   changeDataMapMetadata,
   changeMapDefinition,
@@ -26,12 +9,20 @@ import {
   changeUseExpandedFunctionCards,
   changeXsltContent,
   changeXsltFilename,
-} from './state/DataMapSlice';
-import { initializeDesigner, updateCallbackUrl, updateFileSystemConnection, updatePanelMetadata } from './state/DesignerSlice';
-import type { InitializePayload } from './state/WorkflowSlice';
-import { initializeWorkflow, updateAccessToken, updateTargetDirectory, addStatus, setFinalStatus } from './state/WorkflowSlice';
-import { initialize } from './state/projectSlice';
-import type { AppDispatch, RootState } from './state/store';
+} from '../state/DataMapSlice';
+import { initializeDesigner, updateCallbackUrl, updateFileSystemConnection, updatePanelMetadata } from '../state/DesignerSlice';
+import { initializeUnitTest, type InitializeUnitTestPayload } from '../state/UnitTestSlice';
+import {
+  initializeWorkflow,
+  type InitializePayload,
+  updateAccessToken,
+  updateTargetDirectory,
+  addStatus,
+  setFinalStatus,
+} from '../state/WorkflowSlice';
+import { initialize } from '../state/projectSlice';
+import type { AppDispatch, RootState } from '../state/store';
+import type { MessageType } from './messageTypes';
 import { SchemaType } from '@microsoft/utils-logic-apps';
 import { ExtensionCommand, ProjectName } from '@microsoft/vscode-extension';
 import useEventListener from '@use-it/event-listener';
@@ -42,18 +33,6 @@ import type { WebviewApi } from 'vscode-webview';
 
 const vscode: WebviewApi<unknown> = acquireVsCodeApi();
 export const VSCodeContext = React.createContext(vscode);
-
-type DesignerMessageType = ReceiveCallbackMessage | CompleteFileSystemConnectionMessage | UpdatePanelMetadataMessage;
-type DataMapperMessageType =
-  | FetchSchemaMessage
-  | LoadDataMapMessage
-  | ShowAvailableSchemasMessage
-  | GetAvailableCustomXsltPathsMessage
-  | SetXsltDataMessage
-  | SetRuntimePortMessage
-  | GetConfigurationSettingMessage;
-type WorkflowMessageType = UpdateAccessTokenMessage | UpdateExportPathMessage | AddStatusMessage | SetFinalStatusMessage;
-type MessageType = InjectValuesMessage | DesignerMessageType | DataMapperMessageType | WorkflowMessageType;
 
 export const WebViewCommunication: React.FC<{ children: ReactNode }> = ({ children }) => {
   const dispatch: AppDispatch = useDispatch();
@@ -125,7 +104,7 @@ export const WebViewCommunication: React.FC<{ children: ReactNode }> = ({ childr
       case ProjectName.unitTest: {
         switch (message.command) {
           case ExtensionCommand.initialize_frame:
-            dispatch(initializeWorkflow(message.data as InitializePayload));
+            dispatch(initializeUnitTest(message.data as InitializeUnitTestPayload));
             break;
           default:
             throw new Error('Unknown post message received');

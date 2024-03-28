@@ -1,15 +1,16 @@
 import type { RootState } from '../../state/store';
+import { VSCodeContext } from '../../webviewCommunication';
 import './unitTest.less';
-import { Text, Button } from '@fluentui/react-components';
+import { Link, Text } from '@fluentui/react';
+import { ExtensionCommand } from '@microsoft/vscode-extension';
+import { useContext } from 'react';
 import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 
 export const UnitTestResults: React.FC = () => {
   const unitTestState = useSelector((state: RootState) => state.unitTest);
-
+  const vscode = useContext(VSCodeContext);
   const { unitTestName, unitTestDescription } = unitTestState;
-
-  console.log(unitTestName, unitTestDescription);
 
   const intl = useIntl();
 
@@ -20,15 +21,21 @@ export const UnitTestResults: React.FC = () => {
     }),
   };
 
+  const handleViewWorkflow = () => {
+    vscode.postMessage({
+      command: ExtensionCommand.viewWorkflow,
+    });
+  };
+
   return (
     <div className="msla-unit-test-results">
-      <Text size={800} block>
-        Title
+      <Text variant="xxLarge" block>
+        {unitTestName}
       </Text>
-      <Text size={300} block>
-        Description
+      <Text variant="large" block>
+        {unitTestDescription}
       </Text>
-      <Button appearance="transparent">{intlText.VIEW_WORKFLOW}</Button>
+      <Link onClick={handleViewWorkflow}>{intlText.VIEW_WORKFLOW}</Link>
     </div>
   );
 };
