@@ -1,16 +1,22 @@
 import type { RootState } from '../../state/store';
 import { VSCodeContext } from '../../webviewCommunication';
 import './unitTest.less';
-import { Link, Text } from '@fluentui/react';
+import { FontIcon, Link, Text, mergeStyles } from '@fluentui/react';
 import { ExtensionCommand } from '@microsoft/vscode-extension';
 import { useContext } from 'react';
 import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 
+const iconClass = mergeStyles({
+  fontSize: 40,
+  height: 40,
+  width: 40,
+});
+
 export const UnitTestResults: React.FC = () => {
   const unitTestState = useSelector((state: RootState) => state.unitTest);
   const vscode = useContext(VSCodeContext);
-  const { unitTestName, unitTestDescription } = unitTestState;
+  const { unitTestName } = unitTestState;
 
   const intl = useIntl();
 
@@ -18,6 +24,10 @@ export const UnitTestResults: React.FC = () => {
     VIEW_WORKFLOW: intl.formatMessage({
       defaultMessage: 'View workflow',
       description: 'View workflow text',
+    }),
+    TEST_ICON: intl.formatMessage({
+      defaultMessage: 'Test icon',
+      description: 'Test icon text',
     }),
   };
 
@@ -29,12 +39,13 @@ export const UnitTestResults: React.FC = () => {
 
   return (
     <div className="msla-unit-test-results">
-      <Text variant="xxLarge" block>
-        {unitTestName}
-      </Text>
-      <Text variant="large" block>
-        {unitTestDescription}
-      </Text>
+      <div className="msla-unit-test-results-header">
+        <FontIcon aria-label={intlText.TEST_ICON} iconName="TestPlan" className={iconClass} />
+        <Text variant="xxLarge" style={{ marginLeft: '10px' }}>
+          {unitTestName}
+        </Text>
+      </div>
+
       <Link onClick={handleViewWorkflow}>{intlText.VIEW_WORKFLOW}</Link>
     </div>
   );
