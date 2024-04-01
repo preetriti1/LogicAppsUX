@@ -48,6 +48,7 @@ import {
   getReactQueryClient,
   serializeBJSWorkflow,
   store as DesignerStore,
+  Constants,
 } from '@microsoft/logic-apps-designer';
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -194,7 +195,7 @@ const DesignerEditorConsumption = () => {
           showConnectionsPanel,
           hostOptions: {
             ...hostOptions,
-            recurrenceInterval: { interval: 3, frequency: 'Minute' },
+            recurrenceInterval: Constants.RECURRENCE_OPTIONS.CONSUMPTION,
           },
         }}
       >
@@ -411,6 +412,8 @@ const getDesignerServices = (
     location: 'westcentralus',
   });
 
+  const hostService = {};
+
   return {
     appServiceService,
     connectionService,
@@ -424,6 +427,7 @@ const getDesignerServices = (
     apimService,
     functionService,
     runService,
+    hostService,
     chatbotService,
   };
 };
