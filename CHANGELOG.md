@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [3.1.1](https://github.com/Azure/LogicAppsUX/compare/v3.1.0...v3.1.1) (2024-04-01)
+
+
+### Bug Fixes
+
+* **Designer:** Consumption Services Not Being Initialized ([#4504](https://github.com/Azure/LogicAppsUX/issues/4504)) ([e87f976](https://github.com/Azure/LogicAppsUX/commit/e87f97680cd76940e18886d97f6f161417629611))
+
 ## [3.1.0](https://github.com/Azure/LogicAppsUX/compare/v3.0.0...v3.1.0) (2024-03-26)
 
 
