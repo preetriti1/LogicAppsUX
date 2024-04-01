@@ -1,6 +1,6 @@
 {
   "name": "@microsoft/logic-apps-shared",
-  "version": "2.125.6",
+  "version": "2.125.7",
   "scripts": {
     "yalcpush": "yalc push ../../dist/libs/logic-apps-shared"
   }

@@ -1,4 +1,12 @@
 # Logic Apps Designer
+### [2.125.7](https://github.com/Azure/LogicAppsUX/compare/v2.125.6...v2.125.7) (2024-04-01)
+
+
+### Bug Fixes
+
+* **desiger:** Fix issue where next failure is disabled when there is only 1 failure ([#4502](https://github.com/Azure/LogicAppsUX/issues/4502)) ([5d0f5e8](https://github.com/Azure/LogicAppsUX/commit/5d0f5e821d97c2f7cae0aabb320c51e12d518088)), closes [#4468](https://github.com/Azure/LogicAppsUX/issues/4468)
+* **designer:** Only use default value when the parameter is required ([#4506](https://github.com/Azure/LogicAppsUX/issues/4506)) ([c6dcebf](https://github.com/Azure/LogicAppsUX/commit/c6dcebfbbf86d4a89eadbc8ff88762be0b0ec827))
+
 ### [2.125.6](https://github.com/Azure/LogicAppsUX/compare/v2.125.5...v2.125.6) (2024-03-28)
 
 ### [2.125.5](https://github.com/Azure/LogicAppsUX/compare/v2.125.4...v2.125.5) (2024-03-25)
