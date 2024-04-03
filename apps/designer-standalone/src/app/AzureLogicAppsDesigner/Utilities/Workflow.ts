@@ -96,7 +96,6 @@ function replaceAllOccurrences(content: string, searchValue: string, value: any)
       replaceIfFoundAndVerifyJson(content, searchValue, `${value}`) ??
       content.replace(searchValue, '');
 
-    // eslint-disable-next-line no-param-reassign
     content = tempResult;
   }
 
@@ -108,7 +107,10 @@ function replaceIfFoundAndVerifyJson(stringifiedJson: string, searchValue: strin
     return undefined;
   }
 
-  const result = stringifiedJson.replace(searchValue, value);
+  const result = stringifiedJson.replace(searchValue, function () {
+    return value;
+  });
+
   try {
     JSON.parse(result);
     return result;
