@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [3.0.3](https://github.com/Azure/LogicAppsUX/compare/v3.0.2...v3.0.3) (2024-04-04)
+
+
+### Bug Fixes
+
+* **vscode:** Keep host.json when converting to NuGet based project ([#4534](https://github.com/Azure/LogicAppsUX/issues/4534)) ([0193161](https://github.com/Azure/LogicAppsUX/commit/01931612d3f6e4150f825782134008c8a6d6c42b))
+
 ### [3.0.2](https://github.com/Azure/LogicAppsUX/compare/v3.0.1...v3.0.2) (2024-04-02)
 
 
