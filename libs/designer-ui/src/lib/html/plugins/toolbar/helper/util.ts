@@ -95,7 +95,8 @@ export const encodeOrDecodeSegmentValue = (value: string, encodingMap: Record<st
 };
 
 export const getDomFromHtmlEditorString = (htmlEditorString: string, nodeMap: Map<string, ValueSegment>): HTMLElement => {
-  const encodedHtmlEditorString = encodeStringSegmentTokensInDomContext(htmlEditorString, nodeMap);
+  const purifiedHtmlEditorString = htmlEditorString.replace(/on[a-z]*\s*=\s*('[^']+|"[^"]+|[^\s>]+)/gi, '');
+  const encodedHtmlEditorString = encodeStringSegmentTokensInDomContext(purifiedHtmlEditorString, nodeMap);
 
   const tempElement = document.createElement('div');
   tempElement.innerHTML = encodedHtmlEditorString;
