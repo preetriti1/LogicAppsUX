@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [3.1.3](https://github.com/Azure/LogicAppsUX/compare/v3.1.2...v3.1.3) (2024-04-06)
+
+
+### Bug Fixes
+
+* **designer-ui:** Partial port of [#4554](https://github.com/Azure/LogicAppsUX/issues/4554) - Add raw HTML sanitization ([4645ebb](https://github.com/Azure/LogicAppsUX/commit/4645ebb51cb6b5a4afbd93c383171bc9487973bf))
+
 ### [3.1.2](https://github.com/Azure/LogicAppsUX/compare/v3.1.1...v3.1.2) (2024-04-02)
 
 ### [3.1.1](https://github.com/Azure/LogicAppsUX/compare/v3.1.0...v3.1.1) (2024-04-01)
