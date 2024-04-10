@@ -1,4 +1,12 @@
 # Logic Apps Designer
+### [4.2.3](https://github.com/Azure/LogicAppsUX/compare/v4.2.1...v4.2.3) (2024-04-10)
+
+
+### Bug Fixes
+
+* **designer:** Fix custom code bug ([#4577](https://github.com/Azure/LogicAppsUX/issues/4577)) ([614178e](https://github.com/Azure/LogicAppsUX/commit/614178e7b7047d2b3ff6902ab974ea9a0bba0db8))
+* **Designer:** Fixed issue where dynamic data call would fail when value is non-string ([#4584](https://github.com/Azure/LogicAppsUX/issues/4584)) ([282d537](https://github.com/Azure/LogicAppsUX/commit/282d5376ee74721c3d1fd1930cd359bec6e19456))
+
 ### [4.2.2](https://github.com/Azure/LogicAppsUX/compare/v4.2.1...v4.2.2) (2024-04-08)
 
 
