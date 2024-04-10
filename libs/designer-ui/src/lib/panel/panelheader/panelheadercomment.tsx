@@ -1,14 +1,17 @@
+import { Button } from '@fluentui/react-components';
 import constants from '../../constants';
 import { isEscapeKey } from '../../utils/keyboardUtils';
 import { handleOnEscapeDown } from './panelheader';
-import { bundleIcon, Comment20Filled, Comment20Regular } from '@fluentui/react-icons';
+import { bundleIcon, Comment20Filled, Comment20Regular, Sparkle16Filled, Sparkle16Regular } from '@fluentui/react-icons';
 import type { ITextField, ITextFieldStyles } from '@fluentui/react/lib/TextField';
 import { TextField } from '@fluentui/react/lib/TextField';
 import { css } from '@fluentui/react/lib/Utilities';
 import React, { useEffect, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
+import { Tooltip } from '@fluentui/react';
 
 const CommentIcon = bundleIcon(Comment20Filled, Comment20Regular);
+const StarIcon = bundleIcon(Sparkle16Filled, Sparkle16Regular);
 
 export interface PanelHeaderCommentProps {
   comment?: string;
@@ -42,8 +45,32 @@ export const PanelHeaderComment = ({
     description: 'Comment Label',
   });
 
+  const aiCommentLabel = intl.formatMessage({
+    defaultMessage: 'AI Comment',
+    id: '1A1P5b',
+    description: 'AI Comment Label',
+  });
+
   const getCommentIcon = (): JSX.Element => {
     return <CommentIcon className={'msla-comment-icon'} aria-label={commentLabel} />;
+  };
+
+  const getAICommentIcon = (): JSX.Element => {
+    return <StarIcon />;
+    return (
+      <Tooltip>
+        <Button appearance="subtle" icon={<StarIcon />} aria-label={aiCommentLabel} data-automation-id="msla-panel-header-more-options" />
+      </Tooltip>
+    );
+    // return (
+    //   <Button
+    //   style={{ marginLeft: '2rem', marginTop: '1rem', marginBottom: 0 }}
+    //   icon={<StarIcon className={'msla-comment-icon'} aria-label={aiCommentLabel} />}
+    //   onClick={() => {}}
+    // >
+    //   {/* {resubmitButtonText} */}
+    // </Button>
+    // )
   };
 
   useEffect(() => {
@@ -107,6 +134,7 @@ export const PanelHeaderComment = ({
     <div className="msla-panel-comment-container" hidden={isCollapsed}>
       {!noNodeSelected ? getCommentIcon() : null}
       {!noNodeSelected ? getCommentEditor() : null}
+      {!noNodeSelected ? getAICommentIcon() : null}
     </div>
   );
 };

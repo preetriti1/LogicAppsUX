@@ -170,6 +170,7 @@ export const PanelContainer = ({
       styles={isCollapsed ? panelStylesCollapsed : panelStyles}
       layerProps={layerProps}
     >
+      {/* <div>-0--0-00-</div> */}
       {!isCollapsed && (
         <>
           {noNodeSelected && panelScope === PanelScope.CardLevel ? (

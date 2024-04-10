@@ -184,52 +184,55 @@ export const NodeDetailsPanel = (props: CommonPanelProps): JSX.Element => {
   };
 
   return (
-    <PanelContainer
-      {...commonPanelProps}
-      cardIcon={iconUri}
-      comment={comment}
-      noNodeSelected={!selectedNode}
-      isError={errorInfo?.level === ErrorLevel.Critical || opQuery?.isError}
-      errorMessage={errorInfo?.message}
-      isLoading={isLoading}
-      panelScope={PanelScope.CardLevel}
-      headerMenuItems={headerMenuItems}
-      showCommentBox={showCommentBox}
-      tabs={panelTabs}
-      selectedTab={selectedTab}
-      selectTab={(tabId: string) => {
-        dispatch(selectPanelTab(tabId));
-      }}
-      nodeId={selectedNode}
-      readOnlyMode={readOnly}
-      canResubmit={runData?.canResubmit ?? false}
-      resubmitOperation={resubmitClick}
-      toggleCollapse={() => {
-        // Only run validation when collapsing the panel
-        if (!collapsed) {
-          Object.keys(inputs?.parameterGroups ?? {}).forEach((parameterGroup) => {
-            inputs.parameterGroups[parameterGroup].parameters.forEach((parameter: any) => {
-              const validationErrors = validateParameter(parameter, parameter.value);
-              dispatch(
-                updateParameterValidation({
-                  nodeId: selectedNode,
-                  groupId: parameterGroup,
-                  parameterId: parameter.id,
-                  validationErrors,
-                })
-              );
+    <div>
+      {/* ------------------ */}
+      <PanelContainer
+        {...commonPanelProps}
+        cardIcon={iconUri}
+        comment={comment}
+        noNodeSelected={!selectedNode}
+        isError={errorInfo?.level === ErrorLevel.Critical || opQuery?.isError}
+        errorMessage={errorInfo?.message}
+        isLoading={isLoading}
+        panelScope={PanelScope.CardLevel}
+        headerMenuItems={headerMenuItems}
+        showCommentBox={showCommentBox}
+        tabs={panelTabs}
+        selectedTab={selectedTab}
+        selectTab={(tabId: string) => {
+          dispatch(selectPanelTab(tabId));
+        }}
+        nodeId={selectedNode}
+        readOnlyMode={readOnly}
+        canResubmit={runData?.canResubmit ?? false}
+        resubmitOperation={resubmitClick}
+        toggleCollapse={() => {
+          // Only run validation when collapsing the panel
+          if (!collapsed) {
+            Object.keys(inputs?.parameterGroups ?? {}).forEach((parameterGroup) => {
+              inputs.parameterGroups[parameterGroup].parameters.forEach((parameter: any) => {
+                const validationErrors = validateParameter(parameter, parameter.value);
+                dispatch(
+                  updateParameterValidation({
+                    nodeId: selectedNode,
+                    groupId: parameterGroup,
+                    parameterId: parameter.id,
+                    validationErrors,
+                  })
+                );
+              });
             });
-          });
-        }
-        togglePanel();
-      }}
-      trackEvent={handleTrackEvent}
-      onCommentChange={onCommentChange}
-      title={selectedNodeDisplayName}
-      onTitleChange={onTitleChange}
-      onTitleBlur={onTitleBlur}
-      setCurrWidth={setWidth}
-    />
+          }
+          togglePanel();
+        }}
+        trackEvent={handleTrackEvent}
+        onCommentChange={onCommentChange}
+        title={selectedNodeDisplayName}
+        onTitleChange={onTitleChange}
+        onTitleBlur={onTitleBlur}
+        setCurrWidth={setWidth}
+      />
+    </div>
   );
 };
 
