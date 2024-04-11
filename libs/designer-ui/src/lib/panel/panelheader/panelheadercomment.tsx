@@ -55,15 +55,6 @@ export const PanelHeaderComment = ({
     return <CommentIcon className={'msla-comment-icon'} aria-label={commentLabel} />;
   };
 
-  const getAICommentIcon = (): JSX.Element => {
-    // return <StarIcon />;
-    return (
-      <Tooltip content={'Tooltip'}>
-        <Button appearance="subtle" icon={<StarIcon />} aria-label={aiCommentLabel} data-automation-id="msla-panel-header-more-options" />
-      </Tooltip>
-    );
-  };
-
   useEffect(() => {
     if (!isCollapsed && !readOnlyMode && !comment) {
       commentTextFieldRef.current?.focus();
@@ -101,31 +92,41 @@ export const PanelHeaderComment = ({
       }
     };
     return (
-      <TextField
-        className={css(!readOnlyMode && commentClassName)}
-        borderless
-        multiline
-        autoAdjustHeight
-        resizable={false}
-        componentRef={commentTextFieldRef}
-        readOnly={readOnlyMode}
-        styles={commentTextFieldStyle}
-        ariaLabel={commentTitle}
-        maxLength={constants.PANEL.MAX_COMMENT_LENGTH}
-        value={comment ?? ''}
-        onChange={onCommentChange}
-        onBlur={readOnlyMode ? undefined : onCommentBlur}
-        onFocus={onFocusComment}
-        onKeyUp={onCommentTextFieldEscape}
-        onKeyDown={handleOnEscapeDown}
-      />
+      <div style={{ position: 'relative' }}>
+        <TextField
+          className={css(!readOnlyMode && commentClassName)}
+          borderless
+          multiline
+          autoAdjustHeight
+          resizable={false}
+          componentRef={commentTextFieldRef}
+          readOnly={readOnlyMode}
+          styles={commentTextFieldStyle}
+          ariaLabel={commentTitle}
+          maxLength={constants.PANEL.MAX_COMMENT_LENGTH}
+          value={comment ?? ''}
+          onChange={onCommentChange}
+          onBlur={readOnlyMode ? undefined : onCommentBlur}
+          onFocus={onFocusComment}
+          onKeyUp={onCommentTextFieldEscape}
+          onKeyDown={handleOnEscapeDown}
+        />
+        <Tooltip content={'Create an AI comment'} relationship="description">
+          <Button
+            style={{ position: 'absolute', bottom: 0, right: 0 }}
+            appearance={'subtle'}
+            icon={<StarIcon />}
+            aria-label={aiCommentLabel}
+            data-automation-id="msla-panel-header-more-options"
+          />
+        </Tooltip>
+      </div>
     );
   };
   return (
     <div className="msla-panel-comment-container" hidden={isCollapsed}>
       {!noNodeSelected ? getCommentIcon() : null}
       {!noNodeSelected ? getCommentEditor() : null}
-      {!noNodeSelected ? getAICommentIcon() : null}
     </div>
   );
 };
