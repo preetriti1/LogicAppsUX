@@ -8,7 +8,7 @@ import { TextField } from '@fluentui/react/lib/TextField';
 import { css } from '@fluentui/react/lib/Utilities';
 import React, { useEffect, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
-import { Tooltip } from '@fluentui/react';
+import { Tooltip } from '@fluentui/react-components';
 
 const CommentIcon = bundleIcon(Comment20Filled, Comment20Regular);
 const StarIcon = bundleIcon(Sparkle16Filled, Sparkle16Regular);
@@ -56,21 +56,12 @@ export const PanelHeaderComment = ({
   };
 
   const getAICommentIcon = (): JSX.Element => {
-    return <StarIcon />;
+    // return <StarIcon />;
     return (
-      <Tooltip>
+      <Tooltip content={'Tooltip'}>
         <Button appearance="subtle" icon={<StarIcon />} aria-label={aiCommentLabel} data-automation-id="msla-panel-header-more-options" />
       </Tooltip>
     );
-    // return (
-    //   <Button
-    //   style={{ marginLeft: '2rem', marginTop: '1rem', marginBottom: 0 }}
-    //   icon={<StarIcon className={'msla-comment-icon'} aria-label={aiCommentLabel} />}
-    //   onClick={() => {}}
-    // >
-    //   {/* {resubmitButtonText} */}
-    // </Button>
-    // )
   };
 
   useEffect(() => {
