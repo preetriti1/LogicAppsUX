@@ -413,6 +413,10 @@ const getDesignerServices = (
         ? 'https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2023-01-31-preview/workflowdefinition.json#'
         : undefined;
     },
+    // This functionality is only for portal, have print statement for testing purposes
+    openWorkflowRun: (runId: string) => {
+      console.log('### runId', runId ? runId : 'No runId');
+    },
   };
 
   const functionService = new BaseFunctionService({

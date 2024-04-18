@@ -59,6 +59,11 @@ export interface IWorkflowService {
    * Resubmits workflow from a specific action
    */
   resubmitWorkflow?(runId: string, actionsToResubmit: string[]): void;
+
+  /**
+   * Opens monitoring view for given runId
+   */
+  openWorkflowRun?(runId: string): void;
 }
 
 let service: IWorkflowService;
