@@ -558,6 +558,10 @@ const getDesignerServices = (
       const workflowId: string = response.headers['x-ms-workflow-run-id'];
       dispatch(changeRunId(workflowId));
     },
+    // This functionality is only for portal, have print statement for testing purposes
+    openWorkflowRun: (runId: string) => {
+      console.log('### runId', runId ? runId : 'No runId');
+    },
   };
 
   const hostService = {

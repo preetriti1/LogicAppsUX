@@ -37,6 +37,7 @@ export const MonitoringPanel: React.FC = () => {
   });
 
   const runId = inputOutputs.outputs.headers?.value?.['x-ms-workflow-run-id'];
+  const workflowName = inputOutputs.outputs.headers?.value?.['x-ms-workflow-name'];
   const canOpenNestedRun = !isNullOrUndefined(runId); // add type check for selectedNodeId (workflow type)
   useEffect(() => {
     refetch();
@@ -51,7 +52,7 @@ export const MonitoringPanel: React.FC = () => {
   return isNullOrUndefined(runMetaData) ? null : (
     <div>
       {canOpenNestedRun && (
-        <Button style={{ marginLeft: '19px' }} onClick={() => WorkflowService().openWorkflowRun?.(`${selectedNodeId}/runs/${runId}`)}>
+        <Button style={{ marginLeft: '19px' }} onClick={() => WorkflowService().openWorkflowRun?.(`${workflowName}/runs/${runId}`)}>
           {openRunDetails}
         </Button>
       )}
