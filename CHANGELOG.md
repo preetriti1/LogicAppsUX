@@ -1,4 +1,11 @@
 # Logic Apps Designer
+### [4.4.3](https://github.com/Azure/LogicAppsUX/compare/v4.4.2...v4.4.3) (2024-04-25)
+
+
+### Bug Fixes
+
+* **vscode:** Hotfix typescript version fix and read me file ([#4714](https://github.com/Azure/LogicAppsUX/issues/4714)) ([bd1ab6b](https://github.com/Azure/LogicAppsUX/commit/bd1ab6beb262121085441e2a04343e84f24a6791))
+
 ### [4.4.2](https://github.com/Azure/LogicAppsUX/compare/v4.4.1...v4.4.2) (2024-04-12)
 
 ### [4.4.1](https://github.com/Azure/LogicAppsUX/compare/v4.4.0...v4.4.1) (2024-04-11)
