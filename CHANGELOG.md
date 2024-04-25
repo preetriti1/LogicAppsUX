@@ -1,4 +1,12 @@
 # Logic Apps Designer
+### [4.3.4](https://github.com/Azure/LogicAppsUX/compare/v4.3.3...v4.3.4) (2024-04-25)
+
+
+### Bug Fixes
+
+* **designer:** Adding dispatch in store update call to clear dynamic inputs ([#4706](https://github.com/Azure/LogicAppsUX/issues/4706)) ([48f8188](https://github.com/Azure/LogicAppsUX/commit/48f81880fa310830c6fd2c5a3fa6c71776866ae4))
+* **designer:** Fixing clearing of dynamic inputs of parameter value changes ([#4704](https://github.com/Azure/LogicAppsUX/issues/4704)) ([2f80553](https://github.com/Azure/LogicAppsUX/commit/2f8055324a0a329a199a1af63524ef2f61894cad)), closes [#4655](https://github.com/Azure/LogicAppsUX/issues/4655) [#4702](https://github.com/Azure/LogicAppsUX/issues/4702)
+
 ### [4.3.3](https://github.com/Azure/LogicAppsUX/compare/v4.3.2...v4.3.3) (2024-04-24)
 
 
