@@ -2,7 +2,7 @@ import axios from 'axios';
 import { environment } from '../../../../environments/environment';
 import type { Data as FetchLogicAppsData } from '../Models/LogicAppAppTypes';
 import { fetchAppsByQuery } from '../Utilities/resourceUtilities';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import type { WorkflowList } from '../Models/WorkflowListTypes';
 import { ArmParser } from '../Utilities/ArmParser';
 
