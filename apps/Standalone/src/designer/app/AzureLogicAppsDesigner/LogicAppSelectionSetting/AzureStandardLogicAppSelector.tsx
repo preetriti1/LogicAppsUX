@@ -1,9 +1,15 @@
 import { environment } from '../../../../environments/environment';
 import type { AppDispatch } from '../../../state/store';
-import { useAppId, useIsMonitoringView, useRunId, useWorkflowName } from '../../../state/workflowLoadingSelectors';
+import {
+  useAppId,
+  useHybridLogicAppsEnabled,
+  useIsMonitoringView,
+  useRunId,
+  useWorkflowName,
+} from '../../../state/workflowLoadingSelectors';
 import { setAppid, setResourcePath, changeRunId, setWorkflowName } from '../../../state/workflowLoadingSlice';
-import type { WorkflowList, RunList } from '../Models/WorkflowListTypes';
-import { useFetchStandardApps } from '../Queries/FetchStandardApps';
+import type { RunList } from '../Models/WorkflowListTypes';
+import { useFetchStandardApps, useFetchStandardWorkflows } from '../Queries/FetchStandardApps';
 import type { IComboBoxOption, IDropdownOption, IStackProps, IComboBoxStyles } from '@fluentui/react';
 import { ComboBox, Dropdown, Spinner, Stack } from '@fluentui/react';
 import axios from 'axios';
@@ -25,21 +31,12 @@ export const AzureStandardLogicAppSelector = () => {
   const workflowName = useWorkflowName();
   const runId = useRunId();
   const isMonitoringView = useIsMonitoringView();
-  const { data: appList, isLoading: isAppsLoading } = useFetchStandardApps();
+  const isHybridLogicAppsEnabled = useHybridLogicAppsEnabled();
+  const { data: appList, isLoading: isAppsLoading } = useFetchStandardApps(isHybridLogicAppsEnabled);
   const validApp = appId ? resourceIdValidation.test(appId) : false;
   const dispatch = useDispatch<AppDispatch>();
 
-  const { data: workflows, isLoading: isWorkflowsLoading } = useQuery(['getListOfWorkflows', appId], async () => {
-    if (!validApp) {
-      return null;
-    }
-    const results = await axios.get<WorkflowList>(`https://management.azure.com${appId}/workflows?api-version=2018-11-01`, {
-      headers: {
-        Authorization: `Bearer ${environment.armToken}`,
-      },
-    });
-    return results.data;
-  });
+  const { data: workflows, isLoading: isWorkflowsLoading } = useFetchStandardWorkflows(validApp, appId, isHybridLogicAppsEnabled);
 
   const {
     data: runInstances,

@@ -8,6 +8,7 @@ import {
   useHostOptions,
   useShowPerformanceDebug,
   useSuppressDefaultNodeSelect,
+  useHybridLogicAppsEnabled,
 } from '../../state/workflowLoadingSelectors';
 import {
   setDarkMode,
@@ -20,6 +21,7 @@ import {
   setHostOptions,
   setShowPerformanceDebug,
   setSuppressDefaultNodeSelect,
+  setAreHybridLogicAppsEnabled,
 } from '../../state/workflowLoadingSlice';
 import { Checkbox } from '@fluentui/react';
 import { useCallback } from 'react';
@@ -29,6 +31,7 @@ const ContextSettings = () => {
   const isReadOnly = useIsReadOnly();
   const isMonitoringView = useIsMonitoringView();
   const isDarkMode = useIsDarkMode();
+  const isHybridLogicAppsEnabled = useHybridLogicAppsEnabled();
   const showConnectionsPanel = useShowConnectionsPanel();
   const areCustomEditorsEnabled = useAreCustomEditorsEnabled();
   const suppressDefaultNodeSelect = useSuppressDefaultNodeSelect();
@@ -57,6 +60,11 @@ const ContextSettings = () => {
       />
       <Checkbox label="Monitoring View" checked={isMonitoringView} onChange={changeMonitoringView} />
       <Checkbox label="Dark Mode" checked={isDarkMode} onChange={(_, checked) => dispatch(setDarkMode(!!checked))} />
+      <Checkbox
+        label="Hybrid Logic Apps"
+        checked={isHybridLogicAppsEnabled}
+        onChange={(_, checked) => dispatch(setAreHybridLogicAppsEnabled(!!checked))}
+      />
       <Checkbox
         label="Custom Editors"
         checked={areCustomEditorsEnabled}

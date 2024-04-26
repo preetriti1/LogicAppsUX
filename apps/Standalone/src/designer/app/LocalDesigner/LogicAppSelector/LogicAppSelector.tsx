@@ -62,9 +62,9 @@ export const LocalLogicAppSelector: React.FC = () => {
     (_: unknown, item: IDropdownOption | undefined) => {
       dispatch(setResourcePath((item?.key as string) ?? ''));
       if (isMonitoringView) {
-        dispatch(loadRun(_));
+        dispatch(loadRun());
       }
-      dispatch(loadWorkflow(_));
+      dispatch(loadWorkflow());
     },
     [dispatch, isMonitoringView]
   );

@@ -59,7 +59,7 @@ export const Tracking = ({
   );
 
   const onClientTrackingIdChangeCallback = useCallback(
-    (_: unknown, newVal: string) => onClientTrackingIdChange(newVal),
+    (_: undefined, newVal: string) => onClientTrackingIdChange(newVal),
     [onClientTrackingIdChange]
   );
 

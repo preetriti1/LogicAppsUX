@@ -51,7 +51,7 @@ const initialState: DataMapLoadingState = {
   mapMetadata: mockMetadata,
 };
 
-export const loadDataMap = createAsyncThunk('loadDataMap', async (_: unknown, thunkAPI) => {
+export const loadDataMap = createAsyncThunk('loadDataMap', async (_: undefined, thunkAPI) => {
   const currentState: RootState = thunkAPI.getState() as RootState;
 
   // TODO ARM loading

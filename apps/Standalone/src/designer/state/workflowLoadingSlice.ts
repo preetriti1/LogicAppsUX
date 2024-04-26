@@ -17,6 +17,7 @@ export interface WorkflowLoadingState {
   isReadOnly: boolean;
   isMonitoringView: boolean;
   isDarkMode: boolean;
+  hybridLogicAppsEnabled: boolean;
   isConsumption: boolean;
   isLocal: boolean;
   showChatBot?: boolean;
@@ -41,6 +42,7 @@ const initialState: WorkflowLoadingState = {
   isReadOnly: false,
   isMonitoringView: false,
   isDarkMode: false,
+  hybridLogicAppsEnabled: true,
   isConsumption: false,
   isLocal: false,
   showChatBot: false,
@@ -64,7 +66,7 @@ type RunPayload = {
   runInstance: LogicAppsV2.RunInstanceDefinition;
 };
 
-export const loadWorkflow = createAsyncThunk('workflowLoadingState/loadWorkflow', async (_: unknown, thunkAPI) => {
+export const loadWorkflow = createAsyncThunk('workflowLoadingState/loadWorkflow', async (_: undefined, thunkAPI) => {
   const currentState: RootState = thunkAPI.getState() as RootState;
 
   const wf = await import(`../../../../../__mocks__/workflows/${currentState.workflowLoader.resourcePath?.split('.')[0]}.json`);
@@ -74,7 +76,7 @@ export const loadWorkflow = createAsyncThunk('workflowLoadingState/loadWorkflow'
   } as WorkflowPayload;
 });
 
-export const loadRun = createAsyncThunk('runLoadingState/loadRun', async (_: unknown, thunkAPI) => {
+export const loadRun = createAsyncThunk('runLoadingState/loadRun', async (_: undefined, thunkAPI) => {
   const currentState: RootState = thunkAPI.getState() as RootState;
   try {
     const runInstance = await import(`../../../../../__mocks__/runs/${currentState.workflowLoader.resourcePath?.split('.')[0]}.json`);
@@ -122,6 +124,9 @@ export const workflowLoadingSlice = createSlice({
     },
     setDarkMode: (state, action: PayloadAction<boolean>) => {
       state.isDarkMode = action.payload;
+    },
+    setAreHybridLogicAppsEnabled: (state, action: PayloadAction<boolean>) => {
+      state.hybridLogicAppsEnabled = action.payload;
     },
     setConsumption: (state, action: PayloadAction<boolean>) => {
       state.isConsumption = action.payload;
@@ -206,6 +211,7 @@ export const {
   setReadOnly,
   setMonitoringView,
   setDarkMode,
+  setAreHybridLogicAppsEnabled,
   setConsumption,
   setIsLocalSelected,
   setIsChatBotEnabled,

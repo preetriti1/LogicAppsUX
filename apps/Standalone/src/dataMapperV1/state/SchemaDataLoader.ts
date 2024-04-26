@@ -21,7 +21,7 @@ const initialState: SchemaLoadingState = {
   outputResourcePath: '',
 };
 
-export const loadSourceSchema = createAsyncThunk('schema/loadSourceSchema', async (_: unknown, thunkAPI) => {
+export const loadSourceSchema = createAsyncThunk('schema/loadSourceSchema', async (_: undefined, thunkAPI) => {
   const currentState: RootState = thunkAPI.getState() as RootState;
   const inputResourcePath = currentState.schemaDataLoader.inputResourcePath;
 
@@ -36,7 +36,7 @@ export const loadSourceSchema = createAsyncThunk('schema/loadSourceSchema', asyn
   return undefined;
 });
 
-export const loadTargetSchema = createAsyncThunk('schema/loadTargetSchema', async (_: unknown, thunkAPI) => {
+export const loadTargetSchema = createAsyncThunk('schema/loadTargetSchema', async (_: undefined, thunkAPI) => {
   const currentState: RootState = thunkAPI.getState() as RootState;
   const outputResourcePath = currentState.schemaDataLoader.outputResourcePath;
 

@@ -13,6 +13,10 @@ export const useIsDarkMode = () => {
   return useSelector((state: RootState) => state.workflowLoader.isDarkMode);
 };
 
+export const useHybridLogicAppsEnabled = () => {
+  return useSelector((state: RootState) => state.workflowLoader.hybridLogicAppsEnabled);
+};
+
 export const useIsReadOnly = () => {
   return useSelector((state: RootState) => state.workflowLoader.isReadOnly);
 };
