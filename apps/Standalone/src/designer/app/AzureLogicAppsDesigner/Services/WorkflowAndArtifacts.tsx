@@ -39,13 +39,17 @@ export const useWorkflowAndArtifactsStandard = (workflowId: string) => {
   );
 };
 
-export const useAllCustomCodeFiles = (appId?: string, workflowName?: string) => {
-  return useQuery(['workflowCustomCode', appId, workflowName], async () => await getAllCustomCodeFiles(appId, workflowName), {
-    enabled: !!appId && !!workflowName,
-    refetchOnMount: false,
-    refetchOnReconnect: false,
-    refetchOnWindowFocus: false,
-  });
+export const useAllCustomCodeFiles = (siteResourceId?: string, workflowName?: string) => {
+  return useQuery(
+    ['workflowCustomCode', siteResourceId, workflowName],
+    async () => await getAllCustomCodeFiles(siteResourceId, workflowName),
+    {
+      enabled: !!siteResourceId && !!workflowName,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+      refetchOnWindowFocus: false,
+    }
+  );
 };
 
 interface HostJSON {
@@ -61,7 +65,7 @@ interface HostJSON {
 
 // we want to eventually move this logic to the backend that way we don't increase save time fetching files
 export const getCustomCodeAppFiles = async (
-  appId?: string,
+  siteResourceId?: string,
   customCodeFiles?: CustomCodeFileNameMapping
 ): Promise<Record<string, string>> => {
   // only powershell files have custom app files
@@ -70,7 +74,7 @@ export const getCustomCodeAppFiles = async (
     return {};
   }
   const appFiles: Record<string, string> = {};
-  const uri = `${baseUrl}${appId}/hostruntime/admin/vfs`;
+  const uri = `${baseUrl}${siteResourceId}/hostruntime/admin/vfs`;
   const vfsObjects: VFSObject[] = await fetchFilesFromFolder(uri);
   if (vfsObjects.find((file) => file.name === 'host.json')) {
     try {
@@ -97,9 +101,9 @@ export const getCustomCodeAppFiles = async (
   return appFiles;
 };
 
-const getAllCustomCodeFiles = async (appId?: string, workflowName?: string): Promise<Record<string, string>> => {
+const getAllCustomCodeFiles = async (siteResourceId?: string, workflowName?: string): Promise<Record<string, string>> => {
   const customCodeFiles: Record<string, string> = {};
-  const uri = `${baseUrl}${appId}/hostruntime/admin/vfs/${workflowName}`;
+  const uri = `${baseUrl}${siteResourceId}/hostruntime/admin/vfs/${workflowName}`;
   const vfsObjects: VFSObject[] = (await fetchFilesFromFolder(uri)).filter((file) => file.name !== Artifact.WorkflowFile);
 
   const filesData = await Promise.all(

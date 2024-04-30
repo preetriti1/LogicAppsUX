@@ -14,7 +14,8 @@ export const useFetchStandardApps = (isHybridLogicAppsEnabled?: boolean) => {
         return [];
       }
       const query = isHybridLogicAppsEnabled
-        ? `resources | where type == "Microsoft.App/logicApps" and kind contains "workflowapp"`
+        ? // ? `resources | where type == "microsoft.app/logicapps" and kind contains "workflowapp"`\
+          `resources | where type == "microsoft.web/sites" and kind contains "workflowapp"`
         : `resources | where type == "microsoft.web/sites" and kind contains "workflowapp"`;
       const data = await fetchAppsByQuery(query);
       return data.map((item: any) => ({
@@ -39,9 +40,9 @@ export const useFetchStandardWorkflows = (validApp: boolean, appId?: string, isH
     if (!appId || !validApp) {
       return null;
     }
-    const { subscriptionId, resourceGroup, provider, topResourceName } = new ArmParser(appId);
+    const hybridResourceId = new ArmParser(appId).hybridResourceId;
     const uri = isHybridLogicAppsEnabled
-      ? `https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/${provider}/containerApps/${topResourceName}/providers/${provider}/logicapps/${topResourceName}/workflows?api-version=2024-02-02-preview`
+      ? `https://management.azure.com/${hybridResourceId}/workflows?api-version=2024-02-02-preview`
       : `https://management.azure.com${appId}/workflows?api-version=2018-11-01`;
     const results = await axios.get<WorkflowList>(uri, {
       headers: {

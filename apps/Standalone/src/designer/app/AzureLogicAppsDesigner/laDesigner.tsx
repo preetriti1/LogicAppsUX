@@ -73,9 +73,9 @@ const DesignerEditor = () => {
   const {
     isReadOnly,
     isDarkMode,
+    hybridLogicAppsEnabled,
     isMonitoringView,
     runId,
-    appId,
     showChatBot,
     language,
     hostOptions,
@@ -85,8 +85,9 @@ const DesignerEditor = () => {
   } = useSelector((state: RootState) => state.workflowLoader);
 
   const workflowName = workflowId.split('/').splice(-1)[0];
-  const siteResourceId = new ArmParser(workflowId).topmostResourceId;
-  const { data: customCodeData, isLoading: customCodeLoading } = useAllCustomCodeFiles(appId, workflowName);
+  const armParser = new ArmParser(workflowId);
+  const siteResourceId = hybridLogicAppsEnabled ? armParser.hybridResourceId : armParser.topmostResourceId;
+  const { data: customCodeData, isLoading: customCodeLoading } = useAllCustomCodeFiles(siteResourceId, workflowName);
   const { data, isLoading, isError, error } = useWorkflowAndArtifactsStandard(workflowId);
   const { data: settingsData, isLoading: settingsLoading, isError: settingsIsError, error: settingsError } = useAppSettings(siteResourceId);
   const { data: workflowAppData, isLoading: appLoading } = useWorkflowApp(siteResourceId);
@@ -108,7 +109,7 @@ const DesignerEditor = () => {
       setWorkflow(standardAppInstance);
     }
   };
-  const { data: runInstanceData } = useRunInstanceStandard(workflowName, onRunInstanceSuccess, appId, runId);
+  const { data: runInstanceData } = useRunInstanceStandard(workflowName, onRunInstanceSuccess, siteResourceId, runId);
 
   const connectionsData = useMemo(
     () =>
@@ -171,6 +172,7 @@ const DesignerEditor = () => {
         objectId,
         canonicalLocation,
         queryClient,
+        hybridLogicAppsEnabled,
         dispatch
       ),
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -262,7 +264,7 @@ const DesignerEditor = () => {
     }
 
     const connectionsToUpdate = getConnectionsToUpdate(originalConnectionsData, connectionsData ?? {});
-    const customCodeToUpdate = await getCustomCodeToUpdate(originalCustomCodeData, customCode ?? {}, appId);
+    const customCodeToUpdate = await getCustomCodeToUpdate(originalCustomCodeData, customCode ?? {}, siteResourceId);
     const parametersToUpdate = isEqual(originalParametersData, parameters) ? undefined : (parameters as ParametersData);
     const settingsToUpdate = isEqual(settingsData?.properties, originalSettings) ? undefined : settingsData?.properties;
 
@@ -371,9 +373,11 @@ const getDesignerServices = (
   objectId: string | undefined,
   location: string,
   queryClient: QueryClient,
+  hybridLogicAppsEnabled: boolean,
   dispatch: AppDispatch
 ): any => {
-  const siteResourceId = new ArmParser(workflowId).topmostResourceId;
+  const armParser = new ArmParser(workflowId);
+  const siteResourceId = hybridLogicAppsEnabled ? armParser.hybridResourceId : armParser.topmostResourceId;
   const armUrl = 'https://management.azure.com';
   const baseUrl = `${armUrl}${siteResourceId}/hostruntime/runtime/webhooks/workflow/api/management`;
   const workflowName = workflowId.split('/').splice(-1)[0];
@@ -721,13 +725,13 @@ const getConnectionsToUpdate = (
 const getCustomCodeToUpdate = async (
   originalCustomCodeData: string[],
   customCode: CustomCodeFileNameMapping,
-  appId?: string
+  siteResourceId?: string
 ): Promise<AllCustomCodeFiles | undefined> => {
   const filteredCustomCodeMapping: CustomCodeFileNameMapping = {};
   if (!customCode || Object.keys(customCode).length === 0) {
     return;
   }
-  const appFiles = await getCustomCodeAppFiles(appId, customCode);
+  const appFiles = await getCustomCodeAppFiles(siteResourceId, customCode);
 
   Object.entries(customCode).forEach(([fileName, customCodeData]) => {
     const { isModified, isDeleted } = customCodeData;
