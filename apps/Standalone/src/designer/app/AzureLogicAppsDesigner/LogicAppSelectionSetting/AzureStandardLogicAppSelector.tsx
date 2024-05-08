@@ -106,7 +106,13 @@ export const AzureStandardLogicAppSelector = () => {
           selectedKey={appId}
           options={appOptions}
           onChange={(_, option) => {
-            dispatch(setAppid((option?.key ?? '') as string));
+            dispatch(
+              setAppid(
+                isHybridLogicAppsEnabled
+                  ? 'subscriptions/c6397a87-1efd-4b32-a60f-434bfe432a3b/resourcegroups/testlaonaca'
+                  : ((option?.key ?? '') as string)
+              )
+            );
           }}
           styles={comboBoxStyles}
           disabled={appOptions.length === 0 || isAppsLoading}
