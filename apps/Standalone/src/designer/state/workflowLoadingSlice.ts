@@ -44,7 +44,7 @@ const initialState: WorkflowLoadingState = {
   isReadOnly: false,
   isMonitoringView: false,
   isDarkMode: false,
-  hybridLogicAppsEnabled: false,
+  hybridLogicAppsEnabled: true,
   isConsumption: false,
   isLocal: false,
   showChatBot: false,

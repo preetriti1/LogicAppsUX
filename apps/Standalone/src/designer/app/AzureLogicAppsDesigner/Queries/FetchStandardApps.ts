@@ -5,6 +5,7 @@ import { fetchAppsByQuery } from '../Utilities/resourceUtilities';
 import { useQuery } from '@tanstack/react-query';
 import type { WorkflowList } from '../Models/WorkflowListTypes';
 import { ArmParser } from '../Utilities/ArmParser';
+import { mockHybridResourceId, mockHybridUri } from '../../../../environments/mockHybrid';
 
 export const useFetchStandardApps = (isHybridLogicAppsEnabled?: boolean) => {
   return useQuery<FetchLogicAppsData[]>(
@@ -41,8 +42,10 @@ export const useFetchStandardWorkflows = (validApp: boolean, appId?: string, isH
       return null;
     }
     const hybridResourceId = new ArmParser(appId).hybridResourceId;
+    // temporarily using a mock api for hybrid logic apps
+    //? `https://management.azure.com/${hybridResourceId}/workflows?api-version=2024-02-02-preview`
     const uri = isHybridLogicAppsEnabled
-      ? `https://management.azure.com/${hybridResourceId}/workflows?api-version=2024-02-02-preview`
+      ? `${mockHybridUri}/${mockHybridResourceId}/workflows?api-version=2024-02-02-preview`
       : `https://management.azure.com${appId}/workflows?api-version=2018-11-01`;
     const results = await axios.get<WorkflowList>(uri, {
       headers: {
