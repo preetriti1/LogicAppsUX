@@ -87,9 +87,18 @@ const DesignerEditor = () => {
   const workflowName = workflowId.split('/').splice(-1)[0];
   const armParser = new ArmParser(workflowId);
   const siteResourceId = hybridLogicAppsEnabled ? armParser.hybridResourceId : armParser.topmostResourceId;
-  const { data: customCodeData, isLoading: customCodeLoading } = useAllCustomCodeFiles(siteResourceId, workflowName);
+  const { data: customCodeData, isLoading: customCodeLoading } = useAllCustomCodeFiles(
+    siteResourceId,
+    workflowName,
+    hybridLogicAppsEnabled
+  );
   const { data, isLoading, isError, error } = useWorkflowAndArtifactsStandard(workflowId);
-  const { data: settingsData, isLoading: settingsLoading, isError: settingsIsError, error: settingsError } = useAppSettings(siteResourceId);
+  const {
+    data: settingsData,
+    isLoading: settingsLoading,
+    isError: settingsIsError,
+    error: settingsError,
+  } = useAppSettings(siteResourceId, hybridLogicAppsEnabled);
   const { data: workflowAppData, isLoading: appLoading } = useWorkflowApp(siteResourceId);
   const { data: tenantId } = useCurrentTenantId();
   const { data: objectId } = useCurrentObjectId();

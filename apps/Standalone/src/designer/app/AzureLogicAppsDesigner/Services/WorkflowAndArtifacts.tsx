@@ -41,12 +41,17 @@ export const useWorkflowAndArtifactsStandard = (workflowId: string) => {
 };
 
 export const useAllCustomCodeFiles = (appId?: string, workflowName?: string, hybridLogicAppsEnabled?: boolean) => {
-  return useQuery(['workflowCustomCode', appId, workflowName], async () => await getAllCustomCodeFiles(appId, workflowName), {
+  const response = useQuery(['workflowCustomCode', appId, workflowName], async () => await getAllCustomCodeFiles(appId, workflowName), {
     enabled: !!appId && !!workflowName && !hybridLogicAppsEnabled,
     refetchOnMount: false,
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
   });
+
+  return {
+    ...response,
+    isLoading: hybridLogicAppsEnabled ? false : response.isLoading,
+  };
 };
 
 interface HostJSON {
@@ -254,8 +259,8 @@ export const useWorkflowApp = (siteResourceId: string, isConsumption = false) =>
   );
 };
 
-export const useAppSettings = (siteResourceId: string) => {
-  return useQuery(
+export const useAppSettings = (siteResourceId: string, hybridLogicAppsEnabled?: boolean) => {
+  const response = useQuery(
     ['appSettings', siteResourceId],
     async () => {
       const uri = `${baseUrl}${siteResourceId}/config/appsettings/list?api-version=2018-11-01`;
@@ -268,11 +273,16 @@ export const useAppSettings = (siteResourceId: string) => {
       return response.data;
     },
     {
+      enabled: !hybridLogicAppsEnabled,
       refetchOnMount: false,
       refetchOnReconnect: false,
       refetchOnWindowFocus: false,
     }
   );
+  return {
+    ...response,
+    isLoading: hybridLogicAppsEnabled ? false : response.isLoading,
+  };
 };
 
 export const useCurrentTenantId = () => {

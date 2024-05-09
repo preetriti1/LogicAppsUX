@@ -21,7 +21,7 @@ export class ArmParser {
   }
   // hybrid uses a nested resource id
   public get hybridResourceId(): string {
-    return `/subscriptions/${this._subscriptionId}/resourceGroups/${this._resourceGroup}/providers/${this._provider}/containerApps/${this._topResourceName}/providers/${this._provider}/Microsoft.App/logicapps/${this.topResourceName}`;
+    return `/subscriptions/${this._subscriptionId}/resourceGroups/${this._resourceGroup}/providers/${this._provider}/containerApps/${this._topResourceName}/providers/${this._provider}/logicapps/${this.topResourceName}`;
   }
   public get subscriptionId(): string {
     return this._subscriptionId;
