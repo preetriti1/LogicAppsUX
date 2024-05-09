@@ -12,8 +12,9 @@ import { useQuery } from '@tanstack/react-query';
 import { isSuccessResponse } from './HttpClient';
 import { fetchFileData, fetchFilesFromFolder } from './vfsService';
 import type { CustomCodeFileNameMapping } from '@microsoft/logic-apps-designer';
+import { mockHybridUri } from '../../../../environments/mockHybrid';
 
-const baseUrl = 'https://management.azure.com';
+const baseUrl = mockHybridUri;
 const standardApiVersion = '2020-06-01';
 const consumptionApiVersion = '2019-05-01';
 
@@ -39,17 +40,13 @@ export const useWorkflowAndArtifactsStandard = (workflowId: string) => {
   );
 };
 
-export const useAllCustomCodeFiles = (siteResourceId?: string, workflowName?: string) => {
-  return useQuery(
-    ['workflowCustomCode', siteResourceId, workflowName],
-    async () => await getAllCustomCodeFiles(siteResourceId, workflowName),
-    {
-      enabled: !!siteResourceId && !!workflowName,
-      refetchOnMount: false,
-      refetchOnReconnect: false,
-      refetchOnWindowFocus: false,
-    }
-  );
+export const useAllCustomCodeFiles = (appId?: string, workflowName?: string, hybridLogicAppsEnabled?: boolean) => {
+  return useQuery(['workflowCustomCode', appId, workflowName], async () => await getAllCustomCodeFiles(appId, workflowName), {
+    enabled: !!appId && !!workflowName && !hybridLogicAppsEnabled,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
+  });
 };
 
 interface HostJSON {
@@ -65,7 +62,7 @@ interface HostJSON {
 
 // we want to eventually move this logic to the backend that way we don't increase save time fetching files
 export const getCustomCodeAppFiles = async (
-  siteResourceId?: string,
+  appId?: string,
   customCodeFiles?: CustomCodeFileNameMapping
 ): Promise<Record<string, string>> => {
   // only powershell files have custom app files
@@ -74,7 +71,7 @@ export const getCustomCodeAppFiles = async (
     return {};
   }
   const appFiles: Record<string, string> = {};
-  const uri = `${baseUrl}${siteResourceId}/hostruntime/admin/vfs`;
+  const uri = `${baseUrl}${appId}/hostruntime/admin/vfs`;
   const vfsObjects: VFSObject[] = await fetchFilesFromFolder(uri);
   if (vfsObjects.find((file) => file.name === 'host.json')) {
     try {
@@ -101,9 +98,9 @@ export const getCustomCodeAppFiles = async (
   return appFiles;
 };
 
-const getAllCustomCodeFiles = async (siteResourceId?: string, workflowName?: string): Promise<Record<string, string>> => {
+const getAllCustomCodeFiles = async (appId?: string, workflowName?: string): Promise<Record<string, string>> => {
   const customCodeFiles: Record<string, string> = {};
-  const uri = `${baseUrl}${siteResourceId}/hostruntime/admin/vfs/${workflowName}`;
+  const uri = `${baseUrl}${appId}/hostruntime/admin/vfs/${workflowName}`;
   const vfsObjects: VFSObject[] = (await fetchFilesFromFolder(uri)).filter((file) => file.name !== Artifact.WorkflowFile);
 
   const filesData = await Promise.all(

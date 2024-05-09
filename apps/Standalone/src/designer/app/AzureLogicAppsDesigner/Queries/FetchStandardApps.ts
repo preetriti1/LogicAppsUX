@@ -38,7 +38,7 @@ export const useFetchStandardApps = (isHybridLogicAppsEnabled?: boolean) => {
 
 export const useFetchStandardWorkflows = (validApp: boolean, appId?: string, isHybridLogicAppsEnabled?: boolean) => {
   return useQuery<WorkflowList | null>(['getListOfWorkflows', appId, isHybridLogicAppsEnabled], async () => {
-    if (!appId || !validApp) {
+    if (!appId || (!validApp && !isHybridLogicAppsEnabled)) {
       return null;
     }
     const hybridResourceId = new ArmParser(appId).hybridResourceId;
