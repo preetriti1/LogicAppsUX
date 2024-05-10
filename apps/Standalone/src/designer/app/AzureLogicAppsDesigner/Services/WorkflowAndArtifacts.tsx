@@ -13,6 +13,7 @@ import { isSuccessResponse } from './HttpClient';
 import { fetchFileData, fetchFilesFromFolder } from './vfsService';
 import type { CustomCodeFileNameMapping } from '@microsoft/logic-apps-designer';
 import { mockHybridUri } from '../../../../environments/mockHybrid';
+import { ArmParser } from '../Utilities/ArmParser';
 
 const baseUrl = mockHybridUri;
 const standardApiVersion = '2020-06-01';
@@ -40,9 +41,9 @@ export const useWorkflowAndArtifactsStandard = (workflowId: string) => {
   );
 };
 
-export const useAllCustomCodeFiles = (appId?: string, workflowName?: string, hybridLogicAppsEnabled?: boolean) => {
+export const useAllCustomCodeFiles = (appId?: string, workflowName?: string, hybrid?: boolean) => {
   const response = useQuery(['workflowCustomCode', appId, workflowName], async () => await getAllCustomCodeFiles(appId, workflowName), {
-    enabled: !!appId && !!workflowName && !hybridLogicAppsEnabled,
+    enabled: !!appId && !!workflowName && !hybrid,
     refetchOnMount: false,
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
@@ -50,7 +51,7 @@ export const useAllCustomCodeFiles = (appId?: string, workflowName?: string, hyb
 
   return {
     ...response,
-    isLoading: hybridLogicAppsEnabled ? false : response.isLoading,
+    isLoading: hybrid ? false : response.isLoading,
   };
 };
 
@@ -201,19 +202,28 @@ export const useRunInstanceConsumption = (
 export const listCallbackUrl = async (
   workflowId: string,
   triggerName: string | undefined,
-  isConsumption = false
+  isConsumption = false,
+  hybrid?: boolean
 ): Promise<CallbackInfo> => {
   let callbackInfo: any;
+  let url = `${baseUrl}${workflowId}/triggers/${triggerName}/listCallbackUrl?api-version=${
+    isConsumption ? consumptionApiVersion : standardApiVersion
+  }`;
+  const headers: Record<string, string> = {
+    Authorization: `Bearer ${environment.armToken}`,
+  };
   if (triggerName) {
-    const result = await axios.post(
-      `${baseUrl}${workflowId}/triggers/${triggerName}/listCallbackUrl?api-version=${isConsumption ? '2016-10-01' : standardApiVersion}`,
-      null,
-      {
-        headers: {
-          Authorization: `Bearer ${environment.armToken}`,
-        },
-      }
-    );
+    if (hybrid) {
+      const armParser = new ArmParser(workflowId);
+      const workflowName = workflowId.split('/').splice(-1)[0];
+      url = `${baseUrl}${armParser.hybridResourceId}/invoke?api-version=2024-02-02-preview`;
+      headers['x-logicapps-proxy-path'] =
+        `/runtime/webhooks/workflow/api/management/workflows/${workflowName}/triggers/${triggerName}/listCallbackUrl`;
+      headers['x-logicapps-proxy-method'] = 'POST';
+    }
+    const result = await axios.post(url, null, {
+      headers,
+    });
     callbackInfo = result.data;
   } else {
     callbackInfo = {
@@ -259,7 +269,7 @@ export const useWorkflowApp = (siteResourceId: string, isConsumption = false) =>
   );
 };
 
-export const useAppSettings = (siteResourceId: string, hybridLogicAppsEnabled?: boolean) => {
+export const useAppSettings = (siteResourceId: string, hybrid?: boolean) => {
   const response = useQuery(
     ['appSettings', siteResourceId],
     async () => {
@@ -273,7 +283,7 @@ export const useAppSettings = (siteResourceId: string, hybridLogicAppsEnabled?: 
       return response.data;
     },
     {
-      enabled: !hybridLogicAppsEnabled,
+      enabled: !hybrid,
       refetchOnMount: false,
       refetchOnReconnect: false,
       refetchOnWindowFocus: false,
@@ -281,7 +291,7 @@ export const useAppSettings = (siteResourceId: string, hybridLogicAppsEnabled?: 
   );
   return {
     ...response,
-    isLoading: hybridLogicAppsEnabled ? false : response.isLoading,
+    isLoading: hybrid ? false : response.isLoading,
   };
 };
 

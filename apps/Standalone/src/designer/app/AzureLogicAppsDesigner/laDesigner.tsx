@@ -386,7 +386,7 @@ const getDesignerServices = (
   dispatch: AppDispatch
 ): any => {
   const armParser = new ArmParser(workflowId);
-  const siteResourceId = hybridLogicAppsEnabled ? armParser.hybridResourceId : armParser.topmostResourceId;
+  const siteResourceId = armParser.topmostResourceId;
   const armUrl = 'https://management.azure.com';
   const baseUrl = `${armUrl}${siteResourceId}/hostruntime/runtime/webhooks/workflow/api/management`;
   const workflowName = workflowId.split('/').splice(-1)[0];
@@ -546,7 +546,8 @@ const getDesignerServices = (
   });
 
   const workflowService: IWorkflowService = {
-    getCallbackUrl: (triggerName: string) => listCallbackUrl(workflowIdWithHostRuntime, triggerName),
+    getCallbackUrl: (triggerName: string) =>
+      listCallbackUrl(workflowIdWithHostRuntime, triggerName, /* isConsumption*/ false, hybridLogicAppsEnabled),
     getAppIdentity: () => workflowApp.identity as any,
     isExplicitAuthRequiredForManagedIdentity: () => true,
     resubmitWorkflow: async (runId, actionsToResubmit) => {

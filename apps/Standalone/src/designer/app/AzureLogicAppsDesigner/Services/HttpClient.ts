@@ -2,7 +2,6 @@ import { environment } from '../../../../environments/environment';
 import type { HttpRequestOptions, IHttpClient } from '@microsoft/logic-apps-shared';
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
-import { mockHybridUri } from '../../../../environments/mockHybrid';
 
 export class HttpClient implements IHttpClient {
   private _extraHeaders: Record<string, any>;
@@ -101,7 +100,7 @@ export function getRequestUrl(options: HttpRequestOptions<unknown>): string {
 
   const uriPath = queryString ? `${uri}?${queryString}` : uri;
   if (uriPath.startsWith('/subscriptions/')) {
-    return `${mockHybridUri}${uriPath}`;
+    return `https://management.azure.com${uriPath}`;
   }
   return uriPath;
 }
