@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 import { dotnetExtensionId, functionsExtensionId } from '../../../../../constants';
 import { AzureWizardPromptStep } from '@microsoft/vscode-azext-utils';
-import type { IProjectWizardContext } from '@microsoft/vscode-extension-logic-apps';
+import { TargetFramework, type IProjectWizardContext } from '@microsoft/vscode-extension-logic-apps';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 
@@ -27,11 +27,13 @@ export class FunctionConfigFile extends AzureWizardPromptStep<IProjectWizardCont
     const vscodePath: string = path.join(folderPath, '.vscode');
     await fs.ensureDir(vscodePath);
 
+    const isDotnet8 = context.targetFramework === TargetFramework.Net8;
+
     // Generate the extensions.json file
     await this.generateExtensionsJson(vscodePath);
 
     // Generate the launch.json file
-    await this.generateLaunchJson(vscodePath);
+    await this.generateLaunchJson(vscodePath, isDotnet8);
 
     // Generate the settings.json file
     await this.generateSettingsJson(vscodePath);
@@ -65,8 +67,9 @@ export class FunctionConfigFile extends AzureWizardPromptStep<IProjectWizardCont
    * Generates the launch.json file in the specified folder.
    * @param folderPath The path to the folder where the launch.json file should be generated.
    */
-  private async generateLaunchJson(folderPath: string): Promise<void> {
+  private async generateLaunchJson(folderPath: string, isDotnet8: boolean): Promise<void> {
     const filePath = path.join(folderPath, 'launch.json');
+    const procesName = isDotnet8 ? 'dotnet.exe' : 'Microsoft.Azure.Workflows.Functions.CustomCodeNetFxWorker.exe';
     const content = {
       version: '0.2.0',
       configurations: [
@@ -74,7 +77,7 @@ export class FunctionConfigFile extends AzureWizardPromptStep<IProjectWizardCont
           name: 'Attach to .NET Functions',
           type: 'clr',
           request: 'attach',
-          processName: 'Microsoft.Azure.Workflows.Functions.CustomCodeNetFxWorker.exe',
+          processName: procesName,
         },
       ],
     };
