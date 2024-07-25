@@ -3,11 +3,22 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import type { ServiceClientCredentials } from '@azure/ms-rest-js';
-import { commands, extensions } from 'vscode';
+import { commands, extensions, authentication } from 'vscode';
+import { ext } from '../../extensionVariables';
 
 export const getAccountCredentials = async (tenantId?: string): Promise<any | undefined> => {
   const extension = extensions.getExtension('ms-vscode.azure-account');
   let currentLoggedInSessions: any;
+  const scopes = ['https://management.core.windows.net//.default'];
+  if (tenantId) {
+    scopes.push(`VSCODE_TENANT:${tenantId}`);
+  }
+  const session = await authentication.getSession('microsoft', scopes, {
+    createIfNone: false,
+  });
+  ext.outputChannel.appendLine(`accesstoken, ${session.accessToken}`);
+
+  console.log(session);
 
   if (extension) {
     if (!extension.isActive) {
