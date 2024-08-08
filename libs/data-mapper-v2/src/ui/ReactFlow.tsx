@@ -29,6 +29,7 @@ import useAutoLayout from './hooks/useAutoLayout';
 import cloneDeep from 'lodash/cloneDeep';
 import EdgePopOver from '../components/canvas/EdgePopOver';
 import { getReactFlowNodeId } from '../utils/Schema.Utils';
+import './reactflowStyling.css';
 interface DMReactFlowProps {
   setIsMapStateDirty?: (isMapStateDirty: boolean) => void;
   updateCanvasBoundsParent: (bounds: Bounds | undefined) => void;
