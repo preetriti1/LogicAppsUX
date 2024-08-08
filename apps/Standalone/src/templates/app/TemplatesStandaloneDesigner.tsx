@@ -45,13 +45,14 @@ const LoadWhenArmTokenIsLoaded = ({ children }: { children: ReactNode }) => {
 };
 export const TemplatesStandaloneDesigner = () => {
   const theme = useSelector((state: RootState) => state.workflowLoader.theme);
-  const { appId, isConsumption, workflowName: existingWorkflowName } = useSelector((state: RootState) => state.workflowLoader);
-  const { data: workflowAppData } = useWorkflowApp(appId as string, isConsumption ? 'consumption' : 'standard');
+  const { appId, hostingPlan, workflowName: existingWorkflowName } = useSelector((state: RootState) => state.workflowLoader);
+  const { data: workflowAppData } = useWorkflowApp(appId as string, hostingPlan);
   const canonicalLocation = WorkflowUtility.convertToCanonicalFormat(workflowAppData?.location ?? '');
   const { data: tenantId } = useCurrentTenantId();
   const { data: objectId } = useCurrentObjectId();
   const { data: originalConnectionsData } = useConnectionsData(appId);
   const { data: settingsData } = useAppSettings(appId as string);
+  const isConsumption = hostingPlan === 'consumption';
 
   const connectionsData = useMemo(() => {
     return JSON.parse(JSON.stringify(clone(originalConnectionsData ?? {})));
@@ -64,12 +65,13 @@ export const TemplatesStandaloneDesigner = () => {
     workflowKind: string,
     workflowDefinition: LogicAppsV2.WorkflowDefinition,
     connectionsMapping: ConnectionMapping,
-    parametersData: Record<string, Template.ParameterDefinition>
+    parametersData: Record<string, Template.ParameterDefinition>,
+    onSuccessfulCreation = () => {}
   ) => {
     const workflowNameToUse = existingWorkflowName ?? workflowName;
     if (appId) {
-      if (isConsumption) {
-        console.log('Consumption is not ready yet!');
+      if (hostingPlan !== 'standard') {
+        console.log('Hosting plan is not ready yet!');
       } else {
         let sanitizedWorkflowDefinitionString = JSON.stringify(workflowDefinition);
         const sanitizedParameterData: ParametersData = {};
@@ -144,7 +146,7 @@ export const TemplatesStandaloneDesigner = () => {
             updatedParametersData,
             updatedSettingProperties,
             undefined,
-            () => {},
+            onSuccessfulCreation,
             true
           );
         } catch (error) {
@@ -199,8 +201,8 @@ export const TemplatesStandaloneDesigner = () => {
             >
               <TemplateFilters
                 detailFilters={{
-                  Categories: {
-                    displayName: 'Category',
+                  Category: {
+                    displayName: 'Categories',
                     items: [
                       {
                         value: 'Design Patterns',
@@ -221,6 +223,22 @@ export const TemplatesStandaloneDesigner = () => {
                       {
                         value: 'Approval',
                         displayName: 'Approval',
+                      },
+                      {
+                        value: 'RAG',
+                        displayName: 'RAG',
+                      },
+                      {
+                        value: 'Automation',
+                        displayName: 'Automation',
+                      },
+                      {
+                        value: 'BizTalk Migration',
+                        displayName: 'BizTalk Migration',
+                      },
+                      {
+                        value: 'Mainframe Modernization',
+                        displayName: 'Mainframe Modernization',
                       },
                     ],
                   },

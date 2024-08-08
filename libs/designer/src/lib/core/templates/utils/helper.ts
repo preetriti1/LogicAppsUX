@@ -112,7 +112,8 @@ export const getFilteredTemplates = (
     const hasConnectors =
       filters?.connectors?.some((connector) =>
         Object.values(templateManifest.connections)?.some(
-          (connection) => connector.value === connection.connectorId.split('/').slice(-1)[0]
+          (connection) =>
+            connector.value.split('/').slice(-1)[0].toLowerCase() === connection.connectorId.split('/').slice(-1)[0].toLowerCase()
         )
       ) ?? true;
 
@@ -164,8 +165,8 @@ export const getConnectorResources = (intl: IntlShape) => {
       description: 'Connected text',
     }),
     notConnected: intl.formatMessage({
-      defaultMessage: 'Not Connected',
-      id: '3HrFPS',
+      defaultMessage: 'Not connected',
+      id: 'WxJJcQ',
       description: 'Not Connected text',
     }),
   };
