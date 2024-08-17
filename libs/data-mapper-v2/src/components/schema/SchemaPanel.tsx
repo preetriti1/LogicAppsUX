@@ -315,6 +315,7 @@ export const SchemaPanel = ({ onSubmitSchemaFileSelection, schemaType }: ConfigP
       }
       styles={{
         root: mergeClasses(styles.root, scehmaInEditState ? styles.rootWithSchemaSelection : styles.rootWithSchemaTree),
+        body: styles.body,
       }}
       body={
         <SchemaPanelBody
