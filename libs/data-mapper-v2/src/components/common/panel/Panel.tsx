@@ -13,6 +13,8 @@ import {
 } from '@fluentui/react-components';
 import { SearchBox } from '@fluentui/react-search';
 import type { FluentIcon } from '@fluentui/react-icons';
+import { type PanelPosition, Panel as ReactflowPanel } from '@xyflow/react';
+import { useMemo } from 'react';
 
 type PanelProps = {
   id: string;
@@ -22,6 +24,9 @@ type PanelProps = {
     icon?: FluentIcon;
     size?: 500 | 100 | 200 | 300 | 400 | 600 | 700 | 800 | 900 | 1000;
     rightAction?: Slot<'div'>;
+  };
+  reactflow?: {
+    position: PanelPosition;
   };
   search?: {
     placeholder?: string;
@@ -43,33 +48,66 @@ type PanelProps = {
 
 export const Panel = (props: PanelProps) => {
   const defaultStyles = useStyles();
-  const { title, body, isOpen, styles, search, footer } = props;
+  const { title, body, isOpen, styles, search, footer, reactflow } = props;
+
+  const children = useMemo(
+    () => (
+      <>
+        {title ? (
+          <DrawerHeader className={mergeClasses(defaultStyles.header, styles?.header)}>
+            <DrawerHeaderTitle action={title?.rightAction} heading={{ as: 'div' }}>
+              {title?.icon ? <title.icon className={mergeClasses(defaultStyles.titleIcon, styles?.titleIcon ?? '')} /> : null}
+              <Text size={title?.size ?? 500} className={styles?.title}>
+                {title?.text}
+              </Text>
+            </DrawerHeaderTitle>
+            {search ? (
+              <SearchBox
+                placeholder={search.placeholder}
+                className={mergeClasses(defaultStyles.search, styles?.search)}
+                value={search.text}
+                size="small"
+                onChange={(_e, data: InputOnChangeData) => {
+                  search.onChange(data?.value);
+                }}
+              />
+            ) : null}
+          </DrawerHeader>
+        ) : null}
+        {body ? <DrawerBody className={mergeClasses(defaultStyles.body, styles?.body)}>{body}</DrawerBody> : null}
+        {footer ? <DrawerFooter className={mergeClasses(defaultStyles.footer, styles?.footer)}>{footer}</DrawerFooter> : null}
+      </>
+    ),
+    [
+      body,
+      defaultStyles.body,
+      defaultStyles.footer,
+      defaultStyles.header,
+      defaultStyles.search,
+      defaultStyles.titleIcon,
+      footer,
+      search,
+      styles?.body,
+      styles?.footer,
+      styles?.header,
+      styles?.search,
+      styles?.title,
+      styles?.titleIcon,
+      title,
+    ]
+  );
+
+  if (reactflow) {
+    return (
+      <ReactflowPanel id={props.id} position={reactflow.position} className={mergeClasses(defaultStyles.root, styles?.root)}>
+        {children}
+      </ReactflowPanel>
+    );
+  }
 
   return (
     <InlineDrawer className={mergeClasses(defaultStyles.root, styles?.root)} open={isOpen}>
-      {title ? (
-        <DrawerHeader className={mergeClasses(defaultStyles.header, styles?.header)}>
-          <DrawerHeaderTitle action={title?.rightAction} heading={{ as: 'div' }}>
-            {title?.icon ? <title.icon className={mergeClasses(defaultStyles.titleIcon, styles?.titleIcon ?? '')} /> : null}
-            <Text size={title?.size ?? 500} className={styles?.title}>
-              {title?.text}
-            </Text>
-          </DrawerHeaderTitle>
-          {search ? (
-            <SearchBox
-              placeholder={search.placeholder}
-              className={mergeClasses(defaultStyles.search, styles?.search)}
-              value={search.text}
-              size="small"
-              onChange={(_e, data: InputOnChangeData) => {
-                search.onChange(data?.value);
-              }}
-            />
-          ) : null}
-        </DrawerHeader>
-      ) : null}
-      {body ? <DrawerBody className={mergeClasses(defaultStyles.body, styles?.body)}>{body}</DrawerBody> : null}
-      {footer ? <DrawerFooter className={mergeClasses(defaultStyles.footer, styles?.footer)}>{footer}</DrawerFooter> : null}
+      {children}
     </InlineDrawer>
   );
 };

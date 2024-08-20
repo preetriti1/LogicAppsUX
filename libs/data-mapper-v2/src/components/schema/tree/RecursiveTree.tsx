@@ -84,6 +84,8 @@ const RecursiveTree = (props: RecursiveTreeProps) => {
 
   const aside = useMemo(() => (isHover || activeNode ? <TypeAnnotation schemaNode={root} /> : <div />), [isHover, activeNode, root]);
 
+  const isLeafNode = useMemo(() => root.children.length === 0, [root.children.length]);
+
   useLayoutEffect(() => {
     return () => {
       dispatch(
@@ -150,61 +152,47 @@ const RecursiveTree = (props: RecursiveTreeProps) => {
     return null;
   }
 
-  if (root.children.length === 0) {
-    let style = styles.leafNode;
-    style = mergeClasses(style, isLeftDirection ? '' : styles.rightTreeItemLayout);
-    style = mergeClasses(style, activeNode ? styles.nodeSelected : '');
-
-    return (
-      <TreeItem itemType="leaf" id={key} value={key} ref={nodeRef}>
+  return (
+    <TreeItem
+      itemType={isLeafNode ? 'leaf' : 'branch'}
+      id={key}
+      value={key}
+      ref={nodeRef}
+      open={isLeafNode ? true : isLeftDirection ? sourceOpenKeys[key] : targetOpenKeys[key]}
+      onOpenChange={onOpenChange}
+    >
+      <div className={styles.treeItemWrapper}>
+        {!isLeftDirection && <span className={styles.treeItemRightHandle} />}
         <TreeItemLayout
           onClick={onClick}
           onMouseOver={() => setIsHover(true)}
           onMouseLeave={() => setIsHover(false)}
-          className={style}
           aside={aside}
+          className={mergeClasses(
+            isLeafNode ? styles.leafNode : styles.rootNode,
+            isLeftDirection ? '' : styles.rightTreeItemLayout,
+            activeNode ? styles.nodeSelected : ''
+          )}
         >
           {root.name}
         </TreeItemLayout>
-      </TreeItem>
-    );
-  }
-
-  let style = styles.rootNode;
-  style = mergeClasses(style, isLeftDirection ? '' : styles.rightTreeItemLayout);
-  style = mergeClasses(style, activeNode ? styles.nodeSelected : '');
-
-  return (
-    <TreeItem
-      itemType="branch"
-      id={key}
-      value={key}
-      ref={nodeRef}
-      open={isLeftDirection ? sourceOpenKeys[key] : targetOpenKeys[key]}
-      onOpenChange={onOpenChange}
-    >
-      <TreeItemLayout
-        onClick={onClick}
-        onMouseOver={() => setIsHover(true)}
-        onMouseLeave={() => setIsHover(false)}
-        aside={aside}
-        className={style}
-      >
-        {root.name}
-      </TreeItemLayout>
-      <Tree aria-label="sub-tree">
-        {root.children.map((child: SchemaNodeExtended, index: number) => (
-          <span key={`tree-${child.key}-${index}`}>
-            <RecursiveTree
-              root={child}
-              isLeftDirection={isLeftDirection}
-              flattenedScehmaMap={flattenedScehmaMap}
-              treePositionX={treePositionX}
-              treePositionY={treePositionY}
-            />
-          </span>
-        ))}
-      </Tree>
+        {isLeftDirection && <span className={styles.treeItemLeftHandle} />}
+      </div>
+      {!isLeafNode && (
+        <Tree aria-label="sub-tree">
+          {root.children.map((child: SchemaNodeExtended, index: number) => (
+            <span key={`tree-${child.key}-${index}`}>
+              <RecursiveTree
+                root={child}
+                isLeftDirection={isLeftDirection}
+                flattenedScehmaMap={flattenedScehmaMap}
+                treePositionX={treePositionX}
+                treePositionY={treePositionY}
+              />
+            </span>
+          ))}
+        </Tree>
+      )}
     </TreeItem>
   );
 };

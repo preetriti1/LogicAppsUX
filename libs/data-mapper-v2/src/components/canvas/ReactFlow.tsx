@@ -31,6 +31,9 @@ import EdgePopOver from './EdgePopOver';
 import { getReactFlowNodeId } from '../../utils/Schema.Utils';
 import { getFunctionNode } from '../../utils/Function.Utils';
 import LoopEdge from '../common/reactflow/edges/LoopEdge';
+import { SchemaPanel } from '../schema/SchemaPanel';
+import type { SchemaFile } from '../../models/Schema';
+import { SchemaType } from '@microsoft/logic-apps-shared';
 interface DMReactFlowProps {
   setIsMapStateDirty?: (isMapStateDirty: boolean) => void;
   updateCanvasBoundsParent: (bounds: Bounds | undefined) => void;
@@ -332,7 +335,10 @@ export const ReactFlowWrapper = ({ setIsMapStateDirty, updateCanvasBoundsParent 
               ]
             : undefined
         }
-      />
+      >
+        <SchemaPanel onSubmitSchemaFileSelection={(schema: SchemaFile) => console.log(schema)} schemaType={SchemaType.Source} />
+        <SchemaPanel onSubmitSchemaFileSelection={(schema: SchemaFile) => console.log(schema)} schemaType={SchemaType.Target} />
+      </ReactFlow>
       {edgePopoverBounds && <EdgePopOver {...edgePopoverBounds} />}
     </div>
   );

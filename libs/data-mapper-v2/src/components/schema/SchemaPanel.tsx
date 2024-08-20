@@ -305,6 +305,9 @@ export const SchemaPanel = ({ onSubmitSchemaFileSelection, schemaType }: ConfigP
           />
         ),
       }}
+      reactflow={{
+        position: isLeftDirection ? 'top-left' : 'top-right',
+      }}
       search={
         scehmaInEditState
           ? undefined

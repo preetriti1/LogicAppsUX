@@ -62,4 +62,7 @@ export const useStaticStyles = makeStaticStyles({
     strokeLinejoin: 'round',
     fillOpacity: '0',
   },
+  '.react-flow__renderer': {
+    width: 'initial !important',
+  },
 });

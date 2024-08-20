@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react';
-import { SchemaPanel } from '../components/schema/SchemaPanel';
 import { EditorCommandBar } from '../components/commandBar/EditorCommandBar';
 import { useStaticStyles, useStyles } from './styles';
 import { FunctionPanel } from '../components/functionsPanel/FunctionPanel';
@@ -14,8 +13,6 @@ import {
 import { CodeViewPanel } from '../components/codeView/CodeViewPanel';
 import { ReactFlowWrapper } from '../components/canvas/ReactFlow';
 import { TestPanel } from '../components/test/TestPanel';
-import { SchemaType } from '@microsoft/logic-apps-shared';
-import type { SchemaFile } from '../models/Schema';
 import DialogView from './DialogView';
 
 interface DataMapperDesignerProps {
@@ -71,9 +68,7 @@ export const DataMapperDesigner = ({ fileService, setIsMapStateDirty }: DataMapp
       <div className={styles.root}>
         <DialogView />
         <FunctionPanel />
-        <SchemaPanel onSubmitSchemaFileSelection={(schema: SchemaFile) => console.log(schema)} schemaType={SchemaType.Source} />
         <ReactFlowWrapper setIsMapStateDirty={setIsMapStateDirty} updateCanvasBoundsParent={setCanvasBounds} />
-        <SchemaPanel onSubmitSchemaFileSelection={(schema: SchemaFile) => console.log(schema)} schemaType={SchemaType.Target} />
         <CodeViewPanel />
         <TestPanel />
       </div>

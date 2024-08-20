@@ -14,6 +14,7 @@ export const useStyles = makeStyles({
     marginRight: '15px',
   },
   rootNode: {
+    width: '100%',
     fontWeight: '600',
     ':hover': {
       backgroundColor: '#D5E4FF',
@@ -27,6 +28,7 @@ export const useStyles = makeStyles({
     ...shorthands.borderLeft('23px', 'solid', 'transparent'),
   },
   leafNode: {
+    width: '100%',
     display: 'inline-flex',
     ':hover': {
       backgroundColor: '#D5E4FF',
@@ -38,5 +40,27 @@ export const useStyles = makeStyles({
   typeAnnotation: {
     display: 'inline-flex',
     marginLeft: 'auto',
+  },
+  treeItemWrapper: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  treeItemLeftHandle: {
+    width: '14px',
+    height: '14px',
+    ...shorthands.borderRadius('20px'),
+    backgroundColor: '#fff',
+    ...shorthands.border('1px', 'solid', '#ddd'),
+    position: 'absolute',
+    right: '-10px',
+  },
+  treeItemRightHandle: {
+    width: '14px',
+    height: '14px',
+    ...shorthands.borderRadius('20px'),
+    backgroundColor: '#fff',
+    ...shorthands.border('1px', 'solid', '#ddd'),
+    position: 'absolute',
+    left: '-10px',
   },
 });
