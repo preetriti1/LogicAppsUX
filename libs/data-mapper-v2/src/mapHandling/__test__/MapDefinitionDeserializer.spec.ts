@@ -382,8 +382,9 @@ describe('mapDefinitions/MapDefinitionDeserializer', () => {
           ConditionalMapping: {
             ItemPrice: '/ns0:Root/ConditionalMapping/ItemPrice',
             '$if(is-greater-than(multiply(/ns0:Root/ConditionalMapping/ItemPrice, /ns0:Root/ConditionalMapping/ItemQuantity), 200))': {
-              ItemDiscount: 'multiply(/ns0:Root/ConditionalMapping/ItemPrice, /ns0:Root/ConditionalMapping/ItemQuantity, 0.05)',
+              ItemQuantity: 'multiply(/ns0:Root/ConditionalMapping/ItemPrice, /ns0:Root/ConditionalMapping/ItemQuantity, 0.05)',
             },
+            ItemDiscount: '/ns0:Root/ConditionalMapping/ItemPrice',
           },
         };
 
